@@ -23,7 +23,6 @@ class Sheep : public IProducing, public KProducing
 		//dtor
 		~Sheep();
 
-		string interactProduct();	//yarn
 		string killProduct();	//mutton
 		void eat();
 		void move();
