@@ -1,27 +1,21 @@
 /* NIM/Nama  : 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
- * Nama file : SideProducing.hpp
+ * Nama file : KProducing.hpp
  * Topik     : Tugas Besar 1 IF2210 - Pemograman Berorientasi Objek
  * Tanggal   : 20 Maret 2019
- * Deskripsi : Header SideProducing.cpp */
+ * Deskripsi : Header KProducing.cpp */
 
-#ifndef SIDEPRODUCING_HPP
-#define SIDEPRODUCING_HPP
+#ifndef KPRODUCING_HPP
+#define KPRODUCING_HPP
 
-#include "FarmProduct.hpp"
+#include "FarmAnimal.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class SideProducing: public FarmProduct
+class KProducing
 {
 	public:
-		//ctor
-		SideProducing(string);
-		
-		//selektor
-		int getName();
-		int getPrice();
-		void setName(string);
+		virtual void killProduct() = 0;
 };
 
 #endif

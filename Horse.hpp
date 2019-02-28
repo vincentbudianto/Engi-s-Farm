@@ -1,37 +1,35 @@
 /* NIM/Nama  : 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
- * Nama file : Player.hpp
+ * Nama file : Horse.hpp
  * Topik     : Tugas Besar 1 IF2210 - Pemograman Berorientasi Objek
  * Tanggal   : 20 Maret 2019
- * Deskripsi : Header Player.cpp */
+ * Deskripsi : Header Horse.cpp */
 
-#ifndef PLAYER_HPP
-#define PLAYER_HPP
+#ifndef HORSE_HPP
+#define HORSE_HPP
 
+#include "FarmAnimal.hpp"
+#include "IProducing.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class Player
+class Horse : public IProducing
 {
 	public:
 		//ctor
-		Player(string);
+		Horse(string);
 		
 		//dtor
-		~Player();
-		
+		~Horse();
+
+		string interactProduct();	//horse milk
+		void eat();
 		void move();
+		void sound();
+		void print();
 		
-		void talk();
-		void kill();
-		void interact();
-		void grow();
-	
 	private:
-		string name;
-		string* inventory;
-		int money;
-		int water;
+		static int n_horse;
 };
 
 #endif
