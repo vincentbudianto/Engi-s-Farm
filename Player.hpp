@@ -29,6 +29,9 @@ class Player
 	
 	private:
 		string name;
+		string* inventory;
+		int money;
+		int water;
 };
 
 #endif

@@ -8,26 +8,34 @@
 #define GOAT_HPP
 
 #include "FarmAnimal.hpp"
-#include "MilkProducingFarmAnimal.hpp"
-#include "MeatProducingFarmAnimal.hpp"
+#include "IProducing.hpp"
+#include "KProducing.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class Goat : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
+class Goat : public IProducing, public KProducing
 {
 	public:
 		//ctor
 		Goat(string);
+		
+		//dtor
+		~Goat();
 
 		//selektor
 		string getName() const;
 		void setName(string);
 
-		string getMilk();	//goat milk
-		string getMeat();	//goat meat
+		string interactProduct();	//goat milk
+		string killProduct();	//goat meat
+		void eat();
+		void move();
 		void sound();
 		void print();
+		
+	private:
+		static int n_goat;
 };
 
 #endif

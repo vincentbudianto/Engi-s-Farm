@@ -8,26 +8,34 @@
 #define COW_HPP
 
 #include "FarmAnimal.hpp"
-#include "MilkProducingFarmAnimal.hpp"
-#include "MeatProducingFarmAnimal.hpp"
+#include "IProducing.hpp"
+#include "KProducing.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class Cow : public MilkProducingFarmAnimal, public MeatProducingFarmAnimal
+class Cow : public IProducing, public KProducing
 {
 	public:
 		//ctor
 		Cow(string);
-
+		
+		//dtor
+		~Cow();
+		
 		//selektor
 		string getName() const;
 		void setName(string);
 
-		string getMilk();	//cow milk
-		string getMeat();	//beef
+		string interactProduct();	//cow milk
+		string killProduct();	//beef
+		void eat();
+		void move();
 		void sound();
 		void print();
+		
+	private:
+		static int n_cow;
 };
 
 #endif

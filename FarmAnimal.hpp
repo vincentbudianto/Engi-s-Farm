@@ -17,11 +17,14 @@ class FarmAnimal
 		//dtor
 		virtual ~FarmAnimal();
 		
+		virtual void eat() = 0;
+		virtual void move() = 0;
 		virtual void sound() = 0;
 		virtual void print() = 0;
 	
 	protected:
 		string name;
+		boolean hungry;
 };
 
 #endif
