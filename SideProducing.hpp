@@ -7,15 +7,21 @@
 #ifndef SIDEPRODUCING_HPP
 #define SIDEPRODUCING_HPP
 
-#include "FarmAnimal.hpp"
+#include "FarmProduct.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class SideProducing
+class SideProducing: public FarmProduct
 {
 	public:
-		virtual void sideProduct() = 0;
+		//ctor
+		SideProducing(string);
+		
+		//selektor
+		int getName();
+		int getPrice();
+		void setName(string);
 };
 
 #endif

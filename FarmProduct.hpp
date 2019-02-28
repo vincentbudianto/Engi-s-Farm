@@ -16,6 +16,11 @@ class FarmProduct
 	public:
 		//dtor
 		virtual ~FarmProduct();
+		
+		//selektor
+		virtual int getName();
+		virtual int getPrice();
+		virtual void setName(string);
 	
 	protected:
 		string name;

@@ -17,6 +17,11 @@ class FarmAnimal
 		//dtor
 		virtual ~FarmAnimal();
 		
+		//selektor
+		virtual string getName() const;
+		virtual boolean getHungry() const;
+		virtual void setName(string);
+
 		virtual void eat() = 0;
 		virtual void move() = 0;
 		virtual void sound() = 0;
