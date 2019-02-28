@@ -26,6 +26,7 @@ class Player
 		void kill();
 		void interact();
 		void grow();
+		void mix();
 	
 	private:
 		string name;
