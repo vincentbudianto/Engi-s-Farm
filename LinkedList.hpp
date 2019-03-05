@@ -12,9 +12,9 @@ class LinkedList
 {
 	public:
 		int find(T element);
-		void isEmpty();
-		int addElement(T element);
-		int remove(T element);
+		boolean isEmpty();
+		void addElement(T element);
+		void remove(T element);
 		T get(T indeks);
 }
 
