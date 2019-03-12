@@ -11,11 +11,30 @@ template <class T>
 class LinkedList
 {
 	public:
-		int find(T element);
-		boolean isEmpty();
-		void addElement(T element);
-		void remove(T element);
-		T get(T indeks);
+		int find(T element)
+		{
+			return ;
+		}
+		
+		void isEmpty()
+		{
+			
+		}
+		
+		int addElement(T element)
+		{
+			return ;
+		}
+		
+		int remove(T element)
+		{
+			return ;
+		}
+		
+		T get(T indeks)
+		{
+			return ;
+		}
 }
 
 #endif

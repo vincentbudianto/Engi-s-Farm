@@ -14,7 +14,7 @@
 #include <string.h>
 using namespace std;
 
-class Duck : public IProducing, public KProducing
+class Duck: public IProducing, public KProducing
 {
 	public:
 		//ctor
@@ -24,7 +24,7 @@ class Duck : public IProducing, public KProducing
 		~Duck();
 		
 		string interactProduct();	//duck egg
-		string killProduct();	//duck meat
+		string killProduct();		//duck meat
 		void eat();
 		void move();
 		void sound();

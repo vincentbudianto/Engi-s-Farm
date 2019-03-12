@@ -12,7 +12,7 @@
 #include <string.h>
 using namespace std;
 
-class KProducing
+class KProducing: public FarmAnimal
 {
 	public:
 		virtual void killProduct() = 0;

@@ -13,7 +13,7 @@
 #include <string.h>
 using namespace std;
 
-class Horse : public IProducing
+class Horse: public IProducing
 {
 	public:
 		//ctor

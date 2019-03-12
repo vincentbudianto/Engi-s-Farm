@@ -14,7 +14,7 @@
 #include <string.h>
 using namespace std;
 
-class Sheep : public IProducing, public KProducing
+class Sheep: public IProducing, public KProducing
 {
 	public:
 		//ctor
