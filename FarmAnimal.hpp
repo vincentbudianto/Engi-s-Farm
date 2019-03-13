@@ -30,6 +30,7 @@ class FarmAnimal
 	protected:
 		string name;
 		boolean hungry;
+		int umur;
 };
 
 #endif
