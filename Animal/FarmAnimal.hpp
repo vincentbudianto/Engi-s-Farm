@@ -1,3 +1,11 @@
+/**
+ * @file FarmAnimal.hpp
+ * @author 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
+ * @brief file berisi definisi class FarmAnimal
+ * @version 0.1
+ * @date 2019-03-20
+ */
+
 /* NIM/Nama  : 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
  * Nama file : FarmAnimal.hpp
  * Topik     : Tugas Besar 1 IF2210 - Pemograman Berorientasi Objek
@@ -21,6 +29,8 @@ class FarmAnimal
 		virtual string getName() const;
 		virtual boolean getHungry() const;
 		virtual void setName(string);
+		virtual int getX();
+		virtual int getY();
 
 		virtual void eat() = 0;
 		virtual void move() = 0;
@@ -30,7 +40,7 @@ class FarmAnimal
 	protected:
 		string name;
 		boolean hungry;
-		int umur;
+		int umur, x, y;
 };
 
 #endif
