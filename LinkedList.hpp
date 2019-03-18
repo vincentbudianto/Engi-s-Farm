@@ -139,7 +139,10 @@ class LinkedList
 			return first->GetNext();
 		}
 		T get(int indeks) const{
-		/*fungsi yang mengembalikan suatu elemen pada indeks tertentu, terhitung dari depan list. list Sembarang, output dari fungsi adalah exception atau suatu elemen. exception list kosong jika list kosong, index out of range jika indeks yang diinput melebihi jumlah elemen list yang ada*/
+		/*fungsi yang mengembalikan suatu elemen pada indeks tertentu, terhitung dari depan list. 
+		list Sembarang, output dari fungsi adalah exception atau suatu elemen. 
+		exception "list kosong" jika list kosong 
+		exception "index out of range" jika indeks yang diinput melebihi jumlah elemen list yang ada*/
 			if(!isEmpty()){
 				int i =0;
 				ElmtList* P=first;
@@ -157,7 +160,8 @@ class LinkedList
 				throw "List Kosong";
 		}
 		int find(T element) const{
-		/*fungsi searching, mencari letak pertama ditemukan dari suatu elemen tertentu, jika pencarian gagal mengembalikan angka -1*/
+		/*fungsi searching, mencari letak pertama ditemukan dari suatu elemen tertentu.
+		jika pencarian gagal mengembalikan angka -1*/
 			ElmtList* P;
 			if (!isEmpty()){
 				P=first;
@@ -209,7 +213,8 @@ class LinkedList
 		}
 		void remove(T element){
 		/*menghapus suatu elemen tertentu dari list dengan tetap menjaga keterurutan list. 
-		proses mencari elemen yang diinginkan, dan menyimpan 1 elemen sebelum list. kemudian menghapus dan menjaga keteraturan list.*/
+		proses mencari elemen yang diinginkan, dan menyimpan 1 elemen sebelum list. 
+		kemudian menghapus dan menjaga keteraturan list.*/
 			ElmtList* P;
 			ElmtList* prec;
 			if (!isEmpty()){
