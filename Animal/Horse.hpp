@@ -15,13 +15,14 @@
 #ifndef HORSE_HPP
 #define HORSE_HPP
 
+#include "Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class Horse: public IProducing
+class Horse: public IProducing, public Renderable
 {
 	public:
 		//ctor
@@ -34,7 +35,7 @@ class Horse: public IProducing
 		void eat();
 		void move();
 		void sound();
-		void print();
+		char render();
 		
 	private:
 		static int n_horse;
