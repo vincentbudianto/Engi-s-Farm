@@ -15,6 +15,7 @@
 #ifndef DUCK_HPP
 #define DUCK_HPP
 
+#include "Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
@@ -22,7 +23,7 @@
 #include <string.h>
 using namespace std;
 
-class Duck: public IProducing, public KProducing
+class Duck: public IProducing, public KProducing, public Renderable
 {
 	public:
 		//ctor
@@ -36,7 +37,7 @@ class Duck: public IProducing, public KProducing
 		void eat();
 		void move();
 		void sound();
-		void print();
+		char render();
 		
 	private:
 		static int n_duck;

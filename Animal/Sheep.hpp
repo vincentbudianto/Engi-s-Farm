@@ -15,6 +15,7 @@
 #ifndef SHEEP_HPP
 #define SHEEP_HPP
 
+#include "Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
@@ -22,7 +23,7 @@
 #include <string.h>
 using namespace std;
 
-class Sheep: public IProducing, public KProducing
+class Sheep: public IProducing, public KProducing, public Renderable
 {
 	public:
 		//ctor
@@ -35,7 +36,7 @@ class Sheep: public IProducing, public KProducing
 		void eat();
 		void move();
 		void sound();
-		void print();
+		char render();
 
 	private:
 		static int n_sheep;

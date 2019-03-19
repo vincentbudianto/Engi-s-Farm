@@ -15,11 +15,12 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
+#include "Renderable.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class Player
+class Player: public Renderable
 {
 	public:
 		//ctor
@@ -42,6 +43,8 @@ class Player
 		void interact();
 		void grow();
 		void mix();
+
+		char render();
 	
 	private:
 		string name;
