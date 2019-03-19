@@ -18,7 +18,7 @@
 class Renderable
 {
 	public:
-		virtual char render();
+		virtual char render() = 0;
 };
 
 #endif
