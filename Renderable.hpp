@@ -15,9 +15,18 @@
 #ifndef RENDERABLE_HPP
 #define RENDERABLE_HPP
 
+/**
+ * @brief Class for rendering to map
+ * 
+ */
 class Renderable
 {
 	public:
+		/**
+		 * @brief Method to render object character to map
+		 * 
+		 * @return char 
+		 */
 		virtual char render() = 0;
 };
 

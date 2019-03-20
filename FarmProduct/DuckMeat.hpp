@@ -1,36 +1,50 @@
 /**
- * @file ChickenMeat.hpp
+ * @file DuckMeat.hpp
  * @author 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
- * @brief file berisi definisi class ChickenMeat
+ * @brief file berisi definisi class DuckMeat
  * @version 0.1
  * @date 2019-03-20
  */
 
 /* NIM/Nama  : 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
- * Nama file : ChickenMeat.hpp
+ * Nama file : DuckMeat.hpp
  * Topik     : Tugas Besar 1 IF2210 - Pemograman Berorientasi Objek
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header ChickenMeat.cpp */
 
-#ifndef CHICKENMEAT_HPP
-#define CHICKENMEAT_HPP
+#ifndef DUCKMEAT_HPP
+#define DUCKMEAT_HPP
 
 #include "FarmProduct.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class ChickenMeat : public FarmProduct
+/**
+ * @brief Real class for FarmProduct
+ * 
+ */
+class DuckMeat : public FarmProduct
 {
 	public:
-		//ctor
-		ChickenMeat();
+		/**
+		 * @brief Construct a new Duck Meat object
+		 * 
+		 */
+		DuckMeat();
 		
-		//dtor
-		~ChickenMeat();
+		/**
+		 * @brief Destroy the Duck Meat object
+		 * 
+		 */
+		~DuckMeat();
 	
 	private:
-		static int n_chickenmeat;
+		/**
+		 * @brief Counter for DuckMeat in player's inventory
+		 * 
+		 */
+		static int n_duckmeat;
 };
 
 #endif

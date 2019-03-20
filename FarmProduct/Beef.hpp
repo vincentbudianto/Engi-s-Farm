@@ -1,36 +1,50 @@
 /**
- * @file GoatMilk.hpp
+ * @file Beef.hpp
  * @author 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
- * @brief file berisi definisi class GoatMilk
+ * @brief file berisi definisi class Beef
  * @version 0.1
  * @date 2019-03-20
  */
 
 /* NIM/Nama  : 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
- * Nama file : GoatMilk.hpp
+ * Nama file : Beef.hpp
  * Topik     : Tugas Besar 1 IF2210 - Pemograman Berorientasi Objek
  * Tanggal   : 20 Maret 2019
- * Deskripsi : Header GoatMilk.cpp */
+ * Deskripsi : Header Beef.cpp */
 
-#ifndef GOATMILK_HPP
-#define GOATMILK_HPP
+#ifndef BEEF_HPP
+#define BEEF_HPP
 
 #include "FarmProduct.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class GoatMilk : public FarmProduct
+/**
+ * @brief Real class for FarmProduct
+ * 
+ */
+class Beef : public FarmProduct
 {
 	public:
-		//ctor
-		GoatMilk();
+		/**
+		 * @brief Construct a new Beef object
+		 * 
+		 */
+		Beef();
 		
-		//dtor
-		~GoatMilk();
+		/**
+		 * @brief Destroy the Beef object
+		 * 
+		 */
+		~Beef();
 	
 	private:
-		static int n_goatmilk;
+		/**
+		 * @brief Counter for Beef in player's inventory
+		 * 
+		 */
+		static int n_beef;
 };
 
 #endif

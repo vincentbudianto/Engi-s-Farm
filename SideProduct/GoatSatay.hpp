@@ -20,16 +20,30 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for SideProduct
+ * 
+ */
 class GoatSatay : public SideProduct
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Goat Satay object
+		 * 
+		 */
 		GoatSatay();
 		
-		//dtor
+		/**
+		 * @brief Destroy the Goat Satay object
+		 * 
+		 */
 		~GoatSatay();
 	
 	private:
+		/**
+		 * @brief Counter for GoatSatay in player's inventory
+		 * 
+		 */
 		static int n_goatsatay;
 };
 

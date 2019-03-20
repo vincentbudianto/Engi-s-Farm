@@ -15,7 +15,7 @@
 #ifndef SHEEP_HPP
 #define SHEEP_HPP
 
-#include "Renderable.hpp"
+#include "../Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
@@ -23,22 +23,62 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for FarmAnimal
+ * 
+ */
 class Sheep: public IProducing, public KProducing, public Renderable
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Sheep object
+		 * 
+		 */
 		Sheep(string);
 		
-		//dtor
+		/**
+		 * @brief Destroy the Sheep object
+		 * 
+		 */
 		~Sheep();
 
-		string killProduct();	//mutton
+		/**
+		 * @brief function to get Mutton
+		 * 
+		 * @return string 
+		 */
+		string killProduct();
+
+		/**
+		 * @brief Method for the animal to eat
+		 * 
+		 */
 		void eat();
+
+		/**
+		 * @brief Method for the animal to move
+		 * 
+		 */
 		void move();
+
+		/**
+		 * @brief Method for the animal to voice
+		 * 
+		 */
 		void sound();
+
+		/**
+		 * @brief Method to render the animal to map
+		 * 
+		 * @return char 
+		 */
 		char render();
 
 	private:
+		/**
+		 * @brief Counter for Sheep
+		 * 
+		 */
 		static int n_sheep;
 };
 

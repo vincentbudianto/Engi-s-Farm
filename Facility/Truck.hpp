@@ -18,17 +18,62 @@
 #ifndef TRUCK_HPP
 #define TRUCK_HPP
 
+/**
+ * @brief Class Truck for Facility
+ * 
+ */
 class Truck: public Facility
 {
 	public:
+		/**
+		 * @brief Construct a new Truck object
+		 * 
+		 */
 		Truck();
+
+		/**
+		 * @brief Destroy the Truck object
+		 * 
+		 */
 		~Truck();
 
+		/**
+		 * @brief Method to render the Facility type character to map
+		 * 
+		 * @return char 
+		 */
 		char render();
+
+		/**
+		 * @brief Get the Type object
+		 * 
+		 * @return char* 
+		 */
 		char* getType();
+
+		/**
+		 * @brief Get the Availability object
+		 * 
+		 * @return int 
+		 */
 		int isAvailable();
+
+		/**
+		 * @brief Method to sell all items in inventory
+		 * 
+		 */
 		void transact();
+
+		/**
+		 * @brief Set the Availability object
+		 * 
+		 */
 		void setAvailability(int);
+
+		/**
+		 * @brief Set the Last Time object
+		 * 
+		 */
 		void setLastTime();
 
 	private:

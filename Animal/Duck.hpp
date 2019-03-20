@@ -15,7 +15,7 @@
 #ifndef DUCK_HPP
 #define DUCK_HPP
 
-#include "Renderable.hpp"
+#include "../Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
@@ -23,23 +23,69 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for FarmAnimal
+ * 
+ */
 class Duck: public IProducing, public KProducing, public Renderable
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Duck object
+		 * 
+		 */
 		Duck(string);
 		
-		//dtor
+		/**
+		 * @brief Destroy the Duck object
+		 * 
+		 */
 		~Duck();
 		
-		string interactProduct();	//duck egg
-		string killProduct();		//duck meat
+		/**
+		 * @brief Function to get DuckEgg
+		 * 
+		 * @return string 
+		 */
+		string interactProduct();
+
+		/**
+		 * @brief Function to get DuckMeat
+		 * 
+		 * @return string 
+		 */
+		string killProduct();
+
+		/**
+		 * @brief Method for the animal to eat
+		 * 
+		 */
 		void eat();
+
+		/**
+		 * @brief Method for the animal to move
+		 * 
+		 */
 		void move();
+
+		/**
+		 * @brief Method for the animal to voice
+		 * 
+		 */
 		void sound();
+
+		/**
+		 * @brief Method to render the animal to map
+		 * 
+		 * @return char 
+		 */
 		char render();
-		
+
 	private:
+		/**
+		 * @brief Counter for Duck
+		 * 
+		 */
 		static int n_duck;
 };
 

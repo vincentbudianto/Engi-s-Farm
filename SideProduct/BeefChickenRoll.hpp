@@ -20,16 +20,30 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for SideProduct
+ * 
+ */
 class BeefChickenRoll : public SideProduct
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Beef Chicken Roll object
+		 * 
+		 */
 		BeefChickenRoll();
 		
-		//dtor
+		/**
+		 * @brief Destroy the Beef Chicken Roll object
+		 * 
+		 */
 		~BeefChickenRoll();
 	
 	private:
+		/**
+		 * @brief Counter for BeefChickenRoll in player's inventory
+		 * 
+		 */
 		static int n_beefchickenroll;
 };
 

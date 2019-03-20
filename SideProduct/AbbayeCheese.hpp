@@ -20,16 +20,30 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for SideProduct
+ * 
+ */
 class AbbayeCheese : public SideProduct
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Abbaye Cheese object
+		 * 
+		 */
 		AbbayeCheese();
 		
-		//dtor
+		/**
+		 * @brief Destroy the Abbaye Cheese object
+		 * 
+		 */
 		~AbbayeCheese();
 	
 	private:
+		/**
+		 * @brief Counter for AbbayeCheese in player's inventory
+		 * 
+		 */
 		static int n_abbayecheese;
 };
 

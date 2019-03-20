@@ -19,15 +19,37 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief FarmProduct parent class
+ * 
+ */
 class FarmProduct
 {
 	public:
-		//dtor
+		/**
+		 * @brief Destroy the Farm Product object
+		 * 
+		 */
 		virtual ~FarmProduct();
 		
-		//selektor
+		/**
+		 * @brief Get the Name object
+		 * 
+		 * @return int 
+		 */
 		virtual int getName();
+
+		/**
+		 * @brief Get the Price object
+		 * 
+		 * @return int 
+		 */
 		virtual int getPrice();
+
+		/**
+		 * @brief Set the Name object
+		 * 
+		 */
 		virtual void setName(string);
 	
 	protected:

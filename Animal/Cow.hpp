@@ -15,7 +15,7 @@
 #ifndef COW_HPP
 #define COW_HPP
 
-#include "Renderable.hpp"
+#include "../Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
@@ -23,23 +23,69 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for FarmAnimal
+ * 
+ */
 class Cow: public IProducing, public KProducing, public Renderable
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Cow object
+		 * 
+		 */
 		Cow(string);
 		
-		//dtor
+		/**
+		 * @brief Destroy the Cow object
+		 * 
+		 */
 		~Cow();
 		
-		string interactProduct();	//cow milk
-		string killProduct();		//beef
+		/**
+		 * @brief Function to get CowMilk
+		 * 
+		 * @return string 
+		 */
+		string interactProduct();
+
+		/**
+		 * @brief Function to get Beef
+		 * 
+		 * @return string 
+		 */
+		string killProduct();
+
+		/**
+		 * @brief Method for the animal to eat
+		 * 
+		 */
 		void eat();
+
+		/**
+		 * @brief Method for the animal to move
+		 * 
+		 */
 		void move();
+
+		/**
+		 * @brief Method for the animal to voice
+		 * 
+		 */
 		void sound();
+
+		/**
+		 * @brief Method to render the animal to map
+		 * 
+		 * @return char 
+		 */
 		char render();
-		
-	private:
+
+    private:
+		/**
+		 * @brief Counter for Cow
+		 * 
+		 */
 		static int n_cow;
 };
 

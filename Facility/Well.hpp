@@ -17,13 +17,37 @@
 #ifndef WELL_HPP
 #define WELL_HPP
 
+/**
+ * @brief Class Well for Facility
+ * 
+ */
 class Well: public Facility
 {
 	public:
+		/**
+		 * @brief Construct a new Well object
+		 * 
+		 */
 		Well();
+
+		/**
+		 * @brief Destroy the Well object
+		 * 
+		 */
 		~Well();
 
+		/**
+		 * @brief Method to render the Facility type character to map
+		 * 
+		 * @return char 
+		 */
 		char render();
+
+		/**
+		 * @brief Get the Type object
+		 * 
+		 * @return char* 
+		 */
 		char* getType();
 };
 

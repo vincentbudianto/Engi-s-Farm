@@ -13,22 +13,57 @@
  * Deskripsi : Header Mixer.cpp */
 
 #include "Facility.hpp"
-#include "FarmProduct.hpp"
-#include "SideProduct.hpp"
+#include "../FarmProduct/FarmProduct.hpp"
+#include "../SideProduct/SideProduct.hpp"
 
 #ifndef MIXER_HPP
 #define MIXER_HPP
 
+/**
+ * @brief Class Mixer for Facility
+ * 
+ */
 class Mixer: public Facility
 {
 	public:
+		/**
+		 * @brief Construct a new Mixer object
+		 * 
+		 */
 		Mixer();
+
+		/**
+		 * @brief Destroy the Mixer object
+		 * 
+		 */
 		~Mixer();
 
+		/**
+		 * @brief Method to render the Facility type character to map
+		 * 
+		 * @return char 
+		 */
 		char render();
+
+		/**
+		 * @brief Get the Type object
+		 * 
+		 * @return char* 
+		 */
 		char* getType();
 
+		/**
+		 * @brief Return 1 if SideProduct can be created\nReturn 0 if SideProduct can't be created
+		 * 
+		 * @return int 
+		 */
 		int isMixable(FarmProduct*);
+
+		/**
+		 * @brief Method to create SideProduct
+		 * 
+		 * @return SideProduct 
+		 */
 		SideProduct mixStuffs(FarmProduct*);
 
 	private:

@@ -23,13 +23,23 @@ using namespace std;
 class SweetMeatball : public SideProduct
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Sweet Meatball object
+		 * 
+		 */
 		SweetMeatball();
 		
-		//dtor
+		/**
+		 * @brief Destroy the Sweet Meatball object
+		 * 
+		 */
 		~SweetMeatball();
 	
 	private:
+		/**
+		 * @brief Counter for SweetMeatBall in player's inventory
+		 * 
+		 */
 		static int n_sweetmeatball;
 };
 

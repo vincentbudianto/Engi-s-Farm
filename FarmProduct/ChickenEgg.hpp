@@ -20,16 +20,30 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for FarmProduct
+ * 
+ */
 class ChickenEgg : public FarmProduct
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Chicken Egg object
+		 * 
+		 */
 		ChickenEgg();
 		
-		//dtor
+		/**
+		 * @brief Destroy the Chicken Egg object
+		 * 
+		 */
 		~ChickenEgg();
 	
 	private:
+		/**
+		 * @brief Counter for ChickenEgg in player's inventory
+		 * 
+		 */
 		static int n_chickenegg;
 };
 

@@ -15,27 +15,82 @@
 #ifndef FARMANIMAL_HPP
 #define FARMANIMAL_HPP
 
+#include "../Renderable.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief FarmAnimal parent class
+ * 
+ */
 class FarmAnimal
 {
 	public:
-		//dtor
+		/**
+		 * @brief Destroy the Farm Animal object
+		 * 
+		 */
 		virtual ~FarmAnimal();
 		
-		//selektor
+		/**
+		 * @brief Get the Name object
+		 * 
+		 * @return string 
+		 */
 		virtual string getName() const;
+
+		/**
+		 * @brief Get the Hungry object
+		 * 
+		 * @return boolean 
+		 */
 		virtual boolean getHungry() const;
+
+		/**
+		 * @brief Set the Name object
+		 * 
+		 */
 		virtual void setName(string);
+
+		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
 		virtual int getX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
 		virtual int getY();
 
+		/**
+		 * @brief method for the animal to eat
+		 * 
+		 */
 		virtual void eat() = 0;
+
+		/**
+		 * @brief method for the animal to move
+		 * 
+		 */
 		virtual void move() = 0;
+
+		/**
+		 * @brief method for the animal to voice
+		 * 
+		 */
 		virtual void sound() = 0;
-		virtual void print() = 0;
+
+		/**
+		 * @brief method to render the animal to map
+		 * 
+		 * @return char 
+		 */
+		virtual char render() = 0;
 	
 	protected:
 		string name;

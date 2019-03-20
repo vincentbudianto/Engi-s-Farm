@@ -20,16 +20,30 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for SideProduct
+ * 
+ */
 class JuustolipaCheese : public SideProduct
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Juustolipa Cheese object
+		 * 
+		 */
 		JuustolipaCheese();
 		
-		//dtor
+		/**
+		 * @brief Destroy the Juustolipa Cheese object
+		 * 
+		 */
 		~JuustolipaCheese();
 	
 	private:
+		/**
+		 * @brief Counter for JuustolipaCheese
+		 * 
+		 */
 		static int n_juustolipacheese;
 };
 

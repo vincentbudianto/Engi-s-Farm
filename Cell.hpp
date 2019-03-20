@@ -15,9 +15,18 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
+/**
+ * @brief Class for rendering object to cell
+ * 
+ */
 class Cell
 {
 	public:
+		/**
+		 * @brief 
+		 * 
+		 * @return char Method to render object character to map
+		 */
 		virtual char render();
 };
 

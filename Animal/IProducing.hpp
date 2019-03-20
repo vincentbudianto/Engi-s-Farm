@@ -15,14 +15,23 @@
 #ifndef IPRODUCING_HPP
 #define IPRODUCING_HPP
 
+#include "../Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief FarmAnimal child class
+ * 
+ */
 class IProducing: public FarmAnimal
 {
 	public:
+		/**
+		 * @brief function to get FarmProduct from interact command
+		 * 
+		 */
 		virtual void interactProduct() = 0;
 };
 

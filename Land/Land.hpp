@@ -12,15 +12,29 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Land.cpp */
 
-#include "Cell.hpp"
+#include "../Cell.hpp"
 
 #ifndef LAND_HPP
 #define LAND_HPP
 
+/**
+ * @brief Class Land for map
+ * 
+ */
 class Land: public Cell
 {
 	public:
+		/**
+		 * @brief Return true if there is grass
+		 * 
+		 * @return int 
+		 */
 		virtual int isGrass();
+
+		/**
+		 * @brief Set the Grass Status object
+		 * 
+		 */
 		virtual void setGrassStatus(int);
 	
 	private:

@@ -15,7 +15,7 @@
 #ifndef GOAT_HPP
 #define GOAT_HPP
 
-#include "Renderable.hpp"
+#include "../Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
@@ -23,23 +23,69 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for FarmAnimal
+ * 
+ */
 class Goat: public IProducing, public KProducing, public Renderable
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Goat object
+		 * 
+		 */
 		Goat(string);
 		
-		//dtor
+		/**
+		 * @brief Destroy the Goat object
+		 * 
+		 */
 		~Goat();
 
-		string interactProduct();	//goat milk
-		string killProduct();		//goat meat
+		/**
+		 * @brief function to get GoatMilk
+		 * 
+		 * @return string 
+		 */
+		string interactProduct();
+
+		/**
+		 * @brief function to get GoatMeat
+		 * 
+		 * @return string 
+		 */
+		string killProduct();
+
+		/**
+		 * @brief Method for the animal to eat
+		 * 
+		 */
 		void eat();
+
+		/**
+		 * @brief Method for the animal to move
+		 * 
+		 */
 		void move();
+
+		/**
+		 * @brief Method for the animal to voice
+		 * 
+		 */
 		void sound();
+
+		/**
+		 * @brief Method to render the animal to map
+		 * 
+		 * @return char 
+		 */
 		char render();
-	
+
 	private:
+		/**
+		 * @brief Counter for Goat
+		 * 
+		 */
 		static int n_goat;
 };
 

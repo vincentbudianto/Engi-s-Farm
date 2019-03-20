@@ -20,30 +20,109 @@
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Class for player
+ * 
+ */
 class Player: public Renderable
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Player object
+		 * 
+		 */
 		Player(string);
 		
-		//dtor
+		/**
+		 * @brief Destroy the Player object
+		 * 
+		 */
 		~Player();
 		
-		//selektor
+		/**
+		 * @brief Get the Name object
+		 * 
+		 * @return string 
+		 */
 		string getName();
+
+		/**
+		 * @brief Get the Inventory object from index i
+		 * 
+		 * @param i 
+		 * @return string 
+		 */
+		string getInventory(int i);
+
+		/**
+		 * @brief Get the Money object
+		 * 
+		 * @return int 
+		 */
 		int getMoney();
+
+		/**
+		 * @brief Get the Water object
+		 * 
+		 * @return int 
+		 */
 		int getWater();
+
+		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
 		int getX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
 		int getY();
 		
+		/**
+		 * @brief Method for the player to move
+		 * 
+		 */
 		void move();
 		
+		/**
+		 * @brief Method for the player to talk to FarmAnimal
+		 * 
+		 */
 		void talk();
+
+		/**
+		 * @brief Method for the player to kill FarmAnimal
+		 * 
+		 */
 		void kill();
+
+		/**
+		 * @brief Method for the player to interact with FarmAnimal
+		 * 
+		 */
 		void interact();
+
+		/**
+		 * @brief Method for the player to grow grass
+		 * 
+		 */
 		void grow();
+
+		/**
+		 * @brief Method for the player to interact with mixer
+		 * 
+		 */
 		void mix();
 
+		/**
+		 * @brief Method to render the player to map
+		 * 
+		 * @return char 
+		 */
 		char render();
 	
 	private:

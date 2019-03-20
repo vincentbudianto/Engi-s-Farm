@@ -17,14 +17,43 @@
 #ifndef COOP_HPP
 #define COOP_HPP
 
+/**
+ * @brief Class Coop for Land
+ * 
+ */
 class Coop: public Land
 {
 	public:
+		/**
+		 * @brief Construct a new Coop object
+		 * 
+		 */
 		Coop();
+
+		/**
+		 * @brief Destroy the Coop object
+		 * 
+		 */
 		~Coop();
 
+		/**
+		 * @brief Return true if there is grass
+		 * 
+		 * @return int 
+		 */
 		int isGrass();
+
+		/**
+		 * @brief Set the Grass Status object
+		 * 
+		 */
 		void setGrassStatus(int);
+
+		/**
+		 * @brief Method to render the land type character to map
+		 * 
+		 * @return char 
+		 */
 		char render();
 };
 

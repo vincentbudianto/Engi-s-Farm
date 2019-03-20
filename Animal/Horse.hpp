@@ -15,29 +15,69 @@
 #ifndef HORSE_HPP
 #define HORSE_HPP
 
-#include "Renderable.hpp"
+#include "../Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief Real class for FarmAnimal
+ * 
+ */
 class Horse: public IProducing, public Renderable
 {
 	public:
-		//ctor
+		/**
+		 * @brief Construct a new Horse object
+		 * 
+		 */
 		Horse(string);
 		
-		//dtor
+		/**
+		 * @brief Destroy the Horse object
+		 * 
+		 */
 		~Horse();
-
-		string interactProduct();	//horse milk
-		void eat();
-		void move();
-		void sound();
-		char render();
 		
+		/**
+		 * @brief function to get HorseMilk
+		 * 
+		 * @return string 
+		 */
+		string interactProduct();
+
+		/**
+		 * @brief Method for the animal to eat
+		 * 
+		 */
+		void eat();
+
+		/**
+		 * @brief Method for the animal to move
+		 * 
+		 */
+		void move();
+
+		/**
+		 * @brief Method for the animal to voice
+		 * 
+		 */
+		void sound();
+
+		/**
+		 * @brief Method to render the animal to map
+		 * 
+		 * @return char 
+		 */
+		char render();
+
 	private:
+		/**
+		 * @brief Counter for Horse
+		 * 
+		 */
 		static int n_horse;
 };
 

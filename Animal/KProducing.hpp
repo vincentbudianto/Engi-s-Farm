@@ -15,14 +15,23 @@
 #ifndef KPRODUCING_HPP
 #define KPRODUCING_HPP
 
+#include "../Renderable.hpp"
 #include "FarmAnimal.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
+/**
+ * @brief FarmAnimal child class
+ * 
+ */
 class KProducing: public FarmAnimal
 {
 	public:
+		/**
+		 * @brief function to get FarmProduct from kill command
+		 * 
+		 */
 		virtual void killProduct() = 0;
 };
 
