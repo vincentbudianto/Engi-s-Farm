@@ -45,7 +45,7 @@ class FarmAnimal
 		 * 
 		 * @return boolean 
 		 */
-		virtual boolean getHungry() const;
+		virtual bool getHungry() const;
 
 		/**
 		 * @brief Set the Name object
@@ -94,7 +94,7 @@ class FarmAnimal
 	
 	protected:
 		string name;
-		boolean hungry;
+		bool hungry;
 		int umur, x, y;
 };
 
