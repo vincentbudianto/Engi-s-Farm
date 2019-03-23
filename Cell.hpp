@@ -27,7 +27,7 @@ class Cell
 		 * 
 		 * @return char Method to render object character to map
 		 */
-		virtual char render();
+		virtual char render() = 0;
 };
 
 #endif
