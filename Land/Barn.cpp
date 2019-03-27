@@ -12,24 +12,13 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Barn.cpp */
 
-#include "Land.hpp"
-
-#ifndef BARN_HPP
-#define BARN_HPP
+#include "Barn.hpp"
 
 /**
- * @brief Class Barn for Land
+ * @brief Method to render the land type character to map
  * 
+ * @return char 
  */
-class Barn: public Land
-{
-	public:
-		/**
-		 * @brief Method to render the land type character to map
-		 * 
-		 * @return char 
-		 */
-		char render();
-};
-
-#endif
+char Barn::render(){
+	return 'x';
+}

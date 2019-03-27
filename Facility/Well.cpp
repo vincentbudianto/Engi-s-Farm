@@ -14,43 +14,34 @@
 
 #include <string.h>
 
-#include "Facility.hpp"
-
-#ifndef WELL_HPP
-#define WELL_HPP
+#include "Well.hpp"
 
 /**
- * @brief Class Well for Facility
+ * @brief Construct a new Well object
  * 
  */
-class Well: public Facility
-{
-	public:
-		/**
-		 * @brief Construct a new Well object
-		 * 
-		 */
-		Well();
+Well::Well();
 
-		/**
-		 * @brief Destroy the Well object
-		 * 
-		 */
-		~Well();
+/**
+ * @brief Destroy the Well object
+ * 
+ */
+Well::~Well();
 
-		/**
-		 * @brief Method to make player able to get water
-		 * 
-		 * @return char 
-		 */
-		void liftWater(Player p);
+/**
+ * @brief Method to make player able to get water
+ * 
+ * @return char 
+ */
+void Well::liftWater(Player p){
+	// TBD
+}
 
-		/**
-		 * @brief Method to render the Facility type character to map
-		 * 
-		 * @return char 
-		 */
-		char render();
-};
-
-#endif
+/**
+ * @brief Method to render the Facility type character to map
+ * 
+ * @return char 
+ */
+char Well::render(){
+	return 'W';
+}

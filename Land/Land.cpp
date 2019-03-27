@@ -15,46 +15,37 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "../Cell.hpp"
-
-#ifndef LAND_HPP
-#define LAND_HPP
+#include "Land.hpp"
 
 /**
- * @brief Class Land for map
+ * @brief Construct a new Land object
  * 
  */
-class Land: public Cell
-{
-	public:
-		/**
-		 * @brief Construct a new Land object
-		 * 
-		 */
-		Land();
+Land::Land(){
+	srand (time(NULL));
+	grassStatus = rand() % 2;
+}
 
-		/**
-		 * @brief Return true if there is grass
-		 * 
-		 * @return int 
-		 */
-		int isGrass();
+/**
+ * @brief Return true if there is grass
+ * 
+ * @return int 
+ */
+int Land::isGrass(){
+	return grassStatus;
+}
 
-		/**
-		 * @brief Set the Grass Status object
-		 * 
-		 */
-		void setGrassStatus(int gs);
+/**
+ * @brief Set the Grass Status object
+ * 
+ */
+void Land::setGrassStatus(int gs){
+	grassStatus = gs;
+}
 
-		/**
-		 * @brief Method to render the land type character to map
-		 * 
-		 * @return char 
-		 */
-		virtual char render();
-	
-	private:
-		int grassStatus;
-};
-
-#endif
+/**
+ * @brief Method to render the land type character to map
+ * 
+ * @return char 
+ */
+virtual char Land::render();

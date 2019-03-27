@@ -46,18 +46,11 @@ class Mixer: public Facility
 		char render();
 
 		/**
-		 * @brief Get the Type object
-		 * 
-		 * @return char* 
-		 */
-		char* getType();
-
-		/**
 		 * @brief Return 1 if SideProduct can be created\nReturn 0 if SideProduct can't be created
 		 * 
 		 * @return int 
 		 */
-		int isMixable(FarmProduct*);
+		int isMixable(FarmProduct* fp);
 
 		/**
 		 * @brief Method to create SideProduct

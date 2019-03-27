@@ -29,9 +29,7 @@ class Coop: public Land
 		 * 
 		 * @return char 
 		 */
-		char render(){
-			return 'o';
-		}
+		char render();
 };
 
 #endif

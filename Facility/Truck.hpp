@@ -13,6 +13,7 @@
  * Deskripsi : Header Truck.cpp */
 
 #include <ctime>
+
 #include "Facility.hpp"
 
 #ifndef TRUCK_HPP
@@ -45,13 +46,6 @@ class Truck: public Facility
 		char render();
 
 		/**
-		 * @brief Get the Type object
-		 * 
-		 * @return char* 
-		 */
-		char* getType();
-
-		/**
 		 * @brief Get the Availability object
 		 * 
 		 * @return int 
@@ -62,13 +56,7 @@ class Truck: public Facility
 		 * @brief Method to sell all items in inventory
 		 * 
 		 */
-		void transact();
-
-		/**
-		 * @brief Set the Availability object
-		 * 
-		 */
-		void setAvailability(int);
+		void transact(Player p);
 
 		/**
 		 * @brief Set the Last Time object
@@ -77,8 +65,7 @@ class Truck: public Facility
 		void setLastTime();
 
 	private:
-		int availability;
-		time_t lastTime;
+		std::time_t lastTime;
 };
 
 #endif

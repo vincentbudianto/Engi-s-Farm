@@ -25,11 +25,11 @@ class Facility: public Cell
 {
 	public:
 		/**
-		 * @brief Get the Type object
+		 * @brief Method to render the facility type character to map
 		 * 
-		 * @return char* 
+		 * @return char 
 		 */
-		virtual char* getType();
+		virtual char render();
 };
 
 #endif
