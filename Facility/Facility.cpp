@@ -19,4 +19,4 @@
  * 
  * @return char 
  */
-virtual char Facility::render();
+virtual char Facility::render(){}

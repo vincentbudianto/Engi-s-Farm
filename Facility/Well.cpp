@@ -20,13 +20,17 @@
  * @brief Construct a new Well object
  * 
  */
-Well::Well();
+Well::Well(){
+	
+}
 
 /**
  * @brief Destroy the Well object
  * 
  */
-Well::~Well();
+Well::~Well(){
+	
+}
 
 /**
  * @brief Method to make player able to get water
@@ -34,7 +38,7 @@ Well::~Well();
  * @return char 
  */
 void Well::liftWater(Player p){
-	// TBD
+	
 }
 
 /**

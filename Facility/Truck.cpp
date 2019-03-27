@@ -28,7 +28,9 @@ Truck::Truck(){
  * @brief Destroy the Truck object
  * 
  */
-Truck::~Truck();
+Truck::~Truck(){
+	
+}
 
 /**
  * @brief Method to render the Facility type character to map

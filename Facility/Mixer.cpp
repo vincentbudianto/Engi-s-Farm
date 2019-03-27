@@ -18,13 +18,17 @@
  * @brief Construct a new Mixer object
  * 
  */
-Mixer::Mixer();
+Mixer::Mixer(){
+
+}
 
 /**
  * @brief Destroy the Mixer object
  * 
  */
-Mixer::~Mixer();
+Mixer::~Mixer(){
+
+}
 
 /**
  * @brief Method to render the Facility type character to map
@@ -41,7 +45,7 @@ char Mixer::render(){
  * @return int 
  */
 int Mixer::isMixable(FarmProduct* fp){
-	// TBD
+	
 }
 
 /**
@@ -50,5 +54,5 @@ int Mixer::isMixable(FarmProduct* fp){
  * @return SideProduct 
  */
 SideProduct Mixer::mixStuffs(FarmProduct*){
-	// TBD
+	
 }
