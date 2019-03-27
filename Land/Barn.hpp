@@ -25,36 +25,13 @@ class Barn: public Land
 {
 	public:
 		/**
-		 * @brief Construct a new Barn object
-		 * 
-		 */
-		Barn();
-
-		/**
-		 * @brief Destroy the Barn object
-		 * 
-		 */
-		~Barn();
-
-		/**
-		 * @brief Return true if there is grass
-		 * 
-		 * @return int 
-		 */
-		int isGrass();
-
-		/**
-		 * @brief Set the Grass Status object
-		 * 
-		 */
-		void setGrassStatus(int);
-
-		/**
 		 * @brief Method to render the land type character to map
 		 * 
 		 * @return char 
 		 */
-		char render();
+		char render(){
+			return 'x';
+		}
 };
 
 #endif

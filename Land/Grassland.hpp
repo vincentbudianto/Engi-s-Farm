@@ -25,36 +25,13 @@ class Granssland: public Land
 {
 	public:
 		/**
-		 * @brief Construct a new Granssland object
-		 * 
-		 */
-		Granssland();
-
-		/**
-		 * @brief Destroy the Granssland object
-		 * 
-		 */
-		~Granssland();
-
-		/**
-		 * @brief Return true if there is grass
-		 * 
-		 * @return int 
-		 */
-		int isGrass();
-
-		/**
-		 * @brief Set the Grass Status object
-		 * 
-		 */
-		void setGrassStatus(int);
-
-		/**
 		 * @brief Method to render the land type character to map
 		 * 
 		 * @return char 
 		 */
-		char render();
+		char render(){
+			return '-';
+		}
 };
 
 #endif

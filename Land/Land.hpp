@@ -12,6 +12,9 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Land.cpp */
 
+#include <stdlib.h>
+#include <time.h>
+
 #include "../Cell.hpp"
 
 #ifndef LAND_HPP
@@ -25,17 +28,37 @@ class Land: public Cell
 {
 	public:
 		/**
+		 * @brief Construct a new Land object
+		 * 
+		 */
+		Land(){
+			srand (time(NULL));
+			grassStatus = rand() % 2;
+		}
+
+		/**
 		 * @brief Return true if there is grass
 		 * 
 		 * @return int 
 		 */
-		virtual int isGrass();
+		int isGrass(){
+			return grassStatus;
+		}
 
 		/**
 		 * @brief Set the Grass Status object
 		 * 
 		 */
-		virtual void setGrassStatus(int);
+		void setGrassStatus(int gs){
+			grassStatus = gs;
+		}
+
+		/**
+		 * @brief Method to render the land type character to map
+		 * 
+		 * @return char 
+		 */
+		virtual char render();
 	
 	private:
 		int grassStatus;
