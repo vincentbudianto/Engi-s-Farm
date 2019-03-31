@@ -13,13 +13,26 @@
  * Deskripsi : Header Mixer.cpp */
 
 #include "Mixer.hpp"
+#include <string.h>
+using namespace std;
 
 /**
  * @brief Construct a new Mixer object
  * 
  */
 Mixer::Mixer(){
-
+	sideProduct = {
+		"abbayecheese",
+		"bandalsatay",
+		"beefchickenroll",
+		"beefduckroll",
+		"goatsatay",
+		"juustolipacheese",
+		"muttonsatay",
+		"rainbowsatay",
+		"sonnetcheese",
+		"sweetmeatball"
+	};
 }
 
 /**
@@ -27,7 +40,7 @@ Mixer::Mixer(){
  * 
  */
 Mixer::~Mixer(){
-
+	delete[] sideProduct;
 }
 
 /**
@@ -44,15 +57,6 @@ char Mixer::render(){
  * 
  * @return int 
  */
-int Mixer::isMixable(FarmProduct* fp){
-	
-}
-
-/**
- * @brief Method to create SideProduct
- * 
- * @return SideProduct 
- */
-SideProduct Mixer::mixStuffs(FarmProduct*){
+int Mixer::isMixable(string[] ingredients){
 	
 }

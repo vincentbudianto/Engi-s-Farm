@@ -50,17 +50,10 @@ class Mixer: public Facility
 		 * 
 		 * @return int 
 		 */
-		int isMixable(FarmProduct* fp);
-
-		/**
-		 * @brief Method to create SideProduct
-		 * 
-		 * @return SideProduct 
-		 */
-		SideProduct mixStuffs(FarmProduct*);
+		int isMixable(string[] ingredients);
 
 	private:
-		FarmProduct* inputs;
+		string sideProduct[10];
 };
 
 #endif

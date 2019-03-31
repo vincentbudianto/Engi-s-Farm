@@ -13,6 +13,8 @@
  * Deskripsi : File Player.cpp, realisasi kelas Player */
 
 #include "Player.hpp"
+#include <iostream>
+using namespace std;
 
 /**
  * @brief Construct a new Player object
@@ -108,8 +110,14 @@ void Player::kill()
  * @brief Method for the player to interact with FarmAnimal
  * 
  */
-void Player::interact()
-{}
+void Player::interact(Cell c)
+{
+    switch(c.render()){
+        case 'W': setWater(); break;
+        case 'T': dealTruck(c.transact()); break;
+        case 'M': mixStuffs(c); break;
+    }
+}
 
 /**
  * @brief Method for the player to grow grass
@@ -131,3 +139,45 @@ void Player::mix()
  * @return char 
  */
 char Player::render() { return 'P'; }
+
+/**
+ * @brief Method to fill water
+ * 
+ */
+void Player::setWater() { this->water += 10; }
+
+/**
+ * @brief Method to deal with truck
+ * 
+ */
+void Player::dealTruck(int valid) {
+    
+    if(valid){
+        cout << "TBD!!" << endl;
+    }else
+        cout << "Truk belum kembali dari pabrik" << endl;
+}
+
+/**
+ * @brief Method to create SideProduct
+ * 
+ * @return SideProduct 
+ */
+void Player::mixStuffs(Cell mixer){
+    int n;
+    cin >> n;
+    string* ingredients = new string[n];
+    int* ids = new int[n];
+
+    for(int i = 0; i < n; i++)
+        cin >> ids[i];
+
+    for(int i = 0; i < n; i++)
+        strcpy(ingredients[i],inventory[ids[i]]);
+
+    if(mixer.isMixable(ingredients)){
+
+    }else{
+
+    }
+}

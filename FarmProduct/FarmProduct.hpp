@@ -35,9 +35,9 @@ class FarmProduct
 		/**
 		 * @brief Get the Name object
 		 * 
-		 * @return int 
+		 * @return string 
 		 */
-		virtual int getName();
+		virtual string getName();
 
 		/**
 		 * @brief Get the Price object

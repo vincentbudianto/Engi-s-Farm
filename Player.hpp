@@ -16,6 +16,9 @@
 #define PLAYER_HPP
 
 #include "Renderable.hpp"
+#include "Cell.hpp"
+#include "Facility/Mixer.hpp"
+#include "SideProduct/SideProduct.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -124,6 +127,25 @@ class Player: public Renderable
 		 * @return char 
 		 */
 		char render();
+
+		/**
+		 * @brief Method to fill water
+		 * 
+		 */
+		void Player::setWater();
+
+		/**
+		 * @brief Method to deal with truck
+		 * 
+		 */
+		void Player::dealTruck(int valid);
+
+		/**
+		 * @brief Method to create SideProduct
+		 * 
+		 * @return SideProduct 
+		 */
+		SideProduct Player::mixStuffs(FarmProduct*);
 	
 	private:
 		string name;

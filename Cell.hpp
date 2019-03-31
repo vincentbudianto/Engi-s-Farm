@@ -12,6 +12,8 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Cell.cpp */
 
+#include "Renderable.hpp"
+
 #ifndef CELL_HPP
 #define CELL_HPP
 
@@ -19,7 +21,7 @@
  * @brief Class for rendering object to cell
  * 
  */
-class Cell
+class Cell : public Renderable
 {
 	public:
 		/**
@@ -27,7 +29,7 @@ class Cell
 		 * 
 		 * @return char Method to render object character to map
 		 */
-		virtual char render() = 0;
+		char render(){}
 };
 
 #endif

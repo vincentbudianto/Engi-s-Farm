@@ -33,15 +33,6 @@ Well::~Well(){
 }
 
 /**
- * @brief Method to make player able to get water
- * 
- * @return char 
- */
-void Well::liftWater(Player p){
-	
-}
-
-/**
  * @brief Method to render the Facility type character to map
  * 
  * @return char 

@@ -58,13 +58,10 @@ int Truck::isAvailable(){
  * @brief Method to sell all items in inventory
  * 
  */
-void Truck::transact(Player p){
-	if(isAvailable()){
-		// TBD
-		setLastTime();
-	}else{
-		std::cout << "Truk belum kembali dari pabrik" << std::endl;
-	}
+int Truck::transact(){
+	int valid = isAvailable();
+	if(valid) setLastTime();
+	return valid;
 }
 
 /**

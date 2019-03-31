@@ -39,13 +39,6 @@ class Well: public Facility
 		~Well();
 
 		/**
-		 * @brief Method to make player able to get water
-		 * 
-		 * @return char 
-		 */
-		void liftWater(Player p);
-
-		/**
 		 * @brief Method to render the Facility type character to map
 		 * 
 		 * @return char 
