@@ -46,14 +46,21 @@ class Mixer: public Facility
 		char render();
 
 		/**
-		 * @brief Return 1 if SideProduct can be created\nReturn 0 if SideProduct can't be created
+		 * @brief Return 1 & store ingredients if SideProduct can be created\nReturn 0 if SideProduct can't be createds
 		 * 
 		 * @return int 
 		 */
-		int isMixable(string[] ingredients);
+		int isMixable(FarmProduct[] ingredients);
+
+		/**
+		 * @brief Return SideProduct from mixture
+		 * 
+		 * @return int 
+		 */
+		SideProduct takeSideProduct();
 
 	private:
-		string sideProduct[10];
+		SideProduct productResult;
 };
 
 #endif
