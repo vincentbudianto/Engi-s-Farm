@@ -13,15 +13,18 @@
  * Deskripsi : Header Truck.cpp */
 
 #include <ctime>
+#include <memory>
 
 #include "Truck.hpp"
+
+using namespace std;
 
 /**
  * @brief Construct a new Truck object
  * 
  */
 Truck::Truck(){
-	lastTime = std::time(nullptr);
+	lastTime = time(nullptr);
 }
 
 /**
@@ -47,9 +50,9 @@ char Truck::render(){
  * @return int 
  */
 int Truck::isAvailable(){
-	std::time_t now = std::time(nullptr);
-	std::tm now_time = *std::localtime(std::addressof(now));
-	std::tm last_time = *std::localtime(std::addressof(lastTime));
+	time_t now = time(nullptr);
+	tm now_time = *localtime(addressof(now));
+	tm last_time = *localtime(addressof(lastTime));
 
 	return (now_time.tm_min - last_time.tm_min >= 10);
 }
@@ -69,5 +72,5 @@ int Truck::transact(){
  * 
  */
 void Truck::setLastTime(){
-	lastTime = std::time(nullptr);
+	lastTime = time(nullptr);
 }

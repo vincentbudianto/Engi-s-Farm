@@ -39,7 +39,6 @@ class Beef : public Product
 		 */
 		~Beef();
 	
-	private:
 		/**
 		 * @brief Counter for Beef in player's inventory
 		 * 

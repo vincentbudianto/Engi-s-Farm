@@ -15,6 +15,7 @@
 #include <ctime>
 
 #include "Facility.hpp"
+#include "Facility.hpp"
 
 #ifndef TRUCK_HPP
 #define TRUCK_HPP
@@ -56,7 +57,7 @@ class Truck: public Facility
 		 * @brief Method to sell all items in inventory
 		 * 
 		 */
-		void transact(Player p);
+		int transact();
 
 		/**
 		 * @brief Set the Last Time object

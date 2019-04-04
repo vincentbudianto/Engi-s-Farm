@@ -13,16 +13,18 @@
  * Deskripsi : File Player.cpp, realisasi kelas Player */
 
 #include "Player.hpp"
+#include "Facility/Truck.hpp"
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 /**
  * @brief Construct a new Player object
  * 
  */
-Player::Player(string nama)
+Player::Player(char* nama)
 {
-    this->name = nama;
+    strcpy(this->name,nama);
     this->inventory = new Product[10]; /* Starting inventory cap */
     this->money = 500; /* Starting money */
     this->water = 10; /* Starting water amount */
@@ -34,7 +36,9 @@ Player::Player(string nama)
  * @brief Destroy the Player object
  * 
  */
-Player::~Player() {}
+Player::~Player() {
+    delete [] inventory;
+}
 
 /**
  * @brief Get the Name object
@@ -110,13 +114,13 @@ void Player::kill()
  * @brief Method for the player to interact with FarmAnimal
  * 
  */
-void Player::interact(Cell c)
+char Player::interact(Cell c)
 {
-    switch(c.render()){
-        case 'W': setWater(); break;
-        case 'T': dealTruck(c.transact()); break;
-        case 'M': mixStuffs(c); break;
-    }
+    // switch(c.render()){
+    //     case 'W': setWater(); break;
+    //     case 'T': dealTruck(c); break;
+    // }
+    return c.render();
 }
 
 /**
@@ -150,8 +154,8 @@ void Player::setWater() { this->water += 10; }
  * @brief Method to deal with truck
  * 
  */
-void Player::dealTruck(int valid) {
-    
+void Player::dealTruck(Truck* cellTruck) {
+    int valid =  cellTruck->transact();
     if(valid){
         cout << "TBD!!" << endl;
     }else

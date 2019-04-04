@@ -27,10 +27,16 @@ class Product
 {
 	public:
 		/**
-		 * @brief Destroy the Farm Product object
+		 * @brief Create the Farm Product object
 		 * 
 		 */
-		virtual ~Product();
+		Product();
+
+		/**
+		 * @brief Create the Product object
+		 * 
+		 */
+		Product(int, char*);
 		
 		/**
 		 * @brief Get the Name object
@@ -45,15 +51,15 @@ class Product
 		 * @return int 
 		 */
 		virtual int getPrice();
-
+ 
 		/**
 		 * @brief Set the Name object
 		 * 
 		 */
-		virtual void setName(string);
+		virtual void setName(char*);
 	
 	protected:
-		string name;
+		char* name;
 		int price;
 };
 

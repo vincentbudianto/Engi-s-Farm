@@ -13,8 +13,7 @@
  * Deskripsi : Header Mixer.cpp */
 
 #include "Facility.hpp"
-#include "../FarmProduct/FarmProduct.hpp"
-#include "../SideProduct/SideProduct.hpp"
+#include "../Product.hpp"
 
 #ifndef MIXER_HPP
 #define MIXER_HPP
@@ -46,21 +45,21 @@ class Mixer: public Facility
 		char render();
 
 		/**
-		 * @brief Return 1 & store ingredients if SideProduct can be created\nReturn 0 if SideProduct can't be createds
+		 * @brief Return 1 & store ingredients if Product can be created\nReturn 0 if Product can't be createds
 		 * 
 		 * @return int 
 		 */
-		int isMixable(FarmProduct[] ingredients);
+		int isMixable(Product* ingredients);
 
 		/**
-		 * @brief Return SideProduct from mixture
+		 * @brief Return Product from mixture
 		 * 
 		 * @return int 
 		 */
-		SideProduct takeSideProduct();
+		Product* takeSideProduct();
 
 	private:
-		SideProduct productResult;
+		Product* productResult;
 };
 
 #endif

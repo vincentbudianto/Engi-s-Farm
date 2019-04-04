@@ -39,7 +39,6 @@ class ChickenEgg : public Product
 		 */
 		~ChickenEgg();
 	
-	private:
 		/**
 		 * @brief Counter for ChickenEgg in player's inventory
 		 * 

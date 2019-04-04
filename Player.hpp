@@ -18,8 +18,8 @@
 #include "Renderable.hpp"
 #include "Cell.hpp"
 #include "Product.hpp"
+#include "Facility/Truck.hpp"
 #include "Facility/Mixer.hpp"
-#include "SideProduct/SideProduct.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -35,7 +35,7 @@ class Player: public Renderable
 		 * @brief Construct a new Player object
 		 * 
 		 */
-		Player(string);
+		Player(char *);
 		
 		/**
 		 * @brief Destroy the Player object
@@ -108,7 +108,7 @@ class Player: public Renderable
 		 * @brief Method for the player to interact with FarmAnimal
 		 * 
 		 */
-		void interact();
+		char interact(Cell c);
 
 		/**
 		 * @brief Method for the player to grow grass
@@ -133,16 +133,16 @@ class Player: public Renderable
 		 * @brief Method to fill water
 		 * 
 		 */
-		void Player::setWater();
+		void setWater();
 
 		/**
 		 * @brief Method to deal with truck
 		 * 
 		 */
-		void Player::dealTruck(int valid);
+		void dealTruck(Truck* cellTruck);
 	
 	private:
-		string name;
+		char* name;
 		Product* inventory;
 		int money, water, x, y;
 };

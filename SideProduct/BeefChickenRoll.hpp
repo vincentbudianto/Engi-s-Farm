@@ -39,7 +39,6 @@ class BeefChickenRoll : public Product
 		 */
 		~BeefChickenRoll();
 	
-	private:
 		/**
 		 * @brief Counter for BeefChickenRoll in player's inventory
 		 * 

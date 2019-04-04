@@ -48,4 +48,4 @@ void Land::setGrassStatus(int gs){
  * 
  * @return char 
  */
-virtual char Land::render(){}
+char Land::render(){}

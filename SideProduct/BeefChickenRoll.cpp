@@ -1,10 +1,16 @@
-#include "BeffChickenRoll.hpp"
+#include "BeefChickenRoll.hpp"
 
 /**
- * @brief Construct a new BeffChickenRoll object
+ * @brief initiate n_beefchickenroll
  * 
  */
-BeffChickenRoll::BeffChickenRoll():Product(50, "Beff Chicken Roll"){
+int BeefChickenRoll::n_beefchickenroll = 0;
+
+/**
+ * @brief Construct a new BeefChickenRoll object
+ * 
+ */
+BeefChickenRoll::BeefChickenRoll():Product(50, "Beff Chicken Roll"){
 	n_beefchickenroll++;
 }
 
@@ -12,6 +18,6 @@ BeffChickenRoll::BeffChickenRoll():Product(50, "Beff Chicken Roll"){
  * @brief Destroy the Beef Chicken Roll object
  * 
  */
-BeffChickenRoll::~BeefChickenRoll(){
+BeefChickenRoll::~BeefChickenRoll(){
 	n_beefchickenroll--;
 }

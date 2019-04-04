@@ -21,7 +21,16 @@ using namespace std;
  * @brief Create the Farm Product object
  * 
  */
-virtual Product::Product(int theprice, string thename){
+Product::Product(){
+	price = 0;
+	strcpy(name,"product stub");
+}
+
+/**
+ * @brief Create the Farm Product object
+ * 
+ */
+Product::Product(int theprice, char* thename){
 	price = theprice;
 	strcpy(name,thename);
 }
@@ -31,7 +40,7 @@ virtual Product::Product(int theprice, string thename){
  * 
  * @return string 
  */
-virtual string Product::getName(){
+string Product::getName(){
 	return name;
 }
 
@@ -40,7 +49,7 @@ virtual string Product::getName(){
  * 
  * @return int 
  */
-virtual int Product::getPrice(){
+int Product::getPrice(){
 	return price;
 }
 
@@ -48,6 +57,6 @@ virtual int Product::getPrice(){
  * @brief Set the Name object
  * 
  */
-virtual void Product::setName(string newname){
+void Product::setName(char* newname){
 	strcpy(name, newname);
 }
