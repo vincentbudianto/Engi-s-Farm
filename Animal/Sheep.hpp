@@ -43,11 +43,44 @@ class Sheep: public IProducing, public KProducing, public Renderable
 		~Sheep();
 
 		/**
-		 * @brief function to get Mutton
+		 * @brief Get the Name object
 		 * 
 		 * @return string 
 		 */
-		string killProduct();
+		virtual string getName() const;
+
+		/**
+		 * @brief Get the Hungry object
+		 * 
+		 * @return boolean 
+		 */
+		virtual bool getHungry() const;
+
+		/**
+		 * @brief Set the Name object
+		 * 
+		 */
+		virtual void setName(string);
+
+		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
+		virtual int getX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
+		virtual int getY();
+
+		/**
+		 * @brief function to get Mutton
+		 * 
+		 */
+		void killProduct();
 
 		/**
 		 * @brief Method for the animal to eat
@@ -80,6 +113,9 @@ class Sheep: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		static int n_sheep;
+		string name, voice;
+		bool hungry;
+		int umur, x, y;
 };
 
 #endif

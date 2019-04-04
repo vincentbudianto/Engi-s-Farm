@@ -41,20 +41,52 @@ class Duck: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		~Duck();
-		
+
 		/**
-		 * @brief Function to get DuckEgg
+		 * @brief Get the Name object
 		 * 
 		 * @return string 
 		 */
-		string interactProduct();
+		virtual string getName() const;
+
+		/**
+		 * @brief Get the Hungry object
+		 * 
+		 * @return boolean 
+		 */
+		virtual bool getHungry() const;
+
+		/**
+		 * @brief Set the Name object
+		 * 
+		 */
+		virtual void setName(string);
+
+		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
+		virtual int getX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
+		virtual int getY();
+
+		/**
+		 * @brief Function to get DuckEgg
+		 * 
+		 */
+		void interactProduct();
 
 		/**
 		 * @brief Function to get DuckMeat
 		 * 
-		 * @return string 
 		 */
-		string killProduct();
+		void killProduct();
 
 		/**
 		 * @brief Method for the animal to eat
@@ -87,6 +119,9 @@ class Duck: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		static int n_duck;
+		string name, voice;
+		bool hungry;
+		int umur, x, y;
 };
 
 #endif

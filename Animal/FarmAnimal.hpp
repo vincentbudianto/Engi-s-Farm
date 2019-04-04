@@ -32,40 +32,6 @@ class FarmAnimal
 		 * 
 		 */
 		virtual ~FarmAnimal();
-		
-		/**
-		 * @brief Get the Name object
-		 * 
-		 * @return string 
-		 */
-		virtual string getName() const;
-
-		/**
-		 * @brief Get the Hungry object
-		 * 
-		 * @return boolean 
-		 */
-		virtual bool getHungry() const;
-
-		/**
-		 * @brief Set the Name object
-		 * 
-		 */
-		virtual void setName(string);
-
-		/**
-		 * @brief Get the X object
-		 * 
-		 * @return int 
-		 */
-		virtual int getX();
-
-		/**
-		 * @brief Get the Y object
-		 * 
-		 * @return int 
-		 */
-		virtual int getY();
 
 		/**
 		 * @brief method for the animal to eat
@@ -91,11 +57,6 @@ class FarmAnimal
 		 * @return char 
 		 */
 		virtual char render() = 0;
-	
-	protected:
-		string name;
-		bool hungry;
-		int umur, x, y;
 };
 
 #endif
