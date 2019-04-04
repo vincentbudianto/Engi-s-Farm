@@ -15,6 +15,7 @@
 #ifndef SIDEPRODUCT_HPP
 #define SIDEPRODUCT_HPP
 
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -23,38 +24,9 @@ using namespace std;
  * @brief SideProduct parent class
  * 
  */
-class SideProduct:
+class SideProduct: public Product
 {
-	public:
-		/**
-		 * @brief Destroy the Side Product object
-		 * 
-		 */
-		virtual ~SideProduct();
-		
-		/**
-		 * @brief Get the Name object
-		 * 
-		 * @return int 
-		 */
-		virtual int getName();
-
-		/**
-		 * @brief Get the Price object
-		 * 
-		 * @return int 
-		 */
-		virtual int getPrice();
-
-		/**
-		 * @brief Set the Name object
-		 * 
-		 */
-		virtual void setName(string);
 	
-	protected:
-		string name;
-		int price;
 };
 
 #endif
