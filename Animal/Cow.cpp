@@ -24,7 +24,8 @@ int Cow::n_cow = 0;
  */
 Cow::Cow(string name)
 {
-    this->name = name;
+    this->name = new char[15];
+    strcpy(this->name,name);
     this->voice = "Moo";
     this->hungry = false;
     this->umur = 70;
@@ -175,5 +176,12 @@ void Cow::sound()
  */
 char Cow::render()
 {
-    return 'C';
+    if (this->hungry)
+    {
+		return 'c';
+	}
+	else
+	{
+		return 'C';
+	}
 }

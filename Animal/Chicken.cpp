@@ -24,7 +24,8 @@ int Chicken::n_chicken = 0;
  */
 Chicken::Chicken(string name)
 {
-    this->name = name;
+    this->name = new char[15];
+    strcpy(this->name,name);
     this->voice = "Petok";
     this->hungry = false;
     this->umur = 30;
@@ -175,5 +176,12 @@ void Chicken::sound()
  */
 char Chicken::render()
 {
-    return 'c';
+    if (this->hungry)
+    {
+		return 'r';
+	}
+	else
+	{
+		return 'R';
+	}
 }
