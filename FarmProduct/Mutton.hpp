@@ -15,16 +15,16 @@
 #ifndef MUTTON_HPP
 #define MUTTON_HPP
 
-#include "FarmProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for FarmProduct
+ * @brief Real class for Product
  * 
  */
-class Mutton : public FarmProduct
+class Mutton : public Product
 {
 	public:
 		/**

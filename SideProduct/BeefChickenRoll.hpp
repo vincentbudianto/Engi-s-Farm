@@ -15,16 +15,16 @@
 #ifndef BEEFCHICKENROLL_HPP
 #define BEEFCHICKENROLL_HPP
 
-#include "SideProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for SideProduct
+ * @brief Real class for Product
  * 
  */
-class BeefChickenRoll : public SideProduct
+class BeefChickenRoll : public Product
 {
 	public:
 		/**

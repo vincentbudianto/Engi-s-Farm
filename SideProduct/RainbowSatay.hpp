@@ -15,16 +15,16 @@
 #ifndef RAINBOWSATAY_HPP
 #define RAINBOWSATAY_HPP
 
-#include "SideProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for SideProduct
+ * @brief Real class for Product
  * 
  */
-class RainbowSatay : public SideProduct
+class RainbowSatay : public Product
 {
 	public:
 		/**

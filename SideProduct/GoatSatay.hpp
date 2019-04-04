@@ -15,16 +15,16 @@
 #ifndef GOATSATAY_HPP
 #define GOATSATAY_HPP
 
-#include "SideProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for SideProduct
+ * @brief Real class for Product
  * 
  */
-class GoatSatay : public SideProduct
+class GoatSatay : public Product
 {
 	public:
 		/**

@@ -23,7 +23,7 @@ using namespace std;
 Player::Player(string nama)
 {
     this->name = nama;
-    this->inventory = new string[10]; /* Starting inventory cap */
+    this->inventory = new Product[10]; /* Starting inventory cap */
     this->money = 500; /* Starting money */
     this->water = 10; /* Starting water amount */
     this->x = 0; /* Start location */
@@ -47,9 +47,9 @@ string Player::getName() { return this->name; }
  * @brief Get the Inventory object from index i
  * 
  * @param i 
- * @return string 
+ * @return Product 
  */
-string Player::getInventory(int i) { return this->inventory[i]; }
+Product Player::getInventory(int i) { return this->inventory[i]; }
 
 /**
  * @brief Get the Money object
@@ -156,28 +156,4 @@ void Player::dealTruck(int valid) {
         cout << "TBD!!" << endl;
     }else
         cout << "Truk belum kembali dari pabrik" << endl;
-}
-
-/**
- * @brief Method to create SideProduct
- * 
- * @return SideProduct 
- */
-void Player::mixStuffs(Cell mixer){
-    int n;
-    cin >> n;
-    string* ingredients = new string[n];
-    int* ids = new int[n];
-
-    for(int i = 0; i < n; i++)
-        cin >> ids[i];
-
-    for(int i = 0; i < n; i++)
-        strcpy(ingredients[i],inventory[ids[i]]);
-
-    if(mixer.isMixable(ingredients)){
-
-    }else{
-
-    }
 }

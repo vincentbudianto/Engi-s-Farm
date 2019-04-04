@@ -15,16 +15,16 @@
 #ifndef HORSEMILK_HPP
 #define HORSEMILK_HPP
 
-#include "FarmProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for FarmProduct
+ * @brief Real class for Product
  * 
  */
-class HorseMilk : public FarmProduct
+class HorseMilk : public Product
 {
 	public:
 		/**

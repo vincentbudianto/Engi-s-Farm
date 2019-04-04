@@ -29,7 +29,7 @@ class Cell : public Renderable
 		 * 
 		 * @return char Method to render object character to map
 		 */
-		char render(){}
+		char render();
 };
 
 #endif

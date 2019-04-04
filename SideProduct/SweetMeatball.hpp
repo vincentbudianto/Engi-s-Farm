@@ -15,12 +15,12 @@
 #ifndef SWEETMEATBALL_HPP
 #define SWEETMEATBALL_HPP
 
-#include "SideProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-class SweetMeatball : public SideProduct
+class SweetMeatball : public Product
 {
 	public:
 		/**

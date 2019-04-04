@@ -17,6 +17,7 @@
 
 #include "Renderable.hpp"
 #include "Cell.hpp"
+#include "Product.hpp"
 #include "Facility/Mixer.hpp"
 #include "SideProduct/SideProduct.hpp"
 #include <iostream>
@@ -53,9 +54,9 @@ class Player: public Renderable
 		 * @brief Get the Inventory object from index i
 		 * 
 		 * @param i 
-		 * @return string 
+		 * @return Product 
 		 */
-		string getInventory(int i);
+		Product getInventory(int i);
 
 		/**
 		 * @brief Get the Money object
@@ -139,17 +140,10 @@ class Player: public Renderable
 		 * 
 		 */
 		void Player::dealTruck(int valid);
-
-		/**
-		 * @brief Method to create SideProduct
-		 * 
-		 * @return SideProduct 
-		 */
-		SideProduct Player::mixStuffs(FarmProduct*);
 	
 	private:
 		string name;
-		string* inventory;
+		Product* inventory;
 		int money, water, x, y;
 };
 

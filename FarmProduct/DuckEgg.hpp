@@ -15,16 +15,16 @@
 #ifndef DUCKEGG_HPP
 #define DUCKEGG_HPP
 
-#include "FarmProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for FarmProduct
+ * @brief Real class for Product
  * 
  */
-class DuckEgg : public FarmProduct
+class DuckEgg : public Product
 {
 	public:
 		/**

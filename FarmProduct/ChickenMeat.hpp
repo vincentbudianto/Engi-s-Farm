@@ -15,16 +15,16 @@
 #ifndef CHICKENMEAT_HPP
 #define CHICKENMEAT_HPP
 
-#include "FarmProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for FarmProduct
+ * @brief Real class for Product
  * 
  */
-class ChickenMeat : public FarmProduct
+class ChickenMeat : public Product
 {
 	public:
 		/**

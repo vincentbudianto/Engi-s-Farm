@@ -15,16 +15,16 @@
 #ifndef JUUSTOLIPACHEESE_HPP
 #define JUUSTOLIPACHEESE_HPP
 
-#include "SideProduct.hpp"
+#include "../Product.hpp"
 #include <iostream>
 #include <string.h>
 using namespace std;
 
 /**
- * @brief Real class for SideProduct
+ * @brief Real class for Product
  * 
  */
-class JuustolipaCheese : public SideProduct
+class JuustolipaCheese : public Product
 {
 	public:
 		/**
