@@ -43,18 +43,50 @@ class Chicken: public IProducing, public KProducing, public Renderable
 		~Chicken();
 
 		/**
-		 * @brief Function to get ChickenEgg
+		 * @brief Get the Name object
 		 * 
 		 * @return string 
 		 */
-		string interactProduct();
+		string getName() const;
+
+		/**
+		 * @brief Get the Hungry object
+		 * 
+		 * @return boolean 
+		 */
+		bool getHungry() const;
+
+		/**
+		 * @brief Set the Name object
+		 * 
+		 */
+		void setName(string);
+
+		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
+		int getX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
+		int getY();
+
+		/**
+		 * @brief Function to get ChickenEgg
+		 * 
+		 */
+		void interactProduct();
 
 		/**
 		 * @brief Function to get ChickenMeat
 		 * 
-		 * @return string 
 		 */
-		string killProduct();
+		void killProduct();
 
 		/**
 		 * @brief Method for the animal to eat
@@ -87,6 +119,9 @@ class Chicken: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		static int n_chicken;
+		string name, voice;
+		bool hungry;
+		int umur, x, y;
 };
 
 #endif

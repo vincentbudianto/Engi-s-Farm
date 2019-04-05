@@ -40,13 +40,46 @@ class Horse: public IProducing, public Renderable
 		 * 
 		 */
 		~Horse();
-		
+
 		/**
-		 * @brief function to get HorseMilk
+		 * @brief Get the Name object
 		 * 
 		 * @return string 
 		 */
-		string interactProduct();
+		virtual string getName() const;
+
+		/**
+		 * @brief Get the Hungry object
+		 * 
+		 * @return boolean 
+		 */
+		virtual bool getHungry() const;
+
+		/**
+		 * @brief Set the Name object
+		 * 
+		 */
+		virtual void setName(string);
+
+		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
+		virtual int getX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
+		virtual int getY();
+
+		/**
+		 * @brief function to get HorseMilk
+		 * 
+		 */
+		void interactProduct();
 
 		/**
 		 * @brief Method for the animal to eat
@@ -79,6 +112,9 @@ class Horse: public IProducing, public Renderable
 		 * 
 		 */
 		static int n_horse;
+		string name, voice;
+		bool hungry;
+		int umur, x, y;
 };
 
 #endif

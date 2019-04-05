@@ -43,18 +43,50 @@ class Goat: public IProducing, public KProducing, public Renderable
 		~Goat();
 
 		/**
-		 * @brief function to get GoatMilk
+		 * @brief Get the Name object
 		 * 
 		 * @return string 
 		 */
-		string interactProduct();
+		virtual string getName() const;
+
+		/**
+		 * @brief Get the Hungry object
+		 * 
+		 * @return boolean 
+		 */
+		virtual bool getHungry() const;
+
+		/**
+		 * @brief Set the Name object
+		 * 
+		 */
+		virtual void setName(string);
+
+		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
+		virtual int getX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
+		virtual int getY();
+
+		/**
+		 * @brief function to get GoatMilk
+		 * 
+		 */
+		void interactProduct();
 
 		/**
 		 * @brief function to get GoatMeat
 		 * 
-		 * @return string 
 		 */
-		string killProduct();
+		void killProduct();
 
 		/**
 		 * @brief Method for the animal to eat
@@ -87,6 +119,9 @@ class Goat: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		static int n_goat;
+		string name, voice;
+		bool hungry;
+		int umur, x, y;
 };
 
 #endif
