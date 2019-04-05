@@ -33,6 +33,10 @@ Cell*** cell;
 Chicken** chickens;
 Cow** cows;
 
+char closestAnimal;
+int animalY;
+int animalX;
+
 int row = 10;
 int col = 11;
 
@@ -136,9 +140,32 @@ void drawPlayerStatus(){
 	cout << endl;	
 }
 
-int main(){
+void makeTalk(){
+	if(closestAnimal == 'c' or closestAnimal == 'C'){
+		chickens[0]->sound();
+	}else if(closestAnimal == 'q' or closestAnimal == 'Q'){
+		cows[0]->sound();
+	}
+}
 
-	string direction;
+void execute(string command){
+	if(!command.compare("left") or !command.compare("right") or !command.compare("up") or  !command.compare("down")){
+		p->move(command,map,row,col);
+	}else if(!command.compare("talk")){
+		closestAnimal = p->talk(map,row,col);
+		animalX = p->getSurroundingY();
+		animalY = p->getSurroundingX();
+		if(closestAnimal == '.'){
+			cout << "No Animals" << endl;
+		}else{
+			makeTalk();
+		}
+		usleep(2000000);
+	}
+}
+
+int main(){
+	string command;
 	initCell();
 	initAnimal();
 
@@ -146,11 +173,14 @@ int main(){
 		updateMap();
 		drawMap();
 		drawPlayerStatus();
+
 		cout << "Command: ";
-		cin >> direction;
-		p->move(direction,map,row,col);
+		cin >> command;
+		execute(command);
+
 		moveEntity();
-		// system("clear");
+
+		system("clear");
 	}
 
 	return 0;

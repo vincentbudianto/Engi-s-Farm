@@ -181,7 +181,7 @@ void Cow::move(char** map, int row, int col)
  */
 void Cow::sound()
 {
-    cout << "Chicken " << this->id << ": " << this->voice << endl;
+    cout << this->voice << endl;
 }
 
 /**

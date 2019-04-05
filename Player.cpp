@@ -32,6 +32,8 @@ Player::Player(char* name)
     this->y = 7;
     this->inventoryEff = 0;
     this->inventory = new Product[10];
+    this->surroundingY = 0;
+    this->surroundingX = 1;
 }
 
 /**
@@ -93,6 +95,20 @@ int Player::getX() { return this->x; }
 int Player::getY() { return this->y; }
 
 /**
+ * @brief Get the X object
+ * 
+ * @return int 
+ */
+int Player::getSurroundingX() { return this->surroundingX; }
+
+/**
+ * @brief Get the Y object
+ * 
+ * @return int 
+ */
+int Player::getSurroundingY() { return this->surroundingY; }
+
+/**
  * @brief Method for the player to move
  * 
  */
@@ -132,18 +148,77 @@ int Player::stepable(char next)
 }
 
 /**
+ * @brief Method for the player to check the Animals
+ * 
+ */
+int Player::isAnimal(char animal)
+{
+    int valid = 0;
+    valid  = (animal == 'c' or animal == 'C');
+    valid  = valid or (animal == 'q' or animal == 'Q');
+    return valid;
+}
+
+/**
+ * @brief Method for the player to see to Surrounding Animals
+ * 
+ */
+char Player::seeAnimal(char** map, int row, int col)
+{
+
+    char temp = '.';
+    char animal = temp;
+
+    if(x + 1 < col){
+        temp = map[getY()][getX()+1];
+        if(isAnimal(temp)){
+            animal = temp;
+            this->surroundingY = getY();
+            this->surroundingX = getX();
+        }
+    }
+    if(x - 1 >= 0){
+        temp = map[getY()][getX()-1];
+        if(isAnimal(temp)){
+            animal = temp;
+            this->surroundingY = getY();
+            this->surroundingX = getX();
+        }
+    }
+    if(y + 1 < row){
+        temp = map[getY()+1][getX()];
+        if(isAnimal(temp)){
+            animal = temp;
+            this->surroundingY = getY();
+            this->surroundingX = getX();
+        }
+    }
+    if(y - 1 >= 0){
+        temp = map[getY()-1][getX()];
+        if(isAnimal(temp)){
+            animal = temp;
+            this->surroundingY = getY();
+            this->surroundingX = getX();
+        }
+    }
+
+    return animal;
+}
+
+/**
  * @brief Method for the player to talk to FarmAnimal
  * 
  */
-void Player::talk()
-{}
+char Player::talk(char** map, int row, int col)
+{
+    return seeAnimal(map, row, col);
+}
 
 /**
  * @brief Method for the player to kill FarmAnimal
  * 
  */
-void Player::kill()
-{}
+void Player::kill(){}
 
 /**
  * @brief Method for the player to interact with FarmAnimal

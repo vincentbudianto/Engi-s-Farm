@@ -93,6 +93,20 @@ class Player: public Cell
 		int getY();
 		
 		/**
+		 * @brief Get the X object
+		 * 
+		 * @return int 
+		 */
+		int getSurroundingX();
+
+		/**
+		 * @brief Get the Y object
+		 * 
+		 * @return int 
+		 */
+		int getSurroundingY();
+
+		/**
 		 * @brief Method for the player to move
 		 * 
 		 */
@@ -104,12 +118,24 @@ class Player: public Cell
 		 * @return int
 		 */
 		int stepable(char);
+
+		/**
+		 * @brief Method for the player to check the Animals
+		 * 
+		 */
+		int isAnimal(char animal);
+
+		/**
+		 * @brief Method for the player to see to Surrounding Animals
+		 * 
+		 */
+		char seeAnimal(char** map, int row, int col);
 		
 		/**
 		 * @brief Method for the player to talk to FarmAnimal
 		 * 
 		 */
-		void talk();
+		char talk(char** map, int row, int col);
 
 		/**
 		 * @brief Method for the player to kill FarmAnimal
@@ -159,6 +185,8 @@ class Player: public Cell
 		Product* inventory;
 		int inventoryEff;
 		int money, water, x, y;
+		int surroundingY;
+		int surroundingX;
 };
 
 #endif
