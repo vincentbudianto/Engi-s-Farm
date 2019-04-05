@@ -30,8 +30,8 @@ Player::Player(char* name)
     strcpy(this->name,name);
     this->money = 500;
     this->water = 10;
-    this->x = 2;
-    this->y = 7;
+    this->x = 3;
+    this->y = 3;
     this->inventoryEff = 0;
     this->inventory = new Product*[10];
     this->surroundingY = 0;

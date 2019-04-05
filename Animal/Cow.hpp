@@ -102,6 +102,12 @@ class Cow: public IProducing, public KProducing, public Renderable
 		void move(char**,int,int);
 
 		/**
+		 * @brief Method to get starvation status
+		 * 
+		 */
+		bool getStarvation();
+		
+		/**
 		 * @brief Method for the animal to voice
 		 * 
 		 */
@@ -122,8 +128,8 @@ class Cow: public IProducing, public KProducing, public Renderable
 		static int n_cow;
 		int id;
 		char* voice;
-		bool hungry;
-		int umur, x, y;
+		bool hungry, starving;
+		int umur, x, y, tick;
 };
 
 #endif

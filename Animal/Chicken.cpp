@@ -35,6 +35,8 @@ Chicken::Chicken(int id, int x, int y)
     this->umur = 30;
     this->x = x;
     this->y = y;
+    this->tick = 0;
+    this->starving = false;
     n_chicken++;
 }
 
@@ -174,6 +176,22 @@ void Chicken::move(char** map, int row, int col)
             this->x--;
         }
     }
+
+    if(tick == 5){
+        hungry = true;
+    }else if(tick >= 10 and hungry){
+        starving = true;
+    }
+    tick++;
+}
+
+/**
+ * @brief Method to get starvation status
+ * 
+ */
+bool Chicken::getStarvation()
+{
+    return starving;
 }
 
 /**

@@ -105,6 +105,12 @@ class Chicken: public IProducing, public KProducing
 		void sound();
 
 		/**
+		 * @brief Method to get starvation status
+		 * 
+		 */
+		bool getStarvation();
+
+		/**
 		 * @brief Method to render the animal to map
 		 * 
 		 * @return char 
@@ -119,8 +125,8 @@ class Chicken: public IProducing, public KProducing
 		static int n_chicken;
 		int id;
 		char* voice;
-		bool hungry;
-		int umur, x, y;
+		bool hungry, starving;
+		int umur, x, y, tick;
 };
 
 #endif
