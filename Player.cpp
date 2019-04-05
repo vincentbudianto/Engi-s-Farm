@@ -305,7 +305,12 @@ void Player::interact(char subject)
  * 
  */
 void Player::grow()
-{}
+{
+    if(this->water >= 5)
+        this->water -= 5;
+    else
+        cout << "Not enough water" << endl;
+}
 
 /**
  * @brief Method for the player to interact with mixer
@@ -325,8 +330,8 @@ char Player::render() { return 'P'; }
  * @brief Method to fill water
  * 
  */
-void Player::setWater() { 
-    if(this->water <= 50)
+void Player::setWater() {
+    if(this->water < 50)
         this->water += 10;
     else
         cout << "Kapasitas wadah air penuh!" << endl;

@@ -300,6 +300,9 @@ void execute(string command){
 			makeAInteraction();
 		}
 		usleep(2000000);
+	}else if(!command.compare("grow")){
+		p->grow();
+		cell[p->getY()][p->getX()]->setGrassStatus(1);
 	}
 }
 
