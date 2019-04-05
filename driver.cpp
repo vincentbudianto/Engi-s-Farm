@@ -127,7 +127,7 @@ void moveEntity(){
 void drawPlayerStatus(){
 	cout << "Inventory" << endl;
 	for(int i = 0; i < p->getInventoryEff(); i++){
-		cout << "- " << p->getInventory(i).getName() << endl;
+		cout << "- " << p->getInventory(i)->getName() << endl;
 	}
 	if(!p->getInventoryEff())
 		cout << "- Inventory is empty" << endl;
@@ -148,6 +148,35 @@ void makeTalk(){
 	}
 }
 
+void killAnimal(){
+	int id = -1;
+	if(closestAnimal == 'c' or closestAnimal == 'C'){
+		for(int i = 0; i < chickenlen; i++){
+			if(chickens[i]->getY() == animalY and chickens[i]->getX() == animalX)
+				id = i;
+		}
+
+		// delete chickens[id];
+		if(chickenlen > 1){
+			chickens[id] = chickens[chickenlen-1];
+			chickens[chickenlen-1] = NULL;
+		}
+		chickenlen--;
+	}else if(closestAnimal == 'q' or closestAnimal == 'Q'){
+		for(int i = 0; i < cowlen; i++){
+			if(cows[i]->getY() == animalY and cows[i]->getX() == animalX)
+				id = i;
+		}
+
+		// delete cows[id];
+		if(cowlen > 1){
+			cows[id] = cows[cowlen-1];
+			cows[cowlen-1] = NULL;
+		}
+		cowlen--;
+	}
+}
+
 void execute(string command){
 	if(!command.compare("left") or !command.compare("right") or !command.compare("up") or  !command.compare("down")){
 		p->move(command,map,row,col);
@@ -159,6 +188,17 @@ void execute(string command){
 			cout << "No Animals" << endl;
 		}else{
 			makeTalk();
+		}
+		usleep(2000000);
+	}else if(!command.compare("kill")){
+		closestAnimal = p->seeAnimal(map,row,col);
+		animalX = p->getSurroundingY();
+		animalY = p->getSurroundingX();
+		if(closestAnimal == '.'){
+			cout << "No Animals" << endl;
+		}else{
+			killAnimal();
+			p->kill(closestAnimal);
 		}
 		usleep(2000000);
 	}

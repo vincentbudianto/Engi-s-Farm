@@ -13,6 +13,8 @@
  * Deskripsi : File Player.cpp, realisasi kelas Player */
 
 #include "Player.hpp"
+#include "FarmProduct/ChickenMeat.hpp"
+#include "FarmProduct/Beef.hpp"
 #include "Facility/Truck.hpp"
 #include <iostream>
 #include <string.h>
@@ -31,9 +33,9 @@ Player::Player(char* name)
     this->x = 2;
     this->y = 7;
     this->inventoryEff = 0;
-    this->inventory = new Product[10];
+    this->inventory = new Product*[10];
     this->surroundingY = 0;
-    this->surroundingX = 1;
+    this->surroundingX = 0;
 }
 
 /**
@@ -57,7 +59,7 @@ char* Player::getName() { return this->name; }
  * @param i 
  * @return Product 
  */
-Product Player::getInventory(int i) { return this->inventory[i]; }
+Product* Player::getInventory(int i) { return this->inventory[i]; }
 
 /**
  * @brief Get the Inventory's effective length
@@ -218,7 +220,18 @@ char Player::talk(char** map, int row, int col)
  * @brief Method for the player to kill FarmAnimal
  * 
  */
-void Player::kill(){}
+void Player::kill(char animal){
+    if(inventoryEff < 10){
+        if(animal == 'c' or animal == 'C'){
+            inventory[inventoryEff] = new ChickenMeat();
+            inventoryEff++;
+        }else if(animal == 'q' or animal == 'Q'){
+            inventory[inventoryEff] = new Beef();
+            inventoryEff++;
+        }
+    }else
+        cout << "Tas Penuh" << endl;
+}
 
 /**
  * @brief Method for the player to interact with FarmAnimal

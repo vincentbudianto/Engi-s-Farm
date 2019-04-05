@@ -55,7 +55,7 @@ class Player: public Cell
 		 * @param i 
 		 * @return Product 
 		 */
-		Product getInventory(int i);
+		Product* getInventory(int i);
 
 		/**
 		 * @brief Get the Inventory's effective length
@@ -141,7 +141,7 @@ class Player: public Cell
 		 * @brief Method for the player to kill FarmAnimal
 		 * 
 		 */
-		void kill();
+		void kill(char);
 
 		/**
 		 * @brief Method for the player to interact with FarmAnimal
@@ -182,7 +182,7 @@ class Player: public Cell
 	
 	private:
 		char* name;
-		Product* inventory;
+		Product** inventory;
 		int inventoryEff;
 		int money, water, x, y;
 		int surroundingY;

@@ -112,7 +112,7 @@ void Chicken::interactProduct()
  */
 void Chicken::killProduct()
 {
-    // ChickenMeat();
+    
 }
 
 /**

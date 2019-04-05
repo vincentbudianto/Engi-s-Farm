@@ -38,8 +38,7 @@ class ChickenMeat : public Product
 		 * 
 		 */
 		~ChickenMeat();
-	
-	private:
+
 		/**
 		 * @brief Counter for ChickenMeat in player's inventory
 		 * 
