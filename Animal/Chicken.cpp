@@ -194,10 +194,10 @@ char Chicken::render()
 {
     if (this->hungry)
     {
-		return 'r';
+		return 'c';
 	}
 	else
 	{
-		return 'R';
+		return 'C';
 	}
 }

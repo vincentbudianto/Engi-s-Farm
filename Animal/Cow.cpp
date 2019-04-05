@@ -181,10 +181,10 @@ char Cow::render()
 {
     if (this->hungry)
     {
-		return 'c';
+		return 'q';
 	}
 	else
 	{
-		return 'C';
+		return 'Q';
 	}
 }
