@@ -16,6 +16,7 @@
 // #include "CowMilk.hpp"
 // #include "Beef.hpp"
 #include <string.h>
+#include <random>
 using namespace std;
 
 int Cow::n_cow = 0;
@@ -126,37 +127,48 @@ void Cow::eat()
  * @brief Method for the animal to move
  * 
  */
-void Cow::move()
+void Cow::move(char** map, int row, int col)
 {
-    bool valid;
-    int r;
+    int turn;
+    char next = '.';
 
-    r = (rand() % 4) + 1;
+    random_device dev;
+    mt19937 rng(dev());
+    uniform_int_distribution<mt19937::result_type> dist6(1,4);
+    turn = dist6(rng);
 
-    if (r = 1)
+    if (turn == 1)
     {
-        if (valid)
+        if(this->y + 1 < row)
+            next = map[this->y+1][this->x];
+        if (next == 'x' or next == '@')
         {
             this->y++;
         }
     }
-    else if (r = 2)
+    else if (turn == 2)
     {
-        if (valid)
+        if(this->x + 1 < col)
+            next = map[this->y][this->x+1];
+        if (next == 'x' or next == '@')
         {
             this->x++;
         }
     }
-    else if (r = 3)
+    else if (turn == 3)
     {
-        if (valid)
+        if(this->y - 1 >= 0)
+            next = map[this->y-1][this->x];
+        if (next == 'x' or next == '@')
         {
             this->y--;
         }
     }
-    else if (r = 4)
+    else if (turn == 4)
     {
-        if (valid)
+        if(this->x - 1 >= 0)
+            next = map[this->y][this->x-1];
+        if (next == 'x' or next == '@')
         {
             this->x--;
         }

@@ -99,7 +99,7 @@ class Cow: public IProducing, public KProducing, public Renderable
 		 * @brief Method for the animal to move
 		 * 
 		 */
-		void move();
+		void move(char**,int,int);
 
 		/**
 		 * @brief Method for the animal to voice

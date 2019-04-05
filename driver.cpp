@@ -111,10 +111,10 @@ void moveEntity(){
 		chickens[i]->move(map,row,col);
 		updateMap();
 	}
-	// for(int i = 0; i < cowlen; i++){
-	// 	cows[i]->move(map);
-	// 	updateMap();
-	// }
+	for(int i = 0; i < cowlen; i++){
+		cows[i]->move(map,row,col);
+		updateMap();
+	}
 }
 
 void drawPlayerStatus(){
