@@ -23,7 +23,8 @@ int Horse::n_horse = 0;
  */
 Horse::Horse(string name)
 {
-    this->name = name;
+    this->name = new char[15];
+    strcpy(this->name,name);
     this->voice = "Whinny";
     this->hungry = false;
     this->umur = 70;
@@ -165,5 +166,12 @@ void Horse::sound()
  */
 char Horse::render()
 {
-    return 'H';
+    if (this->hungry)
+    {
+		return 'h';
+	}
+	else
+	{
+		return 'H';
+	}
 }

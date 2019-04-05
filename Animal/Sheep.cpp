@@ -23,7 +23,8 @@ int Sheep::n_sheep = 0;
  */
 Sheep::Sheep(string name)
 {
-    this->name = name;
+    this->name = new char[15];
+    strcpy(this->name,name);
     this->voice = "Beee";
     this->hungry = false;
     this->umur = 50;
@@ -165,5 +166,12 @@ void Sheep::sound()
  */
 char Sheep::render()
 {
-    return 'S';
+    if (this->hungry)
+    {
+		return 's';
+	}
+	else
+	{
+		return 'S';
+	}
 }

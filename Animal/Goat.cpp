@@ -24,7 +24,8 @@ int Goat::n_goat = 0;
  */
 Goat::Goat(string name)
 {
-    this->name = name;
+    this->name = new char[15];
+    strcpy(this->name,name);
     this->voice = "Embe";
     this->hungry = false;
     this->umur = 50;
@@ -175,5 +176,12 @@ void Goat::sound()
  */
 char Goat::render()
 {
-    return 'G';
+    if (this->hungry)
+    {
+		return 'g';
+	}
+	else
+	{
+		return 'G';
+	}
 }

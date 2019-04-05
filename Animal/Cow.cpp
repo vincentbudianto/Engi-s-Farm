@@ -179,5 +179,12 @@ void Cow::sound()
  */
 char Cow::render()
 {
-    return 'Q';
+    if (this->hungry)
+    {
+		return 'c';
+	}
+	else
+	{
+		return 'C';
+	}
 }

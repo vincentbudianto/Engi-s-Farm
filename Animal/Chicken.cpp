@@ -192,5 +192,12 @@ void Chicken::sound()
  */
 char Chicken::render()
 {
-    return 'C';
+    if (this->hungry)
+    {
+		return 'r';
+	}
+	else
+	{
+		return 'R';
+	}
 }

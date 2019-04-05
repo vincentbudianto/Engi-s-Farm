@@ -24,7 +24,8 @@ int Duck::n_duck = 0;
  */
 Duck::Duck(string name)
 {
-    this->name = name;
+    this->name = new char[15];
+    strcpy(this->name,name);
     this->voice = "Kwek";
     this->hungry = false;
     this->umur = 30;
@@ -175,5 +176,12 @@ void Duck::sound()
  */
 char Duck::render()
 {
-    return 'd';
+    if (this->hungry)
+    {
+		return 'd';
+	}
+	else
+	{
+		return 'D';
+	}
 }
