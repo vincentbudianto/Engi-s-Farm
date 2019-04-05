@@ -75,13 +75,13 @@ class Chicken: public IProducing, public KProducing
 		int getY();
 
 		/**
-		 * @brief Function to get intractivity
+		 * @brief Function to get interactivity
 		 * 
 		 */
 		bool getInteractivity();
 
 		/**
-		 * @brief Function to set intractivity
+		 * @brief Function to set interactivity
 		 * 
 		 */
 		void setInteractivity(bool);
@@ -131,7 +131,7 @@ class Chicken: public IProducing, public KProducing
 		static int n_chicken;
 		int id;
 		char* voice;
-		bool hungry, starving, intractivity;
+		bool hungry, starving, interactivity;
 		int umur, x, y, tick;
 };
 

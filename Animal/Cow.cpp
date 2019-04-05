@@ -36,7 +36,7 @@ Cow::Cow(int id,int x, int y)
     this->y = y;
     this->tick = 0;
     this->starving = false;
-    this->intractivity = true;
+    this->interactivity = true;
     n_cow++;
 }
 
@@ -100,21 +100,21 @@ int Cow::getY()
 }
 
 /**
- * @brief Function to get intractivity
+ * @brief Function to get interactivity
  * 
  */
 bool Cow::getInteractivity()
 {
-    return intractivity;
+    return interactivity;
 }
 
 /**
- * @brief Function to set intractivity
+ * @brief Function to set interactivity
  * 
  */
 void Cow::setInteractivity(bool stat)
 {
-    intractivity = stat;
+    interactivity = stat;
 }
 
 /**
@@ -133,6 +133,8 @@ void Cow::killProduct()
 void Cow::eat()
 {
     this->hungry = false;
+    this->interactivity = true;
+    this->tick = 0;
 }
 
 /**
