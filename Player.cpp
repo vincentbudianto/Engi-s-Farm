@@ -15,6 +15,8 @@
 #include "Player.hpp"
 #include "FarmProduct/ChickenMeat.hpp"
 #include "FarmProduct/Beef.hpp"
+#include "FarmProduct/ChickenEgg.hpp"
+#include "FarmProduct/CowMilk.hpp"
 #include "Facility/Truck.hpp"
 #include <iostream>
 #include <string.h>
@@ -30,8 +32,8 @@ Player::Player(char* name)
     strcpy(this->name,name);
     this->money = 500;
     this->water = 10;
-    this->x = 3;
-    this->y = 3;
+    this->x = 2;
+    this->y = 2;
     this->inventoryEff = 0;
     this->inventory = new Product*[10];
     this->surroundingY = 0;
@@ -176,7 +178,7 @@ char Player::seeAnimal(char** map, int row, int col)
         if(isAnimal(temp)){
             animal = temp;
             this->surroundingY = getY();
-            this->surroundingX = getX();
+            this->surroundingX = getX() + 1;
         }
     }
     if(x - 1 >= 0){
@@ -184,14 +186,14 @@ char Player::seeAnimal(char** map, int row, int col)
         if(isAnimal(temp)){
             animal = temp;
             this->surroundingY = getY();
-            this->surroundingX = getX();
+            this->surroundingX = getX() - 1;
         }
     }
     if(y + 1 < row){
         temp = map[getY()+1][getX()];
         if(isAnimal(temp)){
             animal = temp;
-            this->surroundingY = getY();
+            this->surroundingY = getY() + 1;
             this->surroundingX = getX();
         }
     }
@@ -199,7 +201,7 @@ char Player::seeAnimal(char** map, int row, int col)
         temp = map[getY()-1][getX()];
         if(isAnimal(temp)){
             animal = temp;
-            this->surroundingY = getY();
+            this->surroundingY = getY() - 1;
             this->surroundingX = getX();
         }
     }
@@ -237,13 +239,18 @@ void Player::kill(char animal){
  * @brief Method for the player to interact with FarmAnimal
  * 
  */
-char Player::interact(Cell c)
+void Player::interact(char subject)
 {
-    // switch(c.render()){
-    //     case 'W': setWater(); break;
-    //     case 'T': dealTruck(c); break;
-    // }
-    return c.render();
+    if(inventoryEff < 10){
+        if(subject == 'c' or subject == 'C'){
+            inventory[inventoryEff] = new ChickenEgg();
+            inventoryEff++;
+        }else if(subject == 'q' or subject == 'Q'){
+            inventory[inventoryEff] = new CowMilk();
+            inventoryEff++;
+        }
+    }else
+        cout << "Tas Penuh" << endl;
 }
 
 /**

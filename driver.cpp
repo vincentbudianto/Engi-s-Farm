@@ -141,11 +141,11 @@ void killAnimal(){
 	int id = -1;
 	if(closestAnimal == 'c' or closestAnimal == 'C'){
 		for(int i = 0; i < chickenlen; i++){
-			if(chickens[i]->getY() == closestY and chickens[i]->getX() == closestX)
+			if(chickens[i]->getY() == closestY and chickens[i]->getX() == closestX){
 				id = i;
+			} 
 		}
-
-		// delete chickens[id];
+		
 		if(chickenlen > 1){
 			chickens[id] = chickens[chickenlen-1];
 		}
@@ -157,7 +157,6 @@ void killAnimal(){
 				id = i;
 		}
 
-		// delete cows[id];
 		if(cowlen > 1){
 			cows[id] = cows[cowlen-1];
 		}
@@ -167,7 +166,29 @@ void killAnimal(){
 }
 
 void makeInteraction(){
+	int id = -1;
+	if(closestAnimal == 'c' or closestAnimal == 'C'){
+		for(int i = 0; i < chickenlen; i++){
+			if(chickens[i]->getY() == closestY and chickens[i]->getX() == closestX)
+				id = i;
+		}
 
+		if(chickens[id]->getInteractivity()){
+			chickens[id]->setInteractivity(false);
+			p->interact(closestAnimal);
+		}
+
+	}else if(closestAnimal == 'q' or closestAnimal == 'Q'){
+		for(int i = 0; i < cowlen; i++){
+			if(cows[i]->getY() == closestY and cows[i]->getX() == closestX)
+				id = i;
+		}
+
+		if(cows[id]->getInteractivity()){
+			cows[id]->setInteractivity(false);
+			p->interact(closestAnimal);
+		}
+	}
 }
 
 void moveEntity(){
@@ -225,7 +246,6 @@ void execute(string command){
 			cout << "No Animals" << endl;
 		}else{
 			makeInteraction();
-			// p->interact(closestAnimal);
 		}
 		usleep(2000000);
 	}
@@ -240,11 +260,11 @@ int main(){
 		updateMap();
 		drawMap();
 		drawPlayerStatus();
-		moveEntity();
 
 		cout << "Command: ";
 		cin >> command;
 		execute(command);
+		moveEntity();
 
 
 		system("clear");

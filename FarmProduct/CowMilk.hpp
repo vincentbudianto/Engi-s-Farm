@@ -38,8 +38,7 @@ class CowMilk : public Product
 		 * 
 		 */
 		~CowMilk();
-	
-	private:
+
 		/**
 		 * @brief Counter for CowMilk in player's inventory
 		 * 

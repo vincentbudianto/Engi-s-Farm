@@ -147,7 +147,7 @@ class Player: public Cell
 		 * @brief Method for the player to interact with FarmAnimal
 		 * 
 		 */
-		char interact(Cell c);
+		void interact(char);
 
 		/**
 		 * @brief Method for the player to grow grass
