@@ -13,8 +13,12 @@
  * Deskripsi : Implementasi Chicken.cpp */
 
 #include "Chicken.hpp"
-#include "ChickenEgg.hpp"
-#include "ChickenMeat.hpp"
+// #include "ChickenEgg.hpp"
+// #include "ChickenMeat.hpp"
+#include <string.h>
+#include <random>
+#include <iostream>
+using namespace std;
 
 int Chicken::n_chicken = 0;
 
@@ -22,14 +26,15 @@ int Chicken::n_chicken = 0;
  * @brief Construct a new Chicken object
  * 
  */
-Chicken::Chicken(string name)
+Chicken::Chicken(int id, int x, int y)
 {
-    this->name = name;
-    this->voice = "Petok";
+    this->id = id;
+    this->voice = new char[15];
+    strcpy(this->voice, "Petok");
     this->hungry = false;
     this->umur = 30;
-    this->x = 0;
-    this->y = 0;
+    this->x = x;
+    this->y = y;
     n_chicken++;
 }
 
@@ -39,17 +44,18 @@ Chicken::Chicken(string name)
  */
 Chicken::~Chicken()
 {
-    cout << this->name << "is dead." << endl;
+    delete [] voice;
+    cout << "Chicken " << this->id << "is dead." << endl;
 }
 
 /**
  * @brief Get the Name object
  * 
- * @return string 
+ * @return char* 
  */
-string Chicken::getName() const
+int Chicken::getId() const
 {
-    return this->name;
+    return this->id;
 }
 
 /**
@@ -66,9 +72,9 @@ bool Chicken::getHungry() const
  * @brief Set the Name object
  * 
  */
-void Chicken::setName(string name)
+void Chicken::setId(int id)
 {
-    this->name = name;
+    this->id = id;
 }
 
 /**
@@ -97,7 +103,7 @@ int Chicken::getY()
  */
 void Chicken::interactProduct()
 {
-    ChickenEgg();
+    // ChickenEgg();
 }
 
 /**
@@ -106,7 +112,7 @@ void Chicken::interactProduct()
  */
 void Chicken::killProduct()
 {
-    ChickenMeat();
+    // ChickenMeat();
 }
 
 /**
@@ -122,37 +128,48 @@ void Chicken::eat()
  * @brief Method for the animal to move
  * 
  */
-void Chicken::move()
+void Chicken::move(char** map, int row, int col)
 {
-    bool valid;
-    int r;
+    int turn;
+    char next = '.';
 
-    r = (rand() % 4) + 1;
+    random_device dev;
+    mt19937 rng(dev());
+    uniform_int_distribution<mt19937::result_type> dist6(1,4);
+    turn = dist6(rng);
 
-    if (r = 1)
+    if (turn == 1)
     {
-        if (valid)
+        if(this->y + 1 < row)
+            next = map[this->y+1][this->x];
+        if (next == 'o' or next == '*')
         {
             this->y++;
         }
     }
-    else if (r = 2)
+    else if (turn == 2)
     {
-        if (valid)
+        if(this->x + 1 < col)
+            next = map[this->y][this->x+1];
+        if (next == 'o' or next == '*')
         {
             this->x++;
         }
     }
-    else if (r = 3)
+    else if (turn == 3)
     {
-        if (valid)
+        if(this->y - 1 >= 0)
+            next = map[this->y-1][this->x];
+        if (next == 'o' or next == '*')
         {
             this->y--;
         }
     }
-    else if (r = 4)
+    else if (turn == 4)
     {
-        if (valid)
+        if(this->x - 1 >= 0)
+            next = map[this->y][this->x-1];
+        if (next == 'o' or next == '*')
         {
             this->x--;
         }
@@ -165,7 +182,7 @@ void Chicken::move()
  */
 void Chicken::sound()
 {
-    cout << this->name << ": " << this->voice << endl;
+    cout << "Chicken " << this->id << ": " << this->voice << endl;
 }
 
 /**
@@ -175,5 +192,5 @@ void Chicken::sound()
  */
 char Chicken::render()
 {
-    return 'c';
+    return 'C';
 }

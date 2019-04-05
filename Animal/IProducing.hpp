@@ -32,7 +32,7 @@ class IProducing: public FarmAnimal
 		 * @brief function to get FarmProduct from interact command
 		 * 
 		 */
-		virtual void interactProduct() = 0;
+		virtual void interactProduct();
 };
 
 #endif

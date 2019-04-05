@@ -32,7 +32,7 @@ class KProducing: public FarmAnimal
 		 * @brief function to get FarmProduct from kill command
 		 * 
 		 */
-		virtual void killProduct() = 0;
+		virtual void killProduct();
 };
 
 #endif

@@ -12,7 +12,7 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Grassland.cpp */
 
-#include "Land.hpp"
+#include "../Cell.hpp"
 
 #ifndef GRASSLAND_HPP
 #define GRASSLAND_HPP
@@ -21,15 +21,38 @@
  * @brief Class Grassland for Land
  * 
  */
-class Grassland: public Land
+class Grassland: public Cell
 {
 	public:
+		/**
+		 * @brief Create Barn Object
+		 * 
+		 * @return char 
+		 */
+		Grassland();
+
+		/**
+		 * @brief Return true if there is grass
+		 * 
+		 * @return int 
+		 */
+		int isGrass();
+
+		/**
+		 * @brief Set the Grass Status object
+		 * 
+		 */
+		void setGrassStatus(int gs);
+
 		/**
 		 * @brief Method to render the land type character to map
 		 * 
 		 * @return char 
 		 */
 		char render();
+		
+	private:
+		int grassStatus;
 };
 
 #endif

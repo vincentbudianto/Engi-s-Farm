@@ -24,7 +24,7 @@ using namespace std;
  * @brief FarmAnimal parent class
  * 
  */
-class FarmAnimal
+class FarmAnimal: public Renderable
 {
 	public:
 		/**
@@ -37,26 +37,26 @@ class FarmAnimal
 		 * @brief method for the animal to eat
 		 * 
 		 */
-		virtual void eat() = 0;
+		virtual void eat();
 
 		/**
 		 * @brief method for the animal to move
 		 * 
 		 */
-		virtual void move() = 0;
+		virtual void move();
 
 		/**
 		 * @brief method for the animal to voice
 		 * 
 		 */
-		virtual void sound() = 0;
+		virtual void sound();
 
 		/**
 		 * @brief method to render the animal to map
 		 * 
 		 * @return char 
 		 */
-		virtual char render() = 0;
+		virtual char render();
 };
 
 #endif

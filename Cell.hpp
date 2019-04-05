@@ -30,6 +30,14 @@ class Cell : public Renderable
 		 * @return char Method to render object character to map
 		 */
 		virtual char render();
+
+		/**
+		 * @brief return the grass status
+		 * 
+		 * @return int
+		 */
+		virtual int isGrass();
+		
 };
 
 #endif

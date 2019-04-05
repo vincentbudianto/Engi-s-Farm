@@ -19,4 +19,15 @@
  * 
  * @return char Method to render object character to map
  */
-char Cell::render(){ return 'c';}
+char Cell::render(){
+
+}
+
+/**
+ * @brief return grass status
+ * 
+ * @return int
+ */
+int Cell::isGrass(){
+
+}

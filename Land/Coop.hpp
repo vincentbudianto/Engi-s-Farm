@@ -12,7 +12,7 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Coop.cpp */
 
-#include "Land.hpp"
+#include "../Cell.hpp"
 
 #ifndef COOP_HPP
 #define COOP_HPP
@@ -21,15 +21,38 @@
  * @brief Class Coop for Land
  * 
  */
-class Coop: public Land
+class Coop: public Cell
 {
 	public:
+		/**
+		 * @brief Create Barn Object
+		 * 
+		 * @return char 
+		 */
+		Coop();
+
+		/**
+		 * @brief Return true if there is grass
+		 * 
+		 * @return int 
+		 */
+		int isGrass();
+
+		/**
+		 * @brief Set the Grass Status object
+		 * 
+		 */
+		void setGrassStatus(int gs);
+
 		/**
 		 * @brief Method to render the land type character to map
 		 * 
 		 * @return char 
 		 */
 		char render();
+		
+	private:
+		int grassStatus;
 };
 
 #endif

@@ -15,8 +15,6 @@
 #ifndef CHICKEN_HPP
 #define CHICKEN_HPP
 
-#include "../Renderable.hpp"
-#include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
 #include <iostream>
@@ -27,14 +25,14 @@ using namespace std;
  * @brief Real class for FarmAnimal
  * 
  */
-class Chicken: public IProducing, public KProducing, public Renderable
+class Chicken: public IProducing, public KProducing
 {
 	public:
 		/**
 		 * @brief Construct a new Chicken object
 		 * 
 		 */
-		Chicken(string);
+		Chicken(int,int,int);
 		
 		/**
 		 * @brief Destroy the Chicken object
@@ -45,9 +43,9 @@ class Chicken: public IProducing, public KProducing, public Renderable
 		/**
 		 * @brief Get the Name object
 		 * 
-		 * @return string 
+		 * @return char* 
 		 */
-		string getName() const;
+		int getId() const;
 
 		/**
 		 * @brief Get the Hungry object
@@ -60,7 +58,7 @@ class Chicken: public IProducing, public KProducing, public Renderable
 		 * @brief Set the Name object
 		 * 
 		 */
-		void setName(string);
+		void setId(int);
 
 		/**
 		 * @brief Get the X object
@@ -98,7 +96,7 @@ class Chicken: public IProducing, public KProducing, public Renderable
 		 * @brief Method for the animal to move
 		 * 
 		 */
-		void move();
+		void move(char** map, int row, int col);
 
 		/**
 		 * @brief Method for the animal to voice
@@ -119,7 +117,8 @@ class Chicken: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		static int n_chicken;
-		string name, voice;
+		int id;
+		char* voice;
 		bool hungry;
 		int umur, x, y;
 };

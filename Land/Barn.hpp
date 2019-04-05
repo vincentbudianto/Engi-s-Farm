@@ -12,7 +12,7 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Barn.cpp */
 
-#include "Land.hpp"
+#include "../Cell.hpp"
 
 #ifndef BARN_HPP
 #define BARN_HPP
@@ -21,7 +21,7 @@
  * @brief Class Barn for Land
  * 
  */
-class Barn: public Land
+class Barn: public Cell
 {
 	public:
 		/**
@@ -30,6 +30,19 @@ class Barn: public Land
 		 * @return char 
 		 */
 		Barn();
+
+		/**
+		 * @brief Return true if there is grass
+		 * 
+		 * @return int 
+		 */
+		int isGrass();
+
+		/**
+		 * @brief Set the Grass Status object
+		 * 
+		 */
+		void setGrassStatus(int gs);
 		
 		/**
 		 * @brief Method to render the land type character to map
@@ -37,6 +50,9 @@ class Barn: public Land
 		 * @return char 
 		 */
 		char render();
+
+	private:
+		int grassStatus;
 };
 
 #endif

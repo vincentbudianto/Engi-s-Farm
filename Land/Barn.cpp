@@ -13,18 +13,46 @@
  * Deskripsi : Implementasi Barn.cpp */
 
 #include "Barn.hpp"
+#include <random>
+#include <iostream>
+
+using namespace std;
 
 /**
- * @brief Create Barn Object
+ * @brief Construct a new Barn object
  * 
- * @return char 
  */
 Barn::Barn(){
-	
+    random_device dev;
+    mt19937 rng(dev());
+    uniform_int_distribution<mt19937::result_type> dist6(0,5);
+
+    grassStatus = dist6(rng);
+    if(grassStatus != 0)
+    	grassStatus = 0;
+    else
+    	grassStatus = 1;
 }
 
 /**
- * @brief Method to render the land type character to map
+ * @brief Return true if there is grass
+ * 
+ * @return int 
+ */
+int Barn::isGrass(){
+	return grassStatus;
+}
+
+/**
+ * @brief Set the Grass Status object
+ * 
+ */
+void Barn::setGrassStatus(int gs){
+	grassStatus = gs;
+}
+
+/**
+ * @brief Method to render the Barn type character to map
  * 
  * @return char 
  */

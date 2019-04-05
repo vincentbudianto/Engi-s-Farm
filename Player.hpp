@@ -15,7 +15,6 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
-#include "Renderable.hpp"
 #include "Cell.hpp"
 #include "Product.hpp"
 #include "Facility/Truck.hpp"
@@ -28,7 +27,7 @@ using namespace std;
  * @brief Class for player
  * 
  */
-class Player: public Renderable
+class Player: public Cell
 {
 	public:
 		/**

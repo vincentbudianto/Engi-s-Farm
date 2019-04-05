@@ -16,7 +16,6 @@
 #define COW_HPP
 
 #include "../Renderable.hpp"
-#include "FarmAnimal.hpp"
 #include "IProducing.hpp"
 #include "KProducing.hpp"
 #include <iostream>
@@ -34,7 +33,7 @@ class Cow: public IProducing, public KProducing, public Renderable
 		 * @brief Construct a new Cow object
 		 * 
 		 */
-		Cow(string);
+		Cow(int,int,int);
 		
 		/**
 		 * @brief Destroy the Cow object
@@ -45,48 +44,48 @@ class Cow: public IProducing, public KProducing, public Renderable
 		/**
 		 * @brief Get the Name object
 		 * 
-		 * @return string 
+		 * @return char* 
 		 */
-		virtual string getName() const;
+		int getId() const;
 
 		/**
 		 * @brief Get the Hungry object
 		 * 
 		 * @return boolean 
 		 */
-		virtual bool getHungry() const;
+		bool getHungry() const;
 
 		/**
 		 * @brief Set the Name object
 		 * 
 		 */
-		virtual void setName(string);
+		void setId(int);
 
 		/**
 		 * @brief Get the X object
 		 * 
 		 * @return int 
 		 */
-		virtual int getX();
+		int getX();
 
 		/**
 		 * @brief Get the Y object
 		 * 
 		 * @return int 
 		 */
-		virtual int getY();
+		int getY();
 
 		/**
 		 * @brief Function to get CowMilk
 		 * 
-		 * @return string 
+		 * @return char* 
 		 */
 		void interactProduct();
 
 		/**
 		 * @brief Function to get Beef
 		 * 
-		 * @return string 
+		 * @return char* 
 		 */
 		void killProduct();
 
@@ -121,7 +120,8 @@ class Cow: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		static int n_cow;
-		string name, voice;
+		int id;
+		char* voice;
 		bool hungry;
 		int umur, x, y;
 };

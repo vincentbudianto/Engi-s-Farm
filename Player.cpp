@@ -22,14 +22,14 @@ using namespace std;
  * @brief Construct a new Player object
  * 
  */
-Player::Player(char* nama)
+Player::Player(char* name)
 {
     this->name = new char[15];
-    strcpy(this->name,nama);
+    strcpy(this->name,name);
     this->money = 500;
     this->water = 10;
-    this->x = 0;
-    this->y = 0;
+    this->x = 2;
+    this->y = 7;
     this->inventoryEff = 0;
     this->inventory = new Product[10];
 }

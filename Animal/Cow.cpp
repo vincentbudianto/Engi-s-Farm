@@ -13,8 +13,10 @@
  * Deskripsi : Implementasi Cow.cpp */
 
 #include "Cow.hpp"
-#include "CowMilk.hpp"
-#include "Beef.hpp"
+// #include "CowMilk.hpp"
+// #include "Beef.hpp"
+#include <string.h>
+using namespace std;
 
 int Cow::n_cow = 0;
 
@@ -22,14 +24,15 @@ int Cow::n_cow = 0;
  * @brief Construct a new Cow object
  * 
  */
-Cow::Cow(string name)
+Cow::Cow(int id,int x, int y)
 {
-    this->name = name;
-    this->voice = "Moo";
+    this->id = id;
+    this->voice = new char[15];
+    strcpy(this->voice, "Moo");
     this->hungry = false;
     this->umur = 70;
-    this->x = 0;
-    this->y = 0;
+    this->x = x;
+    this->y = y;
     n_cow++;
 }
 
@@ -39,17 +42,18 @@ Cow::Cow(string name)
  */
 Cow::~Cow()
 {
-    cout << this->name << "is dead." << endl;
+    delete [] voice;
+    cout << "Cow " << this->id << "is dead." << endl;
 }
 
 /**
  * @brief Get the Name object
  * 
- * @return string 
+ * @return char* 
  */
-string Cow::getName() const
+int Cow::getId() const
 {
-    return this->name;
+    return this->id;
 }
 
 /**
@@ -66,9 +70,9 @@ bool Cow::getHungry() const
  * @brief Set the Name object
  * 
  */
-void Cow::setName(string name)
+void Cow::setId(int id)
 {
-    this->name = name;
+    this->id = id;
 }
 
 /**
@@ -97,7 +101,7 @@ int Cow::getY()
  */
 void Cow::interactProduct()
 {
-    CowMilk();
+    // CowMilk();
 }
 
 /**
@@ -106,7 +110,7 @@ void Cow::interactProduct()
  */
 void Cow::killProduct()
 {
-    Beef();
+    // Beef();
 }
 
 /**
@@ -165,7 +169,7 @@ void Cow::move()
  */
 void Cow::sound()
 {
-    cout << this->name << ": " << this->voice << endl;
+    cout << "Chicken " << this->id << ": " << this->voice << endl;
 }
 
 /**
@@ -175,5 +179,5 @@ void Cow::sound()
  */
 char Cow::render()
 {
-    return 'C';
+    return 'Q';
 }

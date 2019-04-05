@@ -13,12 +13,52 @@
  * Deskripsi : Header Coop.cpp */
 
 #include "Coop.hpp"
+#include <random>
+#include <iostream>
+
+using namespace std;
 
 /**
- * @brief Method to render the land type character to map
+ * @brief Construct a new Coop object
+ * 
+ */
+Coop::Coop(){
+    random_device dev;
+    mt19937 rng(dev());
+    uniform_int_distribution<mt19937::result_type> dist6(0,3);
+
+    grassStatus = dist6(rng);
+    if(grassStatus != 0)
+    	grassStatus = 0;
+    else
+    	grassStatus = 1;
+}
+
+/**
+ * @brief Return true if there is grass
+ * 
+ * @return int 
+ */
+int Coop::isGrass(){
+	return grassStatus;
+}
+
+/**
+ * @brief Set the Grass Status object
+ * 
+ */
+void Coop::setGrassStatus(int gs){
+	grassStatus = gs;
+}
+
+/**
+ * @brief Method to render the Coop type character to map
  * 
  * @return char 
  */
 char Coop::render(){
-	return 'o';
+	if(!isGrass())
+		return 'o';
+	else
+		return '*';
 }
