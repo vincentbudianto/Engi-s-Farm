@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <unistd.h>
 
 using namespace std;
@@ -92,6 +93,8 @@ void updateMap(){
 		map[y][x] = cows[i]->render();
 	}
 
+	map[p->getY()][p->getX()] = p->render();
+
 }
 
 void drawMap(){
@@ -135,6 +138,7 @@ void drawPlayerStatus(){
 
 int main(){
 
+	string direction;
 	initCell();
 	initAnimal();
 
@@ -142,7 +146,9 @@ int main(){
 		updateMap();
 		drawMap();
 		drawPlayerStatus();
-		usleep(1000000);
+		cout << "Command: ";
+		cin >> direction;
+		p->move(direction,map,row,col);
 		moveEntity();
 		// system("clear");
 	}

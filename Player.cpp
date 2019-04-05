@@ -96,13 +96,39 @@ int Player::getY() { return this->y; }
  * @brief Method for the player to move
  * 
  */
-void Player::move()
+void Player::move(string direction, char** map, int row, int col)
 {
-    // if (down) this->y++;
-    // else if (right) this->x++;
-    // else if (up) this->y--;
-    // else if (left) this->x--;
-    // else (not valid) <do nothing>
+    if (direction.compare("down") == 0){
+        if(this->y + 1 < row){
+            if(stepable(map[this->y+1][this->x]))
+                this->y++;
+        }
+    }else if (direction.compare("right") == 0){
+        if(this->x + 1 < col){
+            if(stepable(map[this->y][this->x+1]))
+                this->x++;
+        }
+    }else if (direction.compare("up") == 0){
+        if(this->y - 1 >= 0){
+            if(stepable(map[this->y-1][this->x]))
+                this->y--;
+        }
+    }else if (direction.compare("left") == 0){
+        if(this->x - 1 >= 0){
+            if(stepable(map[this->y][this->x-1]))
+                this->x--;
+        }
+    }
+}
+
+/**
+ * @brief Method for the player to check valid move
+ * 
+ * @return int
+ */
+int Player::stepable(char next)
+{
+    return (next == 'o' or next == '*' or next == 'x' or next == '@' or next == '-' or next == '#');
 }
 
 /**

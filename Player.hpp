@@ -96,7 +96,14 @@ class Player: public Cell
 		 * @brief Method for the player to move
 		 * 
 		 */
-		void move();
+		void move(string,char**,int,int);
+
+		/**
+		 * @brief Method for the player to check valid move
+		 * 
+		 * @return int
+		 */
+		int stepable(char);
 		
 		/**
 		 * @brief Method for the player to talk to FarmAnimal
