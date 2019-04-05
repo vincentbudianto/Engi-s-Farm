@@ -6,7 +6,7 @@ int AbbayeCheese::n_abbayecheese = 0;
 		 * @brief Construct a new Abbaye Cheese object
 		 * 
 		 */
-		AbbayeCheese::AbbayeCheese(){
+		AbbayeCheese::AbbayeCheese():Product(20, "Abbaye Cheese"){
 			n_abbayecheese++;
 		}
 		

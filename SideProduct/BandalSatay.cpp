@@ -8,7 +8,7 @@ int BandalSatay::n_bandalsatay = 0;
 		 * @brief Construct a new Bandal Satay object
 		 * 
 		 */
-		BandalSatay::BandalSatay(){
+		BandalSatay::BandalSatay():Product(50, "Bandal Satay"){
 			n_bandalsatay++;
 		}
 		

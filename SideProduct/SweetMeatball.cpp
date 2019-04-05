@@ -9,7 +9,7 @@
 		 * @brief Construct a new Sweet Meatball object
 		 * 
 		 */
-		SweetMeatball::SweetMeatball(){
+		SweetMeatball::SweetMeatball():Product(20, "Side Product"){
 			n_sweetmeatball++;
 		}
 		

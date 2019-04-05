@@ -8,7 +8,7 @@
 		 * @brief Construct a new Sonnet Cheese object
 		 * 
 		 */
-		SonnetCheese::SonnetCheese(){
+		SonnetCheese::SonnetCheese():Product(20, "Side Product"){
 			n_sonnetcheese++;
 		}
 		

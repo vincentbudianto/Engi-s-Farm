@@ -10,8 +10,6 @@ using namespace std;
 #include "Player.hpp"
 #include "Product.hpp"
 
-#include "SideProduct/BeefChickenRoll.hpp"
-
 #include "Animal/FarmAnimal.hpp"
 #include "Animal/Chicken.hpp"
 #include "Animal/Cow.hpp"
@@ -35,6 +33,7 @@ Cell*** cell;
 
 Truck* truck;
 Well* well;
+Mixer* mixer;
 
 Chicken** chickens;
 Cow** cows;
@@ -84,6 +83,7 @@ void initAnimal(){
 void initFacility(){
 	truck = new Truck();
 	well = new Well();
+	mixer = new Mixer();
 }
 
 void updateMap(){
@@ -118,6 +118,10 @@ void updateMap(){
 	y = well->getY();
 	x = well->getX();
 	map[y][x] = well->render();
+
+	y = mixer->getY();
+	x = mixer->getX();
+	map[y][x] = mixer->render();
 
 	map[p->getY()][p->getX()] = p->render();
 
@@ -219,7 +223,7 @@ void makeFInteraction(){
 	}else if(closestFacility == 'W'){
 		p->setWater();
 	}else if(closestFacility == 'M'){
-
+		p->mix();
 	}
 }
 

@@ -8,7 +8,7 @@ int GoatSatay::n_goatsatay =0 ;
 		 * @brief Construct a new Goat Satay object
 		 * 
 		 */
-		GoatSatay::GoatSatay(){
+		GoatSatay::GoatSatay():Product(20, "Side Product"){
 			n_goatsatay++;
 		}
 		

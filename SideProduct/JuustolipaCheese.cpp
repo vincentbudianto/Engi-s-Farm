@@ -9,7 +9,7 @@
 		 * @brief Construct a new Juustolipa Cheese object
 		 * 
 		 */
-		JuustolipaCheese::JuustolipaCheese(){
+		JuustolipaCheese::JuustolipaCheese():Product(20, "Side Product"){
 			n_juustolipacheese++;
 		}
 		

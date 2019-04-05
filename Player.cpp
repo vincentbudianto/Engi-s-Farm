@@ -17,6 +17,9 @@
 #include "FarmProduct/Beef.hpp"
 #include "FarmProduct/ChickenEgg.hpp"
 #include "FarmProduct/CowMilk.hpp"
+#include "SideProduct/BeefChickenRoll.hpp"
+#include "SideProduct/BandalSatay.hpp"
+#include "SideProduct/AbbayeCheese.hpp"
 #include "Facility/Truck.hpp"
 #include <iostream>
 #include <string.h>
@@ -32,7 +35,7 @@ Player::Player(char* name)
     strcpy(this->name,name);
     this->money = 500;
     this->water = 10;
-    this->x = 9;
+    this->x = 3;
     this->y = 2;
     this->inventoryEff = 0;
     this->inventory = new Product*[10];
@@ -317,7 +320,24 @@ void Player::grow()
  * 
  */
 void Player::mix()
-{}
+{
+    if(inventoryEff >= 2 and inventoryEff < 10){
+        cout << "Mixing.." << endl;
+        char* ing1 = new char[15];
+        char* ing2 = new char[15];
+        strcpy(ing1,inventory[0]->getName());
+        strcpy(ing2,inventory[1]->getName());
+
+        if(strcmp(ing1,"Beef") and strcmp(ing2,"Chicken Egg"))
+            inventory[inventoryEff] = new BeefChickenRoll();
+        else if(strcmp(ing1,"Beef") and strcmp(ing2,"Chicken Meat"))
+            inventory[inventoryEff] = new BandalSatay();
+        else if(strcmp(ing1,"Chicken Egg") and strcmp(ing2,"Cow Milk"))
+            inventory[inventoryEff] = new AbbayeCheese();
+        inventoryEff++;
+    }else
+        cout << "No item to mix" << endl;
+}
 
 /**
  * @brief Method to render the player to map
@@ -331,9 +351,10 @@ char Player::render() { return 'P'; }
  * 
  */
 void Player::setWater() {
-    if(this->water < 50)
+    if(this->water < 50){
+        cout << "Filling.." << endl;
         this->water += 10;
-    else
+    }else
         cout << "Kapasitas wadah air penuh!" << endl;
 }
 
@@ -346,11 +367,14 @@ void Player::dealTruck(Truck* cellTruck) {
     int profit = 0;
     if(inventoryEff != 0){
         if(valid){
+            cout << "Selling.." << endl;
             for(int i = 0; i < inventoryEff; i++){
                 profit += inventory[i]->getPrice();
             }
             this->money += profit;
             cout << money << endl;
+            this->inventory = new Product*[10];
+            inventoryEff = 0;
         }else
             cout << "Truck hasn't back from factory yet" << endl;
     }else

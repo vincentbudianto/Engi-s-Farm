@@ -8,7 +8,7 @@
 		 * @brief Construct a new Mutton Satay object
 		 * 
 		 */
-		MuttonSatay::MuttonSatay(){
+		MuttonSatay::MuttonSatay():Product(20, "Side Product"){
 			n_muttonsatay++;
 		}
 		

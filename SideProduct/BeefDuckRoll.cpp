@@ -9,7 +9,7 @@ int BeefDuckRoll::n_beefduckroll = 0;
 		 * @brief Construct a new Beef Duck Roll object
 		 * 
 		 */
-		BeefDuckRoll::BeefDuckRoll(){
+		BeefDuckRoll::BeefDuckRoll():Product(20, "Side Product"){
 			n_beefduckroll++;
 		}
 		

@@ -9,7 +9,7 @@
 		 * @brief Construct a new Rainbow Satay object
 		 * 
 		 */
-		RainbowSatay::RainbowSatay(){
+		RainbowSatay::RainbowSatay():Product(20, "Side Product"){
 			n_rainbowsatay++;
 		}
 		

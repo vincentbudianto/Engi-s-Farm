@@ -43,23 +43,6 @@ class Mixer: public Facility
 		 * @return char 
 		 */
 		char render();
-
-		/**
-		 * @brief Return 1 & store ingredients if Product can be created\nReturn 0 if Product can't be createds
-		 * 
-		 * @return int 
-		 */
-		int isMixable(Product* ingredients);
-
-		/**
-		 * @brief Return Product from mixture
-		 * 
-		 * @return int 
-		 */
-		Product* takeSideProduct();
-
-	private:
-		Product* productResult;
 };
 
 #endif
