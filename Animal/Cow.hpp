@@ -76,13 +76,13 @@ class Cow: public IProducing, public KProducing, public Renderable
 		int getY();
 
 		/**
-		 * @brief Function to get intractivity
+		 * @brief Function to get interactivity
 		 * 
 		 */
 		bool getInteractivity();
 
 		/**
-		 * @brief Function to set intractivity
+		 * @brief Function to set interactivity
 		 * 
 		 */
 		void setInteractivity(bool);
@@ -133,7 +133,7 @@ class Cow: public IProducing, public KProducing, public Renderable
 		static int n_cow;
 		int id;
 		char* voice;
-		bool hungry, starving, intractivity;
+		bool hungry, starving, interactivity;
 		int umur, x, y, tick;
 };
 

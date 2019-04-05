@@ -24,6 +24,14 @@ char Cell::render(){
 }
 
 /**
+ * @brief Set the Grass Status object
+ * 
+ */
+void Cell::setGrassStatus(int gs){
+
+}
+
+/**
  * @brief return grass status
  * 
  * @return int

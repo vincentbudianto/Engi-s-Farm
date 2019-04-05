@@ -194,6 +194,14 @@ void makeInteraction(){
 void moveEntity(){
 	for(int i = 0; i < chickenlen; i++){
 		chickens[i]->move(map,row,col);
+		if(chickens[i]->getHungry()){
+			int y = chickens[i]->getY();
+			int x = chickens[i]->getX();
+			if(cell[y][x]->isGrass()){
+				chickens[i]->eat();
+				cell[y][x]->setGrassStatus(0);
+			}
+		}
 		if(chickens[i]->getStarvation()){
 			closestAnimal = 'c';
 			closestY = chickens[i]->getY();
@@ -204,6 +212,14 @@ void moveEntity(){
 	}
 	for(int i = 0; i < cowlen; i++){
 		cows[i]->move(map,row,col);
+		if(cows[i]->getHungry()){
+			int y = cows[i]->getY();
+			int x = cows[i]->getX();
+			if(cell[y][x]->isGrass()){
+				cows[i]->eat();
+				cell[y][x]->setGrassStatus(0);
+			}
+		}
 		if(cows[i]->getStarvation()){
 			closestAnimal = 'q';
 			closestY = cows[i]->getY();

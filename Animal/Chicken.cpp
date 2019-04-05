@@ -37,7 +37,7 @@ Chicken::Chicken(int id, int x, int y)
     this->y = y;
     this->tick = 0;
     this->starving = false;
-    this->intractivity = true;
+    this->interactivity = true;
     n_chicken++;
 }
 
@@ -101,21 +101,21 @@ int Chicken::getY()
 }
 
 /**
- * @brief Function to get intractivity
+ * @brief Function to get interactivity
  * 
  */
 bool Chicken::getInteractivity()
 {
-    return intractivity;
+    return interactivity;
 }
 
 /**
- * @brief Function to set intractivity
+ * @brief Function to set interactivity
  * 
  */
 void Chicken::setInteractivity(bool stat)
 {
-    intractivity = stat;
+    interactivity = stat;
 }
 
 /**
@@ -134,6 +134,8 @@ void Chicken::killProduct()
 void Chicken::eat()
 {
     this->hungry = false;
+    this->interactivity = true;
+    this->tick = 0;
 }
 
 /**
