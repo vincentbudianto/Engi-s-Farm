@@ -15,10 +15,22 @@
 #include "Barn.hpp"
 
 /**
+ * @brief Create Barn Object
+ * 
+ * @return char 
+ */
+Barn::Barn(){
+	
+}
+
+/**
  * @brief Method to render the land type character to map
  * 
  * @return char 
  */
 char Barn::render(){
-	return 'x';
+	if(!isGrass())
+		return 'x';
+	else
+		return '@';
 }

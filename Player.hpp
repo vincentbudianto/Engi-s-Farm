@@ -46,9 +46,9 @@ class Player: public Renderable
 		/**
 		 * @brief Get the Name object
 		 * 
-		 * @return string 
+		 * @return char* 
 		 */
-		string getName();
+		char* getName();
 
 		/**
 		 * @brief Get the Inventory object from index i
@@ -57,6 +57,13 @@ class Player: public Renderable
 		 * @return Product 
 		 */
 		Product getInventory(int i);
+
+		/**
+		 * @brief Get the Inventory's effective length
+		 * 
+		 * @return int 
+		 */
+		int getInventoryEff();
 
 		/**
 		 * @brief Get the Money object
@@ -144,6 +151,7 @@ class Player: public Renderable
 	private:
 		char* name;
 		Product* inventory;
+		int inventoryEff;
 		int money, water, x, y;
 };
 

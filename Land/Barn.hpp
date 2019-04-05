@@ -25,6 +25,13 @@ class Barn: public Land
 {
 	public:
 		/**
+		 * @brief Create Barn Object
+		 * 
+		 * @return char 
+		 */
+		Barn();
+		
+		/**
 		 * @brief Method to render the land type character to map
 		 * 
 		 * @return char 

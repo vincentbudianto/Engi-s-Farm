@@ -24,12 +24,14 @@ using namespace std;
  */
 Player::Player(char* nama)
 {
+    this->name = new char[15];
     strcpy(this->name,nama);
-    this->inventory = new Product[10]; /* Starting inventory cap */
-    this->money = 500; /* Starting money */
-    this->water = 10; /* Starting water amount */
-    this->x = 0; /* Start location */
+    this->money = 500;
+    this->water = 10;
+    this->x = 0;
     this->y = 0;
+    this->inventoryEff = 0;
+    this->inventory = new Product[10];
 }
 
 /**
@@ -43,9 +45,9 @@ Player::~Player() {
 /**
  * @brief Get the Name object
  * 
- * @return string 
+ * @return char* 
  */
-string Player::getName() { return this->name; }
+char* Player::getName() { return this->name; }
 
 /**
  * @brief Get the Inventory object from index i
@@ -54,6 +56,13 @@ string Player::getName() { return this->name; }
  * @return Product 
  */
 Product Player::getInventory(int i) { return this->inventory[i]; }
+
+/**
+ * @brief Get the Inventory's effective length
+ * 
+ * @return int 
+ */
+int Player::getInventoryEff() { return this->inventoryEff; }
 
 /**
  * @brief Get the Money object

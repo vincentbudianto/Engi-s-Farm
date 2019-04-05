@@ -23,6 +23,7 @@ using namespace std;
  */
 Product::Product(){
 	price = 0;
+	this->name = new char[10];
 	strcpy(name,"product stub");
 }
 
@@ -32,15 +33,16 @@ Product::Product(){
  */
 Product::Product(int theprice, char* thename){
 	price = theprice;
+	this->name = new char[10];
 	strcpy(name,thename);
 }
 
 /**
  * @brief Get the Name object
  * 
- * @return string 
+ * @return char* 
  */
-string Product::getName(){
+char* Product::getName(){
 	return name;
 }
 

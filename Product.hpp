@@ -41,9 +41,9 @@ class Product
 		/**
 		 * @brief Get the Name object
 		 * 
-		 * @return string 
+		 * @return char* 
 		 */
-		virtual string getName();
+		virtual char* getName();
 
 		/**
 		 * @brief Get the Price object

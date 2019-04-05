@@ -19,4 +19,4 @@
  * 
  * @return char Method to render object character to map
  */
-char Cell::render(){}
+char Cell::render(){ return 'c';}
