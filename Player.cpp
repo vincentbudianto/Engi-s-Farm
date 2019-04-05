@@ -32,7 +32,7 @@ Player::Player(char* name)
     strcpy(this->name,name);
     this->money = 500;
     this->water = 10;
-    this->x = 2;
+    this->x = 9;
     this->y = 2;
     this->inventoryEff = 0;
     this->inventory = new Product*[10];
@@ -164,6 +164,19 @@ int Player::isAnimal(char animal)
 }
 
 /**
+ * @brief Method for the player to check the Facility
+ * 
+ */
+int Player::isFacility(char facility)
+{
+    int valid = 0;
+    valid  = (facility == 'T');
+    valid  = valid or (facility == 'W');
+    valid  = valid or (facility == 'M');
+    return valid;
+}
+
+/**
  * @brief Method for the player to see to Surrounding Animals
  * 
  */
@@ -207,6 +220,40 @@ char Player::seeAnimal(char** map, int row, int col)
     }
 
     return animal;
+}
+
+/**
+ * @brief Method for the player to see to Surrounding Facility
+ * 
+ */
+char Player::seeFacility(char** map, int row, int col)
+{
+
+    char temp = '.';
+    char facility = temp;
+
+    if(x + 1 < col){
+        temp = map[getY()][getX()+1];
+        if(isFacility(temp))
+            facility = temp;
+    }
+    if(x - 1 >= 0){
+        temp = map[getY()][getX()-1];
+        if(isFacility(temp))
+            facility = temp;
+    }
+    if(y + 1 < row){
+        temp = map[getY()+1][getX()];
+        if(isFacility(temp))
+            facility = temp;
+    }
+    if(y - 1 >= 0){
+        temp = map[getY()-1][getX()];
+        if(isFacility(temp))
+            facility = temp;
+    }
+
+    return facility;
 }
 
 /**
@@ -278,7 +325,12 @@ char Player::render() { return 'P'; }
  * @brief Method to fill water
  * 
  */
-void Player::setWater() { this->water += 10; }
+void Player::setWater() { 
+    if(this->water <= 50)
+        this->water += 10;
+    else
+        cout << "Kapasitas wadah air penuh!" << endl;
+}
 
 /**
  * @brief Method to deal with truck
@@ -286,8 +338,16 @@ void Player::setWater() { this->water += 10; }
  */
 void Player::dealTruck(Truck* cellTruck) {
     int valid =  cellTruck->transact();
-    if(valid){
-        cout << "TBD!!" << endl;
+    int profit = 0;
+    if(inventoryEff != 0){
+        if(valid){
+            for(int i = 0; i < inventoryEff; i++){
+                profit += inventory[i]->getPrice();
+            }
+            this->money += profit;
+            cout << money << endl;
+        }else
+            cout << "Truck hasn't back from factory yet" << endl;
     }else
-        cout << "Truk belum kembali dari pabrik" << endl;
+        cout << "No item to sell" << endl;
 }

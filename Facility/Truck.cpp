@@ -24,7 +24,10 @@ using namespace std;
  * 
  */
 Truck::Truck(){
+	setY(1);
+	setX(10);
 	lastTime = time(nullptr);
+	firstTime = true;
 }
 
 /**
@@ -54,17 +57,7 @@ int Truck::isAvailable(){
 	tm now_time = *localtime(addressof(now));
 	tm last_time = *localtime(addressof(lastTime));
 
-	return (now_time.tm_min - last_time.tm_min >= 10);
-}
-
-/**
- * @brief Method to sell all items in inventory
- * 
- */
-int Truck::transact(){
-	int valid = isAvailable();
-	if(valid) setLastTime();
-	return valid;
+	return (now_time.tm_min - last_time.tm_min >= 1 or firstTime);
 }
 
 /**
@@ -73,4 +66,17 @@ int Truck::transact(){
  */
 void Truck::setLastTime(){
 	lastTime = time(nullptr);
+}
+
+/**
+ * @brief Method to sell all items in inventory
+ * 
+ */
+int Truck::transact(){
+	int valid = isAvailable();
+	if(valid){
+		setLastTime();
+		firstTime = false;
+	}
+	return valid;
 }

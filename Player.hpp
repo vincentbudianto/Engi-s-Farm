@@ -126,10 +126,22 @@ class Player: public Cell
 		int isAnimal(char animal);
 
 		/**
+		 * @brief Method for the player to check the Facility
+		 * 
+		 */
+		int isFacility(char facility);
+
+		/**
 		 * @brief Method for the player to see to Surrounding Animals
 		 * 
 		 */
 		char seeAnimal(char** map, int row, int col);
+
+		/**
+		 * @brief Method for the player to see to Surrounding Facility
+		 * 
+		 */
+		char seeFacility(char** map, int row, int col);
 		
 		/**
 		 * @brief Method for the player to talk to FarmAnimal

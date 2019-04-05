@@ -20,3 +20,31 @@
  * @return char 
  */
 char Facility::render(){}
+
+/**
+ * @brief Method to get y position of facility
+ * 
+ * @return char 
+ */
+int Facility::getY(){ return this->y; }
+
+/**
+ * @brief Method to get x position of facility
+ * 
+ * @return char 
+ */
+int Facility::getX(){ return this->x; }
+
+/**
+ * @brief Method to set y position of facility
+ * 
+ * @return char 
+ */
+void Facility::setY(int y){ this->y = y; }
+
+/**
+ * @brief Method to set x position of facility
+ * 
+ * @return char 
+ */
+void Facility::setX(int x){ this->x = x; }

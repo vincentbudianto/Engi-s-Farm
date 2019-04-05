@@ -12,8 +12,6 @@
  * Tanggal   : 20 Maret 2019
  * Deskripsi : Header Facility.cpp */
 
-#include "../Cell.hpp"
-
 #ifndef FACILITY_HPP
 #define FACILITY_HPP
 
@@ -21,7 +19,7 @@
  * @brief Class Facility for farm
  * 
  */
-class Facility: public Cell
+class Facility
 {
 	public:
 		/**
@@ -29,7 +27,38 @@ class Facility: public Cell
 		 * 
 		 * @return char 
 		 */
-		virtual char render();
+		char render();
+
+		/**
+		 * @brief Method to get y position of facility
+		 * 
+		 * @return char 
+		 */
+		int getY();
+
+		/**
+		 * @brief Method to get x position of facility
+		 * 
+		 * @return char 
+		 */
+		int getX();
+
+		/**
+		 * @brief Method to set y position of facility
+		 * 
+		 * @return char 
+		 */
+		void setY(int y);
+
+		/**
+		 * @brief Method to set x position of facility
+		 * 
+		 * @return char 
+		 */
+		void setX(int x);
+
+	private:
+		int x,y;
 };
 
 #endif

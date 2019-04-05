@@ -26,13 +26,20 @@ using namespace std;
 
 #include "Facility/Facility.hpp"
 #include "Facility/Mixer.hpp"
+#include "Facility/Truck.hpp"
+#include "Facility/Well.hpp"
 
 Player* p = new Player("Mr. Semalam Jadi");
 char** map;
 Cell*** cell;
+
+Truck* truck;
+Well* well;
+
 Chicken** chickens;
 Cow** cows;
 
+char closestFacility;
 char closestAnimal;
 int closestY;
 int closestX;
@@ -74,7 +81,14 @@ void initAnimal(){
 		cows[i] = new Cow(i,i+4,0);
 }
 
+void initFacility(){
+	truck = new Truck();
+	well = new Well();
+}
+
 void updateMap(){
+	int x,y;
+
 	map = new char*[row];
 	for(int i = 0; i < row; i++)
 		map[i] = new char[col];
@@ -86,16 +100,24 @@ void updateMap(){
 	}
 
 	for(int i = 0; i < chickenlen; i++){
-		int y = chickens[i]->getY();
-		int x = chickens[i]->getX();
+		y = chickens[i]->getY();
+		x = chickens[i]->getX();
 		map[y][x] = chickens[i]->render();
 	}
 
 	for(int i = 0; i < cowlen; i++){
-		int y = cows[i]->getY();
-		int x = cows[i]->getX();
+		y = cows[i]->getY();
+		x = cows[i]->getX();
 		map[y][x] = cows[i]->render();
 	}
+
+	y = truck->getY();
+	x = truck->getX();
+	map[y][x] = truck->render();
+
+	y = well->getY();
+	x = well->getX();
+	map[y][x] = well->render();
 
 	map[p->getY()][p->getX()] = p->render();
 
@@ -165,7 +187,7 @@ void killAnimal(){
 	}
 }
 
-void makeInteraction(){
+void makeAInteraction(){
 	int id = -1;
 	if(closestAnimal == 'c' or closestAnimal == 'C'){
 		for(int i = 0; i < chickenlen; i++){
@@ -188,6 +210,16 @@ void makeInteraction(){
 			cows[id]->setInteractivity(false);
 			p->interact(closestAnimal);
 		}
+	}
+}
+
+void makeFInteraction(){
+	if(closestFacility == 'T'){
+		p->dealTruck(truck);
+	}else if(closestFacility == 'W'){
+		p->setWater();
+	}else if(closestFacility == 'M'){
+
 	}
 }
 
@@ -259,9 +291,13 @@ void execute(string command){
 		closestY = p->getSurroundingY();
 		closestX = p->getSurroundingX();
 		if(closestAnimal == '.'){
-			cout << "No Animals" << endl;
+			closestFacility = p->seeFacility(map,row,col);
+			if(closestFacility == '.')
+				cout << "Nothing to interact" << endl;
+			else
+				makeFInteraction();
 		}else{
-			makeInteraction();
+			makeAInteraction();
 		}
 		usleep(2000000);
 	}
@@ -270,6 +306,7 @@ void execute(string command){
 int main(){
 	string command;
 	initCell();
+	initFacility();
 	initAnimal();
 
 	while(1){

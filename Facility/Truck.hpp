@@ -67,6 +67,7 @@ class Truck: public Facility
 
 	private:
 		std::time_t lastTime;
+		bool firstTime;
 };
 
 #endif
