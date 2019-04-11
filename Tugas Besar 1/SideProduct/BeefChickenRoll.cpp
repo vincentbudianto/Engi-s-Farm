@@ -10,7 +10,7 @@ int BeefChickenRoll::n_beefchickenroll = 0;
  * @brief Construct a new BeefChickenRoll object
  * 
  */
-BeefChickenRoll::BeefChickenRoll():Product(50, "Beff Chicken Roll"){
+BeefChickenRoll::BeefChickenRoll():Product(50, "Beef Chicken Roll"){
 	n_beefchickenroll++;
 }
 
