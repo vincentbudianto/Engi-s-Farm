@@ -191,7 +191,13 @@ class Player: public Cell
 		 * 
 		 */
 		void dealTruck(Truck* cellTruck);
-	
+		
+		/**
+		 * @brief Method to jump
+		 * 
+		 */
+		void jump(int,int);
+
 	private:
 		char* name;
 		Product** inventory;

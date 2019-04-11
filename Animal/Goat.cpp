@@ -13,8 +13,10 @@
  * Deskripsi : Implementasi Goat.cpp */
 
 #include "Goat.hpp"
-#include "GoatMilk.hpp"
-#include "GoatMeat.hpp"
+#include <string.h>
+#include <random>
+#include <iostream>
+using namespace std;
 
 int Goat::n_goat = 0;
 
@@ -22,15 +24,17 @@ int Goat::n_goat = 0;
  * @brief Construct a new Goat object
  * 
  */
-Goat::Goat(string name)
+Goat::Goat(int id, int x, int y)
 {
-    this->name = new char[15];
-    strcpy(this->name,name);
-    this->voice = "Embe";
+    this->id = id;
+    this->voice = new char[15];
+    strcpy(this->voice, "Mbee!");
     this->hungry = false;
-    this->umur = 50;
-    this->x = 0;
-    this->y = 0;
+    this->x = x;
+    this->y = y;
+    this->tick = 0;
+    this->starving = false;
+    this->interactivity = true;
     n_goat++;
 }
 
@@ -40,18 +44,7 @@ Goat::Goat(string name)
  */
 Goat::~Goat()
 {
-    cout << this->name << "is dead." << endl;
-	n_goat--;
-}
 
-/**
- * @brief Get the Name object
- * 
- * @return string 
- */
-string Goat::getName() const
-{
-    return this->name;
 }
 
 /**
@@ -62,15 +55,6 @@ string Goat::getName() const
 bool Goat::getHungry() const
 {
     return this->hungry;
-}
-
-/**
- * @brief Set the Name object
- * 
- */
-void Goat::setName(string name)
-{
-    this->name = name;
 }
 
 /**
@@ -94,21 +78,21 @@ int Goat::getY()
 }
 
 /**
- * @brief Function to get GoatMilk
+ * @brief Function to get interactivity
  * 
  */
-void Goat::interactProduct()
+bool Goat::getInteractivity()
 {
-    GoatMilk();
+    return interactivity;
 }
 
 /**
- * @brief Function to get GoatMeat
+ * @brief Function to set interactivity
  * 
  */
-void Goat::killProduct()
+void Goat::setInteractivity(bool stat)
 {
-    GoatMeat();
+    interactivity = stat;
 }
 
 /**
@@ -118,6 +102,8 @@ void Goat::killProduct()
 void Goat::eat()
 {
     this->hungry = false;
+    this->interactivity = true;
+    this->tick = 0;
 }
 
 /**
@@ -180,12 +166,21 @@ void Goat::move(char** map, int row, int col)
 }
 
 /**
+ * @brief Method to get starvation status
+ * 
+ */
+bool Goat::getStarvation()
+{
+    return starving;
+}
+
+/**
  * @brief Method for the animal to voice
  * 
  */
 void Goat::sound()
 {
-    cout << this->name << ": " << this->voice << endl;
+    cout << this->voice << endl;
 }
 
 /**

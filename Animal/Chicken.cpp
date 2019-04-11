@@ -13,8 +13,6 @@
  * Deskripsi : Implementasi Chicken.cpp */
 
 #include "Chicken.hpp"
-// #include "ChickenEgg.hpp"
-// #include "ChickenMeat.hpp"
 #include <string.h>
 #include <random>
 #include <iostream>
@@ -212,7 +210,7 @@ bool Chicken::getStarvation()
  */
 void Chicken::sound()
 {
-    cout << this->voice << endl;
+    cout << "Chicken " << this->getId() << ": " << this->voice << endl;
 }
 
 /**

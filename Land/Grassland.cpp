@@ -25,7 +25,7 @@ using namespace std;
 Grassland::Grassland(){
     random_device dev;
     mt19937 rng(dev());
-    uniform_int_distribution<mt19937::result_type> dist6(0,8);
+    uniform_int_distribution<mt19937::result_type> dist6(0,3);
 
     grassStatus = dist6(rng);
     if(grassStatus != 0)

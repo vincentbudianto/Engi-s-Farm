@@ -13,7 +13,10 @@
  * Deskripsi : Implementasi Sheep.cpp */
 
 #include "Sheep.hpp"
-#include "Mutton.hpp"
+#include <string.h>
+#include <random>
+#include <iostream>
+using namespace std;
 
 int Sheep::n_sheep = 0;
 
@@ -21,15 +24,17 @@ int Sheep::n_sheep = 0;
  * @brief Construct a new Sheep object
  * 
  */
-Sheep::Sheep(string name)
+Sheep::Sheep(int id, int x, int y)
 {
-    this->name = new char[15];
-    strcpy(this->name,name);
-    this->voice = "Beee";
+    this->id = id;
+    this->voice = new char[15];
+    strcpy(this->voice, "Bee..");
     this->hungry = false;
-    this->umur = 50;
-    this->x = 0;
-    this->y = 0;
+    this->x = x;
+    this->y = y;
+    this->tick = 0;
+    this->starving = false;
+    this->interactivity = true;
     n_sheep++;
 }
 
@@ -39,17 +44,7 @@ Sheep::Sheep(string name)
  */
 Sheep::~Sheep()
 {
-    cout << this->name << "is dead." << endl;
-}
 
-/**
- * @brief Get the Name object
- * 
- * @return string 
- */
-string Sheep::getName() const
-{
-    return this->name;
 }
 
 /**
@@ -60,15 +55,6 @@ string Sheep::getName() const
 bool Sheep::getHungry() const
 {
     return this->hungry;
-}
-
-/**
- * @brief Set the Name object
- * 
- */
-void Sheep::setName(string name)
-{
-    this->name = name;
 }
 
 /**
@@ -92,12 +78,21 @@ int Sheep::getY()
 }
 
 /**
- * @brief Function to get Mutton
+ * @brief Function to get interactivity
  * 
  */
-void Sheep::killProduct()
+bool Sheep::getInteractivity()
 {
-    Mutton();
+    return interactivity;
+}
+
+/**
+ * @brief Function to set interactivity
+ * 
+ */
+void Sheep::setInteractivity(bool stat)
+{
+    interactivity = stat;
 }
 
 /**
@@ -107,6 +102,8 @@ void Sheep::killProduct()
 void Sheep::eat()
 {
     this->hungry = false;
+    this->interactivity = true;
+    this->tick = 0;
 }
 
 /**
@@ -169,12 +166,21 @@ void Sheep::move(char** map, int row, int col)
 }
 
 /**
+ * @brief Method to get starvation status
+ * 
+ */
+bool Sheep::getStarvation()
+{
+    return starving;
+}
+
+/**
  * @brief Method for the animal to voice
  * 
  */
 void Sheep::sound()
 {
-    cout << this->name << ": " << this->voice << endl;
+    cout << this->voice << endl;
 }
 
 /**

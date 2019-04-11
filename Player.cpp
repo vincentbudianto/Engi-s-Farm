@@ -14,9 +14,15 @@
 
 #include "Player.hpp"
 #include "FarmProduct/ChickenMeat.hpp"
+#include "FarmProduct/DuckMeat.hpp"
 #include "FarmProduct/Beef.hpp"
+#include "FarmProduct/Mutton.hpp"
+#include "FarmProduct/GoatMeat.hpp"
 #include "FarmProduct/ChickenEgg.hpp"
+#include "FarmProduct/DuckEgg.hpp"
 #include "FarmProduct/CowMilk.hpp"
+#include "FarmProduct/GoatMilk.hpp"
+#include "FarmProduct/HorseMilk.hpp"
 #include "SideProduct/BeefChickenRoll.hpp"
 #include "SideProduct/BandalSatay.hpp"
 #include "SideProduct/AbbayeCheese.hpp"
@@ -36,7 +42,7 @@ Player::Player(char* name)
     this->money = 500;
     this->water = 10;
     this->x = 3;
-    this->y = 2;
+    this->y = 1;
     this->inventoryEff = 0;
     this->inventory = new Product*[10];
     this->surroundingY = 0;
@@ -162,7 +168,11 @@ int Player::isAnimal(char animal)
 {
     int valid = 0;
     valid  = (animal == 'c' or animal == 'C');
+    valid  = valid or (animal == 'd' or animal == 'D');
     valid  = valid or (animal == 'q' or animal == 'Q');
+    valid  = valid or (animal == 'g' or animal == 'G');
+    valid  = valid or (animal == 'h' or animal == 'H');
+    valid  = valid or (animal == 's' or animal == 'S');
     return valid;
 }
 
@@ -277,9 +287,25 @@ void Player::kill(char animal){
         if(animal == 'c' or animal == 'C'){
             inventory[inventoryEff] = new ChickenMeat();
             inventoryEff++;
+            cout << "Get Chicken Meat" << endl;
+        }else if(animal == 'd' or animal == 'D'){
+            inventory[inventoryEff] = new DuckMeat();
+            inventoryEff++;
+            cout << "Get Duck Meat" << endl;
         }else if(animal == 'q' or animal == 'Q'){
             inventory[inventoryEff] = new Beef();
             inventoryEff++;
+            cout << "Get Beef" << endl;
+        }else if(animal == 'g' or animal == 'G'){
+            inventory[inventoryEff] = new GoatMeat();
+            inventoryEff++;
+            cout << "Get Goat Meat" << endl;
+        }else if(animal == 'h' or animal == 'H'){
+            cout << "Horse is Killed, you don't get anything" << endl;
+        }else if(animal == 's' or animal == 'S'){
+            inventory[inventoryEff] = new Mutton();
+            inventoryEff++;
+            cout << "Get Mutton" << endl;
         }
     }else
         cout << "Tas Penuh" << endl;
@@ -295,9 +321,25 @@ void Player::interact(char subject)
         if(subject == 'c' or subject == 'C'){
             inventory[inventoryEff] = new ChickenEgg();
             inventoryEff++;
+            cout << "Get Chicken Egg" << endl;
+        }else if(subject == 'd' or subject == 'D'){
+            inventory[inventoryEff] = new DuckEgg();
+            inventoryEff++;
+            cout << "Get Duck Egg" << endl;
         }else if(subject == 'q' or subject == 'Q'){
             inventory[inventoryEff] = new CowMilk();
             inventoryEff++;
+            cout << "Get Cow Milk" << endl;
+        }else if(subject == 'g' or subject == 'G'){
+            inventory[inventoryEff] = new GoatMilk();
+            inventoryEff++;
+            cout << "Get Goat Milk" << endl;
+        }else if(subject == 'h' or subject == 'H'){
+            inventory[inventoryEff] = new HorseMilk();
+            inventoryEff++;
+            cout << "Get Horse Milk" << endl;
+        }else if(subject == 's' or subject == 'S'){
+            cout << "Interacting with sheep, you don't get anything" << endl;
         }
     }else
         cout << "Tas Penuh" << endl;
@@ -328,13 +370,57 @@ void Player::mix()
         strcpy(ing1,inventory[0]->getName());
         strcpy(ing2,inventory[1]->getName());
 
-        if(strcmp(ing1,"Beef") and strcmp(ing2,"Chicken Egg"))
+        bool success = false;
+
+        int isRecipe1 = strcmp(ing1,"Beef") or strcmp(ing2,"Chicken Egg");
+        isRecipe1 = isRecipe1 and (strcmp(ing1,"Chicken Egg") or strcmp(ing2,"Beef"));
+
+        int isRecipe2 = strcmp(ing1,"Beef") or strcmp(ing2,"Chicken Meat");
+        isRecipe2 = isRecipe2 and (strcmp(ing1,"Chicken Meat") or strcmp(ing2,"Beef"));
+
+        int isRecipe3 = strcmp(ing1,"Chicken Egg") or strcmp(ing2,"Cow Milk");
+        isRecipe3 = isRecipe3 and (strcmp(ing1,"Cow Milk") or strcmp(ing2,"ChickenEgg"));
+
+        if(isRecipe1 == 0){
             inventory[inventoryEff] = new BeefChickenRoll();
-        else if(strcmp(ing1,"Beef") and strcmp(ing2,"Chicken Meat"))
+            success = true;
+            inventoryEff++;
+        }else if(isRecipe2  == 0){
             inventory[inventoryEff] = new BandalSatay();
-        else if(strcmp(ing1,"Chicken Egg") and strcmp(ing2,"Cow Milk"))
+            success = true;
+            inventoryEff++;
+        }else if(isRecipe3  == 0){
             inventory[inventoryEff] = new AbbayeCheese();
-        inventoryEff++;
+            success = true;
+            inventoryEff++;
+        }
+
+        if(success){
+            if(inventoryEff == 3){
+                inventory[0] = inventory[2];
+                inventory[1] = NULL;
+                inventory[2] = NULL;
+            }else{
+                int v = 2;
+                while(v < inventoryEff){
+                    inventory[v-2] = inventory[v];
+                    v++;
+                }
+                inventory[inventoryEff-2] = NULL;
+                inventory[inventoryEff-1] = NULL;
+            }
+        }else{
+            cout << "Mixing failed, two items trashed" << endl;
+            int v = 2;
+            while(v < inventoryEff){
+                inventory[v-2] = inventory[v];
+                v++;
+            }
+            inventory[inventoryEff-2] = NULL;
+            inventory[inventoryEff-1] = NULL;
+        }
+
+        inventoryEff -= 2;
     }else
         cout << "No item to mix" << endl;
 }
@@ -371,12 +457,22 @@ void Player::dealTruck(Truck* cellTruck) {
             for(int i = 0; i < inventoryEff; i++){
                 profit += inventory[i]->getPrice();
             }
+            cout << "Get " << profit << " of money" << endl;
             this->money += profit;
-            cout << money << endl;
             this->inventory = new Product*[10];
             inventoryEff = 0;
         }else
-            cout << "Truck hasn't back from factory yet" << endl;
+            cout << "Truck isn't back from factory yet" << endl;
     }else
         cout << "No item to sell" << endl;
+}
+
+/**
+ * @brief Special method for the player to jump
+ * 
+ */
+void Player::jump(int y, int x)
+{
+    this->y = y;
+    this->x = x;
 }

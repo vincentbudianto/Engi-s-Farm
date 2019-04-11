@@ -13,8 +13,10 @@
  * Deskripsi : Implementasi Duck.cpp */
 
 #include "Duck.hpp"
-#include "DuckEgg.hpp"
-#include "DuckMeat.hpp"
+#include <string.h>
+#include <random>
+#include <iostream>
+using namespace std;
 
 int Duck::n_duck = 0;
 
@@ -22,15 +24,17 @@ int Duck::n_duck = 0;
  * @brief Construct a new Duck object
  * 
  */
-Duck::Duck(string name)
+Duck::Duck(int id, int x, int y)
 {
-    this->name = new char[15];
-    strcpy(this->name,name);
-    this->voice = "Kwek";
+    this->id = id;
+    this->voice = new char[15];
+    strcpy(this->voice, "Kwek");
     this->hungry = false;
-    this->umur = 30;
-    this->x = 0;
-    this->y = 0;
+    this->x = x;
+    this->y = y;
+    this->tick = 0;
+    this->starving = false;
+    this->interactivity = true;
     n_duck++;
 }
 
@@ -40,17 +44,7 @@ Duck::Duck(string name)
  */
 Duck::~Duck()
 {
-    cout << this->name << "is dead." << endl;
-}
 
-/**
- * @brief Get the Name object
- * 
- * @return string 
- */
-string Duck::getName() const
-{
-    return this->name;
 }
 
 /**
@@ -61,15 +55,6 @@ string Duck::getName() const
 bool Duck::getHungry() const
 {
     return this->hungry;
-}
-
-/**
- * @brief Set the Name object
- * 
- */
-void Duck::setName(string name)
-{
-    this->name = name;
 }
 
 /**
@@ -93,21 +78,21 @@ int Duck::getY()
 }
 
 /**
- * @brief Function to get DuckEgg
+ * @brief Function to get interactivity
  * 
  */
-void Duck::interactProduct()
+bool Duck::getInteractivity()
 {
-    DuckEgg();
+    return interactivity;
 }
 
 /**
- * @brief Function to get DuckMeat
+ * @brief Function to set interactivity
  * 
  */
-void Duck::killProduct()
+void Duck::setInteractivity(bool stat)
 {
-    DuckMeat();
+    interactivity = stat;
 }
 
 /**
@@ -117,6 +102,8 @@ void Duck::killProduct()
 void Duck::eat()
 {
     this->hungry = false;
+    this->interactivity = true;
+    this->tick = 0;
 }
 
 /**
@@ -179,12 +166,21 @@ void Duck::move(char** map, int row, int col)
 }
 
 /**
+ * @brief Method to get starvation status
+ * 
+ */
+bool Duck::getStarvation()
+{
+    return starving;
+}
+
+/**
  * @brief Method for the animal to voice
  * 
  */
 void Duck::sound()
 {
-    cout << this->name << ": " << this->voice << endl;
+    cout << this->voice << endl;
 }
 
 /**

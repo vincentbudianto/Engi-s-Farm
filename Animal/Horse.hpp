@@ -33,7 +33,7 @@ class Horse: public IProducing, public Renderable
 		 * @brief Construct a new Horse object
 		 * 
 		 */
-		Horse(string);
+		Horse(int,int,int);
 		
 		/**
 		 * @brief Destroy the Horse object
@@ -42,44 +42,37 @@ class Horse: public IProducing, public Renderable
 		~Horse();
 
 		/**
-		 * @brief Get the Name object
-		 * 
-		 * @return string 
-		 */
-		virtual string getName() const;
-
-		/**
 		 * @brief Get the Hungry object
 		 * 
 		 * @return boolean 
 		 */
-		virtual bool getHungry() const;
-
-		/**
-		 * @brief Set the Name object
-		 * 
-		 */
-		virtual void setName(string);
+		bool getHungry() const;
 
 		/**
 		 * @brief Get the X object
 		 * 
 		 * @return int 
 		 */
-		virtual int getX();
+		int getX();
 
 		/**
 		 * @brief Get the Y object
 		 * 
 		 * @return int 
 		 */
-		virtual int getY();
+		int getY();
 
 		/**
-		 * @brief function to get HorseMilk
+		 * @brief Function to get interactivity
 		 * 
 		 */
-		void interactProduct();
+		bool getInteractivity();
+
+		/**
+		 * @brief Function to set interactivity
+		 * 
+		 */
+		void setInteractivity(bool);
 
 		/**
 		 * @brief Method for the animal to eat
@@ -91,13 +84,19 @@ class Horse: public IProducing, public Renderable
 		 * @brief Method for the animal to move
 		 * 
 		 */
-		void move();
+		void move(char** map, int row, int col);
 
 		/**
 		 * @brief Method for the animal to voice
 		 * 
 		 */
 		void sound();
+
+		/**
+		 * @brief Method to get starvation status
+		 * 
+		 */
+		bool getStarvation();
 
 		/**
 		 * @brief Method to render the animal to map
@@ -107,14 +106,11 @@ class Horse: public IProducing, public Renderable
 		char render();
 
 	private:
-		/**
-		 * @brief Counter for Horse
-		 * 
-		 */
 		static int n_horse;
-		string name, voice;
-		bool hungry;
-		int umur, x, y;
+		int id;
+		char* voice;
+		bool hungry, starving, interactivity;
+		int umur, x, y, tick;
 };
 
 #endif

@@ -155,7 +155,7 @@ void Cow::move(char** map, int row, int col)
     {
         if(this->y + 1 < row)
             next = map[this->y+1][this->x];
-        if (next == 'x' or next == '@')
+        if (next == '-' or next == '#')
         {
             this->y++;
         }
@@ -164,7 +164,7 @@ void Cow::move(char** map, int row, int col)
     {
         if(this->x + 1 < col)
             next = map[this->y][this->x+1];
-        if (next == 'x' or next == '@')
+        if (next == '-' or next == '#')
         {
             this->x++;
         }
@@ -173,7 +173,7 @@ void Cow::move(char** map, int row, int col)
     {
         if(this->y - 1 >= 0)
             next = map[this->y-1][this->x];
-        if (next == 'x' or next == '@')
+        if (next == '-' or next == '#')
         {
             this->y--;
         }
@@ -182,7 +182,7 @@ void Cow::move(char** map, int row, int col)
     {
         if(this->x - 1 >= 0)
             next = map[this->y][this->x-1];
-        if (next == 'x' or next == '@')
+        if (next == '-' or next == '#')
         {
             this->x--;
         }

@@ -1,6 +1,12 @@
 #include "HorseMilk.hpp"
 
 /**
+ * @brief initiate n_horsemilk
+ * 
+ */
+int HorseMilk::n_horsemilk = 0;
+
+/**
  * @brief Construct a new HorseMilk object
  * 
  */

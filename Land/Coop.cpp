@@ -25,7 +25,7 @@ using namespace std;
 Coop::Coop(){
     random_device dev;
     mt19937 rng(dev());
-    uniform_int_distribution<mt19937::result_type> dist6(0,3);
+    uniform_int_distribution<mt19937::result_type> dist6(0,1);
 
     grassStatus = dist6(rng);
     if(grassStatus != 0)

@@ -13,7 +13,10 @@
  * Deskripsi : Implementasi Horse.cpp */
 
 #include "Horse.hpp"
-#include "HorseMilk.hpp"
+#include <string.h>
+#include <random>
+#include <iostream>
+using namespace std;
 
 int Horse::n_horse = 0;
 
@@ -21,15 +24,17 @@ int Horse::n_horse = 0;
  * @brief Construct a new Horse object
  * 
  */
-Horse::Horse(string name)
+Horse::Horse(int id, int x, int y)
 {
-    this->name = new char[15];
-    strcpy(this->name,name);
-    this->voice = "Whinny";
+    this->id = id;
+    this->voice = new char[15];
+    strcpy(this->voice, "Whii!");
     this->hungry = false;
-    this->umur = 70;
-    this->x = 0;
-    this->y = 0;
+    this->x = x;
+    this->y = y;
+    this->tick = 0;
+    this->starving = false;
+    this->interactivity = true;
     n_horse++;
 }
 
@@ -39,17 +44,7 @@ Horse::Horse(string name)
  */
 Horse::~Horse()
 {
-    cout << this->name << "is dead." << endl;
-}
 
-/**
- * @brief Get the Name object
- * 
- * @return string 
- */
-string Horse::getName() const
-{
-    return this->name;
 }
 
 /**
@@ -60,15 +55,6 @@ string Horse::getName() const
 bool Horse::getHungry() const
 {
     return this->hungry;
-}
-
-/**
- * @brief Set the Name object
- * 
- */
-void Horse::setName(string name)
-{
-    this->name = name;
 }
 
 /**
@@ -92,12 +78,21 @@ int Horse::getY()
 }
 
 /**
- * @brief Function to get HorseMilk
+ * @brief Function to get interactivity
  * 
  */
-void Horse::interactProduct()
+bool Horse::getInteractivity()
 {
-    HorseMilk();
+    return interactivity;
+}
+
+/**
+ * @brief Function to set interactivity
+ * 
+ */
+void Horse::setInteractivity(bool stat)
+{
+    interactivity = stat;
 }
 
 /**
@@ -107,6 +102,8 @@ void Horse::interactProduct()
 void Horse::eat()
 {
     this->hungry = false;
+    this->interactivity = true;
+    this->tick = 0;
 }
 
 /**
@@ -169,12 +166,21 @@ void Horse::move(char** map, int row, int col)
 }
 
 /**
+ * @brief Method to get starvation status
+ * 
+ */
+bool Horse::getStarvation()
+{
+    return starving;
+}
+
+/**
  * @brief Method for the animal to voice
  * 
  */
 void Horse::sound()
 {
-    cout << this->name << ": " << this->voice << endl;
+    cout << this->voice << endl;
 }
 
 /**

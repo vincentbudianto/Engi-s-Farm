@@ -30,11 +30,11 @@ using namespace std;
 class Sheep: public IProducing, public KProducing, public Renderable
 {
 	public:
-		/**
+/**
 		 * @brief Construct a new Sheep object
 		 * 
 		 */
-		Sheep(string);
+		Sheep(int,int,int);
 		
 		/**
 		 * @brief Destroy the Sheep object
@@ -43,44 +43,37 @@ class Sheep: public IProducing, public KProducing, public Renderable
 		~Sheep();
 
 		/**
-		 * @brief Get the Name object
-		 * 
-		 * @return string 
-		 */
-		virtual string getName() const;
-
-		/**
 		 * @brief Get the Hungry object
 		 * 
 		 * @return boolean 
 		 */
-		virtual bool getHungry() const;
-
-		/**
-		 * @brief Set the Name object
-		 * 
-		 */
-		virtual void setName(string);
+		bool getHungry() const;
 
 		/**
 		 * @brief Get the X object
 		 * 
 		 * @return int 
 		 */
-		virtual int getX();
+		int getX();
 
 		/**
 		 * @brief Get the Y object
 		 * 
 		 * @return int 
 		 */
-		virtual int getY();
+		int getY();
 
 		/**
-		 * @brief function to get Mutton
+		 * @brief Function to get interactivity
 		 * 
 		 */
-		void killProduct();
+		bool getInteractivity();
+
+		/**
+		 * @brief Function to set interactivity
+		 * 
+		 */
+		void setInteractivity(bool);
 
 		/**
 		 * @brief Method for the animal to eat
@@ -92,13 +85,19 @@ class Sheep: public IProducing, public KProducing, public Renderable
 		 * @brief Method for the animal to move
 		 * 
 		 */
-		void move();
+		void move(char** map, int row, int col);
 
 		/**
 		 * @brief Method for the animal to voice
 		 * 
 		 */
 		void sound();
+
+		/**
+		 * @brief Method to get starvation status
+		 * 
+		 */
+		bool getStarvation();
 
 		/**
 		 * @brief Method to render the animal to map
@@ -108,14 +107,11 @@ class Sheep: public IProducing, public KProducing, public Renderable
 		char render();
 
 	private:
-		/**
-		 * @brief Counter for Sheep
-		 * 
-		 */
 		static int n_sheep;
-		string name, voice;
-		bool hungry;
-		int umur, x, y;
+		int id;
+		char* voice;
+		bool hungry, starving, interactivity;
+		int umur, x, y, tick;
 };
 
 #endif

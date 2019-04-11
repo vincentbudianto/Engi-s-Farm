@@ -34,7 +34,7 @@ class Duck: public IProducing, public KProducing, public Renderable
 		 * @brief Construct a new Duck object
 		 * 
 		 */
-		Duck(string);
+		Duck(int,int,int);
 		
 		/**
 		 * @brief Destroy the Duck object
@@ -43,50 +43,37 @@ class Duck: public IProducing, public KProducing, public Renderable
 		~Duck();
 
 		/**
-		 * @brief Get the Name object
-		 * 
-		 * @return string 
-		 */
-		virtual string getName() const;
-
-		/**
 		 * @brief Get the Hungry object
 		 * 
 		 * @return boolean 
 		 */
-		virtual bool getHungry() const;
-
-		/**
-		 * @brief Set the Name object
-		 * 
-		 */
-		virtual void setName(string);
+		bool getHungry() const;
 
 		/**
 		 * @brief Get the X object
 		 * 
 		 * @return int 
 		 */
-		virtual int getX();
+		int getX();
 
 		/**
 		 * @brief Get the Y object
 		 * 
 		 * @return int 
 		 */
-		virtual int getY();
+		int getY();
 
 		/**
-		 * @brief Function to get DuckEgg
+		 * @brief Function to get interactivity
 		 * 
 		 */
-		void interactProduct();
+		bool getInteractivity();
 
 		/**
-		 * @brief Function to get DuckMeat
+		 * @brief Function to set interactivity
 		 * 
 		 */
-		void killProduct();
+		void setInteractivity(bool);
 
 		/**
 		 * @brief Method for the animal to eat
@@ -98,13 +85,19 @@ class Duck: public IProducing, public KProducing, public Renderable
 		 * @brief Method for the animal to move
 		 * 
 		 */
-		void move();
+		void move(char** map, int row, int col);
 
 		/**
 		 * @brief Method for the animal to voice
 		 * 
 		 */
 		void sound();
+
+		/**
+		 * @brief Method to get starvation status
+		 * 
+		 */
+		bool getStarvation();
 
 		/**
 		 * @brief Method to render the animal to map
@@ -119,9 +112,10 @@ class Duck: public IProducing, public KProducing, public Renderable
 		 * 
 		 */
 		static int n_duck;
-		string name, voice;
-		bool hungry;
-		int umur, x, y;
+		int id;
+		char* voice;
+		bool hungry, starving, interactivity;
+		int umur, x, y, tick;
 };
 
 #endif
