@@ -392,7 +392,7 @@ public class Player extends Product implements Renderable
 			}
 			else if ((animal == 's') || (animal == 'S'))
 			{
-				message = "Sheet is killed you don't get anything";
+				message = "Sheep is killed you don't get anything";
 			}
 		}
 		else
@@ -570,16 +570,15 @@ public class Player extends Product implements Renderable
 
 	/**
 	 * Method to deal with truck
-	 * @param truck
+	 * @param valid
 	 * @return String
 	 */
-	public String dealTruck(Truck truck)
+	public String dealTruck(boolean valid)
 	{
 		int i, profit;
 		profit = 0;
 
 		String message = " ";
-		boolean valid = truck.transact();
 
 		if (this.inventory.size() != 0)
 		{

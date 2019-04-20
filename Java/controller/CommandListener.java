@@ -121,7 +121,7 @@ public class CommandListener implements ActionListener {
 			exist = false;
 			char symbol = player.seeFacility(map.DATA);
 			if(symbol == 'T'){
-				popUp(player.dealTruck((Truck) facility.get(0)));
+				popUp(player.dealTruck(((Truck) facility.get(0)).transact()));
 				for(int i = 0; i < inventory.DATA.length; i++)
 					inventory.DATA[i][0] = " ";
 				exist = true;
