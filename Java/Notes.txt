@@ -1,0 +1,31 @@
+NOTES:
+
+1. IProducing, KProducing jadi interface- done
+
+2. Facility dan Product jadi abstract - done
+
+3. Land ga usah convert ke java, jenis2 tanah langsung dari cell- done
+
+4. side product diimplement yg belum (yg udah AbbayeCheese, BadalSatay, BeefChickenRoll)
+
+5. java collection ArrayQueue buat inventori - done
+
+6. java collection Map buat peta farm
+
+7. java collection ArrayList buat FarmAnimal - done
+
+8. Animal dibuat generic
+
+9. Threading untuk timer truck
+
+10. Exception explore dulu
+
+11. GUI java swing / javaFX - done
+
+12. Benerin grow
+
+Jangan lupa::
+a. Nama package ditulis dalam lowercase
+b. Nama kelas ditulis dalam UpperCamelCase
+c. Nama method, variabel, dan atribut ditulis dalam lowerCamelCase
+d. Nama constant ditulis dalam UPPERCASE

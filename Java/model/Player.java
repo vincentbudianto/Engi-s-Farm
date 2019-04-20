@@ -1,9 +1,11 @@
 /**
- * @file Player.java
- * @author 13515125/Muhammad Rafid Amrullah, 13517092/Michael Ray, 13517113/Juro Sutantra, 13517137/Vincent Budianto
- * @brief file berisi definisi class Player
- * @version 1.0
- * @date 2019-04-21
+ * Player.java
+ * <p>
+ * File berisi definisi class Player
+ * </p>
+ * @author 13515125/Muhammad Rafid Amrullah, 13517113/Juro Sutantra, 13517137/Vincent Budianto
+ * @version 2.0
+ * @since 2019-04-21
  */
 
 import java.io.*;
@@ -13,19 +15,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.lang.model.util.ElementScanner6;
 
-import Facility.*;		//package belum dibuat
-import FarmProduct.*;	//package belum dibuat
-import SideProduct.*;	//package belum dibuat
-
 /**
- * @brief Class for productComparator
- * 
+ * <p>
+ * Class for productComparator
+ * </p>
  */
 class productComparator implements Comparator<Product>
 {
 	/**
-	 * @brief compare() method overriding
-	 * 
+	 * compare() method overriding
+	 * @param a
+	 * @param b
 	 * @return int
 	 */
 	public int compare(Product a, Product b)
@@ -46,18 +46,18 @@ class productComparator implements Comparator<Product>
 }
 
 /**
- * @brief Class for player
- * 
+ * <p>
+ * Class for player
+ * </p>
  */
 public class Player extends Product implements Renderable 
 {
 	private String name;
-	private PriorityQueue<Product> inventory;
+	private Queue<Product> inventory;
 	private int bagSize, money, surroundingY, surroundingX, water, x, y;
 	
 	/**
-	 * @brief Construct a new Player object
-	 * 
+	 * Player constructor
 	 */
 	public Player(String name)
 	{
@@ -65,16 +65,15 @@ public class Player extends Product implements Renderable
 		this.bagSize = 10;
 		this.money = 500;
 		this.water = 10;
-		this.x = 3;
 		this.y = 1;
-		this.inventory = new PriorityQueue<Product>(10, new productComparator());
+		this.x = 3;
+		this.inventory = new LinkedList<>();
 		this.surroundingY = 0;
 		this.surroundingX = 0;
 	}
 	
 	/**
-	 * @brief Get the Name object
-	 * 
+	 * Get the object name
 	 * @return String 
 	 */
 	public String getName()
@@ -83,41 +82,34 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Get the Product from Inventory
-	 * 
+	 * Get the Product from Inventory
 	 * @return Product 
 	 */
-	public Product getInventory()
+	public Queue<Product> getInventory()
 	{
-		if (this.inventory.size() != 0)
-		{
-			return this.inventory.poll();
-		}
+		return this.inventory;
 	}
 
 	/**
-	 * @brief Get the Money object
-	 * 
+	 * Get the object money
 	 * @return int 
 	 */
-	public int getMoney()
+	public Integer getMoney()
 	{
 		return this.money;
 	}
 
 	/**
-	 * @brief Get the Water object
-	 * 
+	 * Get the object water amount
 	 * @return int 
 	 */
-	public int getWater()
+	public Integer getWater()
 	{
 		return this.water;
 	}
 
 	/**
-	 * @brief Get the X object
-	 * 
+	 * Get the object x position
 	 * @return int 
 	 */
 	public int getX()
@@ -126,18 +118,16 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Get the Y object
-	 * 
+	 * Get the object y position
 	 * @return int 
 	 */
 	public int getY()
 	{
 		return this.y;
 	}
-	
+
 	/**
-	 * @brief Get the X object
-	 * 
+	 * Get the object surrounding x
 	 * @return int 
 	 */
 	public int getSurroundingX()
@@ -146,8 +136,7 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Get the Y object
-	 * 
+	 * Get the object surrounding y
 	 * @return int 
 	 */
 	public int getSurroundingY()
@@ -156,12 +145,16 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Method for the player to move
-	 * 
+	 * Method for the player to move
+	 * @param direction
+	 * @param map
 	 */
-	public void move(String direction, char[][] map, int row, int col)
+	public void move(String direction, Character[][] map)
 	{
-		if (direction.compare("down") == 0)
+		int row = map.length;
+		int col = map[0].length;
+		
+		if (direction.equals("down"))
 		{
 			if (this.y + 1 < row)
 			{
@@ -171,7 +164,7 @@ public class Player extends Product implements Renderable
 				}
 			}
 		}
-		else if (direction.compare("right") == 0)
+		else if (direction.equals("right"))
 		{
 			if(this.x + 1 < col)
 			{
@@ -181,7 +174,7 @@ public class Player extends Product implements Renderable
 				}
 			}
 		}
-		else if (direction.compare("up") == 0)
+		else if (direction.equals("up"))
 		{
 			if (this.y - 1 >= 0)
 			{
@@ -191,7 +184,7 @@ public class Player extends Product implements Renderable
 				}
 			}
 		}
-		else if (direction.compare("left") == 0)
+		else if (direction.equals("left"))
 		{
 			if(this.x - 1 >= 0)
 			{
@@ -204,8 +197,8 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Method for the player to check valid move
-	 * 
+	 * Method for the player to check valid move
+	 * @param next
 	 * @return boolean
 	 */
 	public boolean stepable(char next)
@@ -214,8 +207,8 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Method for the player to check the Animals
-	 * 
+	 * Method for the player to check the Animals
+	 * @param animal
 	 * @return boolean
 	 */
 	public boolean isAnimal(char animal)
@@ -224,8 +217,8 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Method for the player to check the Facility
-	 * 
+	 * Method for the player to check the Facility
+	 * @param facility
 	 * @return boolean
 	 */
 	public boolean isFacility(char facility)
@@ -234,15 +227,20 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Method for the player to see to Surrounding Animals
-	 * 
+	 * Method for the player to see Surrounding Animals
+	 * @param map
 	 */
-	public char seeAnimal(char[][] map, int row, int col)
+	public void seeAnimal(Character[][] map)
 	{
+		int row = map.length;
+		int col = map[0].length;
 		char temp, animal;
 		
 		temp = '.';
 		animal = temp;
+
+		this.surroundingY = getY();
+		this.surroundingX = getX();
 
 		if (x + 1 < col)
 		{
@@ -291,16 +289,17 @@ public class Player extends Product implements Renderable
 				this.surroundingX = getX();
 			}
 		}
-
-		return animal;
 	}
 
 	/**
-	 * @brief Method for the player to see to Surrounding Facility
-	 * 
+	 * Method for the player to see to Surrounding Facility
+	 * @param map
+	 * @return char
 	 */
-	public char seeFacility(char[][] map, int row, int col)
+	public char seeFacility(Character[][] map)
 	{
+		int row = map.length;
+		int col = map[0].length;
 		char temp, facility;
 
 		temp = '.';
@@ -349,131 +348,152 @@ public class Player extends Product implements Renderable
 	}
 	
 	/**
-	 * @brief Method for the player to talk to FarmAnimal
-	 * 
+	 * Method for the player to talk to FarmAnimal
+	 * @param map
 	 */
-	public char talk(char[][] map, int row, int col)
+	public void talk(Character[][] map)
 	{
-		return seeAnimal(map, row, col);
+		seeAnimal(map);
 	}
 
 	/**
-	 * @brief Method for the player to kill FarmAnimal
-	 * 
+	 * Method for the player to kill FarmAnimal
+	 * @param animal
+	 * @return String
 	 */
-	public void kill(char animal)
+	public String kill(Character animal)
 	{
+		String message = " ";
+
 		if (this.inventory.size() < 10)
 		{
 			if ((animal == 'c') || (animal == 'C'))
 			{
 				this.inventory.add(new ChickenMeat());
-				System.out.println("Get Chicken Meat");
+				message = "Get Chicken Meat";
 			}
 			else if ((animal == 'd') || (animal == 'D'))
 			{
-				this.inventory.add(new DuckMeat());
-				System.out.println("Get Duck Meat");
+				message = "Duck is killed, you don't get anything";
 			}
 			else if ((animal == 'q') || (animal == 'Q'))
 			{
 				this.inventory.add(new Beef());
-				System.out.println("Get Beef");
+				message = "Get Beef";
 			}
 			else if ((animal == 'g') || (animal == 'G'))
 			{
 				this.inventory.add(new GoatMeat());
-				System.out.println("Get Goat Meat");
+				message = "Get Goat Meat";
 			}
 			else if ((animal == 'h') || (animal == 'H'))
 			{
-				System.out.println("Horse is Killed, you don't get anything");
+				message = "Horse is Killed, you don't get anything";
 			}
 			else if ((animal == 's') || (animal == 'S'))
 			{
-				this.inventory.add(new Mutton());
-				System.out.println("Get Mutton");
+				message = "Sheet is killed you don't get anything";
 			}
 		}
 		else
 		{
-			System.out.println("Tas Penuh");
+			message = "Inventory is full";
 		}
+
+		System.out.println(message);
+
+		return message;
 	}
 
 	/**
-	 * @brief Method for the player to interact with FarmAnimal
-	 * 
+	 * Method for the player to interact with FarmAnimal
+	 * @param animal
+	 * @param interactivity
+	 * @return String
 	 */
-	public void interact(char animal)
+	public String interact(Character animal, boolean interactivity)
 	{
-		if (this.inventory.size() < 10)
+		String message = "No Message";
+
+		if (this.inventory.size() < 10 && interactivity)
 		{
 			if ((animal == 'c') || (animal == 'C'))
 			{
 				this.inventory.add(new ChickenEgg());
-				System.out.println("Get Chicken Egg");
+				message = "Get Chicken Egg";
 			}
 			else if ((animal == 'd') || (animal == 'D'))
 			{
 				this.inventory.add(new DuckEgg());
-				System.out.println("Get Duck Egg");
+				message = "Get Duck Egg";
 			}
 			else if ((animal == 'q') || (animal == 'Q'))
 			{
 				this.inventory.add(new CowMilk());
-				System.out.println("Get Cow Milk");
+				message = "Get Cow Milk";
 			}
-			else if ((animal == 'g') || (animal == 'G'))
+			else if ((animal == 's') || (animal == 'S'))
 			{
-				this.inventory.add(new GoatMilk());
-				System.out.println("Get Goat Milk");
+				this.inventory.add(new SheepMilk());
+				message = "Get Sheep Milk";
 			}
 			else if ((animal == 'h') || (animal == 'H'))
 			{
 				this.inventory.add(new HorseMilk());
-				System.out.println("Get Horse Milk");
+				message = "Get Horse Milk";
 			}
-			else if ((animal == 's') || (animal == 'S'))
+			else if ((animal == 'g') || (animal == 'G'))
 			{
-				System.out.println("Interacting with sheep, you don't get anything");
+				message = "Interacting with goat, you don't get anything";
 			}
+		}
+		else if(interactivity == false)
+		{
+			message = "Can't interact with animal";
 		}
 		else
 		{
-			System.out.println("Tas Penuh");
+			message = "Inventory is full";
 		}
+
+		return message;
 	}
 
 	/**
-	 * @brief Method for the player to grow grass
-	 * 
+	 * Method for the player to grow grass
+	 * @return boolean
 	 */
-	public void grow()
+	public boolean grow()
 	{
+		boolean result = false;
+		
 		if (this.water >= 5)
 		{
 			this.water -= 5;
+			result = true;
 		}
 	    else
         {
 			System.out.println("Not enough water");
 		}
-	}
 
+		return result;
+	}
+	
 	/**
-	 * @brief Method for the player to interact with mixer
-	 * 
+	 * Method for the player to mix item
+	 * @return String
 	 */
-	public void mix()
+	public String mix()
 	{
+		String message = " ";
+
 		if ((this.inventory.size() >= 2) && (this.inventory.size() < 10))
 		{
 			Boolean recipe[], success;
 			String ing1, ing2;
 
-			System.out.println("Mixing..");
-			recipe = new Boolean(10);
+			recipe = new Boolean[10];
 			success = false;
 			ing1 = this.inventory.poll().getName();
 			ing2 = this.inventory.poll().getName();
@@ -485,37 +505,41 @@ public class Player extends Product implements Renderable
 			if(recipe[0])
 			{
 				this.inventory.add(new BeefChickenRoll());
+				message = "Get Beef Chicken Roll";
 				success = true;
 			}
 			else if (recipe[1])
 			{
 				this.inventory.add(new BandalSatay());
+				message = "Get Bandal Satay";
 				success = true;
 			}
 			else if (recipe[2])
 			{
 				this.inventory.add(new AbbayeCheese());
+				message = "Abbaye Cheese";
 				success = true;
 			}
 
 			if(success)
 			{
-				System.out.println("Mixing successful");
+				message = "Mixing successful";
 			}
 			else
 			{
-				System.out.println("Mixing failed, two ingridients trashed");
+				message = "Mixing failed, two ingridients trashed";
 			}
 		}
 		else
 		{
-			System.out.println("No ingridient to mix");
+			message = "No ingridient to mix";
 		}
-	}
 
+		return message;
+	}
+	
 	/**
-	 * @brief Method to render the player to map
-	 * 
+	 * Method to render the player to map
 	 * @return char 
 	 */
 	public char render()
@@ -524,61 +548,68 @@ public class Player extends Product implements Renderable
 	}
 
 	/**
-	 * @brief Method to fill water
-	 * 
+	 * Method to fill water
+	 * @return String 
 	 */
-	public void setWater()
-	{
-		if (this.water < 50)
+	public String fillWater()
+	{	
+		String message;
+
+		if (this.water + 10 <= 50)
 		{
-			System.out.println("Filling..");
+			message = "Filling..";
 			this.water += 10;
 		}
 		else
 		{
-			System.out.println("Kapasitas wadah air penuh!");
+			message = "Kapasitas wadah air penuh!";
 		}
+
+		return message;
 	}
 
 	/**
-	 * @brief Method to deal with truck
-	 * 
+	 * Method to deal with truck
+	 * @param truck
+	 * @return String
 	 */
-	public void dealTruck(Truck[] cellTruck)
+	public String dealTruck(Truck truck)
 	{
-		int i, profit, valid;
-
+		int i, profit;
 		profit = 0;
-		valid = cellTruck.transact();
+
+		String message = " ";
+		boolean valid = truck.transact();
 
 		if (this.inventory.size() != 0)
 		{
 			if (valid)
 			{
-				System.out.println("Selling...");
-				
-				while (!this.inventory.isEmpty())
+				while (this.inventory.size() > 0)
 				{
 					profit += this.inventory.poll().getPrice();
 				}
 
-				System.out.println("Get " + profit + " of money");
 				this.money += profit;
+				message = "Selling Success : Get " + profit + " of money";
 			}
 			else
 			{
-				System.out.println("Truck isn't back from factory yet");
+				message = "Truck isn't back from factory yet";
 			}
 		}
 		else
 		{
-			System.out.println("No item to sell");
+			message = "No item to sell";
 		}
+
+		return message;
 	}
-	
+
 	/**
-	 * @brief Method to jump
-	 * 
+	 * Method to jump
+	 * @param x
+	 * @param y
 	 */
 	public void jump(int x,int y)
 	{
