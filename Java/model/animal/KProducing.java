@@ -8,6 +8,8 @@
  * @since 2019-04-21
  */
 
+package animal;
+
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -15,7 +17,7 @@ import java.util.*;
 /**
  * <p>
  * Interface for rendering object to KProducing
- * <\p>
+ * </p>
  */
 interface KProducing extends FarmAnimal
 {

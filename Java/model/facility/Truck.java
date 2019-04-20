@@ -8,6 +8,8 @@
  * @since 2019-04-21
  */
 
+package facility;
+
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -27,7 +29,6 @@ public class Truck extends Facility
 	 * Truck constructor
 	 * @param y
 	 * @param x
-	 * @return Character
 	 */
 	public Truck(int y, int x){
 		setY(y);

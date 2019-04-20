@@ -8,6 +8,12 @@
  * @since 2019-04-21
  */
 
+import animal.*;
+import facility.*;
+import farmproduct.*;
+import land.*;
+import resource.*;
+import sideproduct.*;
 import java.util.*;
 
 import javax.swing.JOptionPane;
@@ -22,18 +28,18 @@ public class Initializer {
 	/**
 	 * Inisialisasi map
 	 */
-	public void initCell(Cell[][] cell, Map map){
+	public void initCell(Cell[][] cell, resource.Map map){
 		for(int i = 0; i < map.DATA.length; i++){
 			for(int j = 0; j < map.DATA[i].length; j++)
-				cell[i][j] = new Grassland();
+				cell[i][j] = new land.Grassland();
 		}
 		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 4; j++)
-				cell[i][j] = new Coop();
+				cell[i][j] = new land.Coop();
 		}
 		for(int i = 0; i < 7; i++){
 			for(int j = 4; j < 9; j++)
-				cell[i][j] = new Barn();
+				cell[i][j] = new land.Barn();
 		}
 		for(int i = 0; i < map.DATA.length; i++){
 			for(int j = 0; j < map.DATA[i].length; j++)
@@ -45,18 +51,21 @@ public class Initializer {
 	/**
 	 * Inisialisasi player
 	 */
-	public void initPlayer(Player player, Map map){
+	public void initPlayer(Player player, resource.Map map){
 		int i = player.getY();
 		int j = player.getX();
 		map.DATA[i][j] = player.render();
 		map.setDataVector(map.DATA, map.TABLE_HEADER);
 	}
 
-	public void initAnimal(ArrayList<FarmAnimal> animal, Map map){
+	public void initAnimal(ArrayList<FarmAnimal> animal, resource.Map map){
 		animal.add(new Chicken(1,1));
 		animal.add(new Chicken(1,2));
-		animal.add(new Duck(3,2));
+		animal.add(new Chicken(2,1));
 		animal.add(new Cow(5,3));
+		animal.add(new Cow(4,3));
+		animal.add(new Duck(3,2));
+		animal.add(new Duck(3,1));
 		for(int i = 0; i < animal.size(); i++){
 			int y = animal.get(i).getY();
 			int x = animal.get(i).getX();
@@ -91,7 +100,7 @@ public class Initializer {
 	/**
 	 * Inisialisasi facility
 	 */
-	public void initFacility(ArrayList<Facility> facility, Map map){
+	public void initFacility(ArrayList<Facility> facility, resource.Map map){
 		facility.add(new Truck(3,10));
 		facility.add(new Well(4,10));
 		facility.add(new Mixer(5,10));

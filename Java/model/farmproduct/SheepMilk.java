@@ -8,6 +8,9 @@
  * @since 2019-04-21
  */
 
+package farmproduct;
+
+import resource.*;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -17,7 +20,7 @@ import java.util.*;
  * Class for SheepMilk
  * </p>
  */
-public class SheepMilk extends Product
+public class SheepMilk extends resource.Product
 {
 	/**
 	 * SheepMilk constructor

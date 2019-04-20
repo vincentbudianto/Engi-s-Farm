@@ -8,6 +8,8 @@
  * @since 2019-04-21
  */
 
+package facility;
+
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -17,7 +19,7 @@ import java.util.*;
  * Class for rendering object to Facility
  * </p>
  */
-abstract class Facility
+public abstract class Facility
 {
 	private int x, y;
 	

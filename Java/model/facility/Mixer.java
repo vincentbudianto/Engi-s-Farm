@@ -8,6 +8,8 @@
  * @since 2019-04-21
  */
 
+package facility;
+
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -23,7 +25,6 @@ public class Mixer extends Facility
 	 * Mixer constructor
 	 * @param y
 	 * @param x
-	 * @return Character
 	 */
 	public Mixer(int y, int x){
 		setY(y);

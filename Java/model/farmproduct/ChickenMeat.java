@@ -8,6 +8,9 @@
  * @since 2019-04-21
  */
 
+package farmproduct;
+
+import resource.*;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -17,7 +20,7 @@ import java.util.*;
  * Class for ChickenMeat
  * </p>
  */
-public class ChickenMeat extends Product
+public class ChickenMeat extends resource.Product
 {
 	/**
 	 * ChickenMeat constructor

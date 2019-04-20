@@ -8,6 +8,9 @@
  * @since 2019-04-21
  */
 
+package land;
+
+import resource.*;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -17,7 +20,7 @@ import java.util.*;
  * Class for rendering object to Grassland
  * </p>
  */
-public class Grassland implements Cell
+public class Grassland implements resource.Cell
 {
 	private boolean grassStatus;
 

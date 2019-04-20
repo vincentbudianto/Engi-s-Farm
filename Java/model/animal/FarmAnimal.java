@@ -8,6 +8,9 @@
  * @since 2019-04-21
  */
 
+package animal;
+
+import resource.*;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -17,7 +20,7 @@ import java.util.*;
  * Interface for rendering object to FarmAnimal
  * </p>
  */
-interface FarmAnimal extends Renderable
+public interface FarmAnimal extends resource.Renderable
 {
 	/**
 	 * Get the object id

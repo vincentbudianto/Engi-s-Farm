@@ -8,6 +8,9 @@
  * @since 2019-04-21
  */
 
+package sideproduct;
+
+import resource.*;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -17,7 +20,7 @@ import java.util.*;
  * Class for BandalSatay
  * </p>
  */
-public class BandalSatay extends Product
+public class BandalSatay extends resource.Product
 {
 	/**
 	 * BandalSatay constructor

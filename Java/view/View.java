@@ -8,6 +8,12 @@
  * @since 2019-04-21
  */
 
+import animal.*;
+import facility.*;
+import farmproduct.*;
+import land.*;
+import resource.*;
+import sideproduct.*;
 import java.util.*;
 
 import java.awt.Dimension;
@@ -35,10 +41,14 @@ public class View {
 		// Create views swing UI components 
 		JTextField searchTermTextField = new JTextField(26);
 		
-		JButton upButton = new JButton("▲");
-		JButton downButton = new JButton("▼");
-		JButton leftButton = new JButton("◄");
-		JButton rightButton = new JButton("►");
+		//JButton upButton = new JButton("▲");
+		JButton upButton = new JButton("Up");
+		//JButton downButton = new JButton("▼");
+		JButton downButton = new JButton("Down");
+		//JButton leftButton = new JButton("◄");
+		JButton leftButton = new JButton("Left");
+		//JButton rightButton = new JButton("►");
+		JButton rightButton = new JButton("Right");
 		JButton talkButton = new JButton("T");
 		JButton interactButton = new JButton("I");
 		JButton killButton = new JButton("K");
@@ -50,19 +60,19 @@ public class View {
 		JTable resourceTable = new JTable();
 
 		// Create model + controller
-		Map map = new Map();
+		resource.Map map = new resource.Map();
 		table.setModel(map);
 
-		Inventory inventory = new Inventory();
+		Inventory inventory = new resource.Inventory();
 		inventoryTable.setModel(inventory);
 
-		Resource resource = new Resource();
+		Resource resource = new resource.Resource();
 		resourceTable.setModel(resource);
 
-		Player player = new Player("Mr. Semalam Jadi");
-		Cell [][] cell = new Cell[map.DATA.length][map.DATA[0].length];
-		ArrayList<FarmAnimal> animal = new ArrayList<>();
-		ArrayList<Facility> facility = new ArrayList<>();
+		Player player = new resource.Player("Mr. Semalam Jadi");
+		Cell [][] cell = new resource.Cell[map.DATA.length][map.DATA[0].length];
+		ArrayList<animal.FarmAnimal> animal = new ArrayList<>();
+		ArrayList<facility.Facility> facility = new ArrayList<>();
 
 		Initializer initializer = new Initializer();
 		initializer.initCell(cell, map);
@@ -72,8 +82,7 @@ public class View {
 		initializer.initResource(player, animal, resource);
 		initializer.initFacility(facility, map);
 
-		CommandListener listener = new CommandListener(map, player, cell, 
-			animal, inventory, resource, facility);
+		CommandListener listener = new CommandListener(map, player, cell, animal, inventory, resource, facility);
 		upButton.addActionListener(listener);
 		downButton.addActionListener(listener);
 		leftButton.addActionListener(listener);

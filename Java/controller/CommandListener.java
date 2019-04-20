@@ -8,6 +8,12 @@
  * @since 2019-04-21
  */
 
+import animal.*;
+import facility.*;
+import farmproduct.*;
+import land.*;
+import resource.*;
+import sideproduct.*;
 import java.util.*;
 
 import java.awt.event.ActionEvent;
@@ -23,7 +29,7 @@ import javax.swing.JTextField;
  */
 public class CommandListener implements ActionListener {
 
-	private Map map;
+	private resource.Map map;
 	private Player player;
 	private Cell[][] cell;
 	private ArrayList<FarmAnimal> animal;
@@ -41,7 +47,7 @@ public class CommandListener implements ActionListener {
 	 * @param resource
 	 * @param facility
 	 */
-	public CommandListener(Map map, Player player, Cell[][] cell, ArrayList<FarmAnimal> animal, Inventory inventory, Resource resource, ArrayList<Facility> facility) {
+	public CommandListener(resource.Map map, Player player, Cell[][] cell, ArrayList<FarmAnimal> animal, Inventory inventory, Resource resource, ArrayList<Facility> facility) {
 		super();
 		this.map = map;
 		this.player = player;
@@ -67,13 +73,17 @@ public class CommandListener implements ActionListener {
 	 * @param button
 	 */
 	public void playerMove(String button){
-		if(button.equals("▲"))
+		//if(button.equals("▲"))
+		if(button.equals("Up"))
 			player.move("up", map.DATA);
-		else if(button.equals("▼"))
+		//else if(button.equals("▼"))
+		else if(button.equals("Down"))
 			player.move("down", map.DATA);
-		else if(button.equals("◄"))
+		//else if(button.equals("◄"))
+		else if(button.equals("Left"))
 			player.move("left", map.DATA);
-		else if(button.equals("►"))
+		//else if(button.equals("►"))
+		else if(button.equals("Right"))
 			player.move("right", map.DATA);
 
 		int i = player.getY();
@@ -271,7 +281,8 @@ public class CommandListener implements ActionListener {
 
 		assignMap();
 
-		if(button.equals("▲") || button.equals("▼") || button.equals("◄") || button.equals("►"))
+		//if(button.equals("▲") || button.equals("▼") || button.equals("◄") || button.equals("►"))
+		if(button.equals("Up") || button.equals("Down") || button.equals("Left") || button.equals("Right"))
 			playerMove(button);
 		else if(button.equals("T"))
 			playerTalk();

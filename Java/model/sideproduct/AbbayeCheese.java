@@ -8,6 +8,9 @@
  * @since 2019-04-21
  */
 
+package sideproduct;
+
+import resource.*;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -17,7 +20,7 @@ import java.util.*;
  * Class for AbbayeCheese
  * </p>
  */
-public class AbbayeCheese extends Product
+public class AbbayeCheese extends resource.Product
 {
 	/**
 	 * AbbayeCheese constructor
