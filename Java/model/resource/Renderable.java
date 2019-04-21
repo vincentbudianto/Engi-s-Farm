@@ -23,7 +23,7 @@ public interface Renderable
 {
 	/**
 	 * Method to render object character to map
-	 * @return char 
+	 * @return Character 
 	 */
-	char render();
+	Character render();
 }

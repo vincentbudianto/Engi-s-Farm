@@ -595,9 +595,9 @@ public class Player extends Product implements Renderable
 	
 	/**
 	 * Method to render the player to map
-	 * @return char 
+	 * @return Character 
 	 */
-	public char render()
+	public Character render()
 	{
 		return ('P');
 	}

@@ -7,3 +7,4 @@
 
 ### How to build: `javac @FilesList.txt -d classes`
 ### How to run: `java -classpath classes/ Driver`
+### How to generate javadoc: `javadoc animal facility farmproduct land resource sideproduct -private -d ../doc`

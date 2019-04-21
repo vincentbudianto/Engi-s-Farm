@@ -114,6 +114,8 @@ public class Horse implements IProducing
 	 * @param map
 	 */
 	public void move(Character[][] map){
+		int prevY = this.y;
+		int prevX = this.x;
 		int row = map.length;
 		int col = map[0].length;
 	    char next = '.';
@@ -158,15 +160,16 @@ public class Horse implements IProducing
 	        }
 	    }
 
-	    boolean validTile = map[this.y][this.x] != '-' && map[this.y][this.x] != '#';
-	    validTile = validTile && map[this.y][this.x] != 'x' && map[this.y][this.x] != '@';
+		boolean invalidTile = map[this.y][this.x] != '-' && map[this.y][this.x] != '#';
 
-	    if(validTile)
-	    	move(map);
+		if(invalidTile){
+	    	this.y = prevY;
+	    	this.x = prevX;
+	    }
 
 	    if(tick == 5)
 	        hunger = true;
-	    else if(tick >= 25 && hunger)
+	    else if(tick >= 35 && hunger)
 	        starvation = true;
 
 	    tick++;
@@ -182,9 +185,9 @@ public class Horse implements IProducing
 
 	/**
 	 * Get the object symbol
-	 * @return char
+	 * @return Character
 	 */
-	public char render(){
+	public Character render(){
 		return (hunger)? 'h' : 'H';
 	}
 

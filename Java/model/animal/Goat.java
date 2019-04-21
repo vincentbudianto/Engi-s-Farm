@@ -41,7 +41,7 @@ public class Goat implements IProducing, KProducing
 		this.tick = 0;
 		this.starvation = false;
 		this.interactivity = true;
-		this.produceMeat = false;
+		this.produceMeat = true;
 	}
 
 	/**
@@ -114,6 +114,8 @@ public class Goat implements IProducing, KProducing
 	 * @param map
 	 */
 	public void move(Character[][] map){
+		int prevY = this.y;
+		int prevX = this.x;
 		int row = map.length;
 		int col = map[0].length;
 	    char next = '.';
@@ -158,15 +160,16 @@ public class Goat implements IProducing, KProducing
 	        }
 	    }
 
-	    boolean validTile = map[this.y][this.x] != '-' && map[this.y][this.x] != '#';
-	    validTile = validTile && map[this.y][this.x] != 'x' && map[this.y][this.x] != '@';
+	    boolean invalidTile = map[this.y][this.x] != 'x' && map[this.y][this.x] != '@';
 
-	    if(validTile)
-	    	move(map);
+	    if(invalidTile){
+	    	this.y = prevY;
+	    	this.x = prevX;
+	    }
 
 	    if(tick == 5)
 	        hunger = true;
-	    else if(tick >= 25 && hunger)
+	    else if(tick >= 30 && hunger)
 	        starvation = true;
 
 	    tick++;
@@ -182,9 +185,9 @@ public class Goat implements IProducing, KProducing
 
 	/**
 	 * Get the object symbol
-	 * @return char
+	 * @return Character
 	 */
-	public char render(){
+	public Character render(){
 		return (hunger)? 'g' : 'G';
 	}
 

@@ -267,8 +267,10 @@ public class CommandListener implements ActionListener {
 		Integer count = animal.size();
 		resource.DATA[2][1] = count.toString();
 		resource.setDataVector(resource.DATA, resource.TABLE_HEADER);
-		if(animal.size() <= 0)
-			popUp("Unfortunately, all animals are dead. Restart your game to play again");
+		if(animal.size() <= 0){
+			while(true)
+				popUp("Unfortunately, all animals are dead. Restart your game to play again");
+		}
 	}
 
 	@Override

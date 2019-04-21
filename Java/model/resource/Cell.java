@@ -19,7 +19,7 @@ import java.util.*;
  * Class for rendering object to cell
  * </p>
  */
-public interface Cell
+public interface Cell extends Renderable
 {
 	/**
 	 * Method to render object character to map

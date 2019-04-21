@@ -114,6 +114,8 @@ public class Duck implements IProducing, KProducing
 	 * @param map
 	 */
 	public void move(Character[][] map){
+		int prevY = this.y;
+		int prevX = this.x;
 		int row = map.length;
 		int col = map[0].length;
 	    char next = '.';
@@ -158,8 +160,12 @@ public class Duck implements IProducing, KProducing
 	        }
 	    }
 
-	    if(map[this.y][this.x] != 'o' && map[this.y][this.x] != '*')
-	    	move(map);
+	    boolean invalidTile = map[this.y][this.x] != 'o' && map[this.y][this.x] != '*';
+	    
+	    if(invalidTile){
+	    	this.y = prevY;
+	    	this.x = prevX;
+	    }
 
 	    if(tick == 5)
 	        hunger = true;
@@ -179,9 +185,9 @@ public class Duck implements IProducing, KProducing
 
 	/**
 	 * Get the object symbol
-	 * @return char
+	 * @return Character
 	 */
-	public char render(){
+	public Character render(){
 		return (hunger)? 'd' : 'D';
 	}
 

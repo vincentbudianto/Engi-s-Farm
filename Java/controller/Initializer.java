@@ -63,9 +63,15 @@ public class Initializer {
 		animal.add(new Chicken(1,2));
 		animal.add(new Chicken(2,1));
 		animal.add(new Cow(5,3));
-		animal.add(new Cow(4,3));
+		animal.add(new Cow(5,4));
+		animal.add(new Cow(6,3));
 		animal.add(new Duck(3,2));
 		animal.add(new Duck(3,1));
+		animal.add(new Goat(1,5));
+		animal.add(new Goat(2,5));
+		animal.add(new Horse(8,5));
+		animal.add(new Sheep(8,7));
+		animal.add(new Sheep(8,8));
 		for(int i = 0; i < animal.size(); i++){
 			int y = animal.get(i).getY();
 			int x = animal.get(i).getX();
