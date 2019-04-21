@@ -19,7 +19,7 @@ import java.util.*;
  * Class for rendering object to Goat
  * </p>
  */
-public class Goat implements KProducing
+public class Goat implements IProducing, KProducing
 {
 	private static int n_goat;
 	private int id;

@@ -19,7 +19,7 @@ import java.util.*;
  * Class for rendering object to Chicken
  * </p>
  */
-public class Chicken implements KProducing, IProducing
+public class Chicken implements IProducing, KProducing
 {
 	private static int n_chicken = 0;
 	private int id;

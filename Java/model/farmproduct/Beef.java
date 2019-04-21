@@ -27,6 +27,6 @@ public class Beef extends resource.Product
 	 */
 	public Beef()
 	{
-		super("Beef", 15);
+		super("Beef", 14);
 	}
 }

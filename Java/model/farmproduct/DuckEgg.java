@@ -27,6 +27,6 @@ public class DuckEgg extends resource.Product
 	 */
 	public DuckEgg()
 	{
-		super("Duck Egg", 3);
+		super("Duck Egg", 5);
 	}
 }

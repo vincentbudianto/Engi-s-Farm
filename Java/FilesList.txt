@@ -23,9 +23,11 @@ model/farmproduct/ChickenEgg.java
 model/farmproduct/ChickenMeat.java
 model/farmproduct/CowMilk.java
 model/farmproduct/DuckEgg.java
-model/farmproduct/GoatMeat.java	
+model/farmproduct/DuckMeat.java
+model/farmproduct/GoatMeat.java
+model/farmproduct/GoatMilk.java
 model/farmproduct/HorseMilk.java
-model/farmproduct/SheepMilk.java
+model/farmproduct/Mutton.java
 
 model/land/Barn.java
 model/land/Coop.java
@@ -42,5 +44,13 @@ model/resource/Resource.java
 model/sideproduct/AbbayeCheese.java
 model/sideproduct/BandalSatay.java
 model/sideproduct/BeefChickenRoll.java
+model/sideproduct/BeefDuckRoll.java
+model/sideproduct/Failure.java
+model/sideproduct/GoatSatay.java
+model/sideproduct/JuustolipaCheese.java
+model/sideproduct/MuttonSatay.java
+model/sideproduct/RainbowSatay.java
+model/sideproduct/SonnetCheese.java
+model/sideproduct/SweetMeatball.java
 
 view/View.java

@@ -27,6 +27,6 @@ public class ChickenMeat extends resource.Product
 	 */
 	public ChickenMeat()
 	{
-		super("Chicken Meat", 10);
+		super("Chicken Meat", 11);
 	}
 }

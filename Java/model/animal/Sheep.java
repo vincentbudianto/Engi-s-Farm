@@ -19,7 +19,7 @@ import java.util.*;
  * Class for rendering object to Sheep
  * </p>
  */
-public class Sheep implements IProducing
+public class Sheep implements KProducing
 {
 	private static int n_sheep;
 	private int id;
@@ -200,6 +200,6 @@ public class Sheep implements IProducing
 	 * @return String
 	 */
 	public String kill(){
-		return "Sheep is killed, you don't get anything";
+		return new String ("Sheep " + getId() + " is killed");
 	}
 }

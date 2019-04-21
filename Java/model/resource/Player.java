@@ -366,7 +366,7 @@ public class Player extends Product implements Renderable
 	 */
 	public String kill(Character animal)
 	{
-		String message = " ";
+		String message = "No Message";
 
 		if (this.inventory.size() < 10)
 		{
@@ -377,7 +377,8 @@ public class Player extends Product implements Renderable
 			}
 			else if ((animal == 'd') || (animal == 'D'))
 			{
-				message = "Duck is killed, you don't get anything";
+				this.inventory.add(new farmproduct.DuckMeat());
+				message = "Get Duck Meat";
 			}
 			else if ((animal == 'q') || (animal == 'Q'))
 			{
@@ -395,7 +396,8 @@ public class Player extends Product implements Renderable
 			}
 			else if ((animal == 's') || (animal == 'S'))
 			{
-				message = "Sheep is killed you don't get anything";
+				this.inventory.add(new farmproduct.Mutton());
+				message = "Get Mutton";
 			}
 		}
 		else
@@ -435,19 +437,19 @@ public class Player extends Product implements Renderable
 				this.inventory.add(new farmproduct.CowMilk());
 				message = "Get Cow Milk";
 			}
-			else if ((animal == 's') || (animal == 'S'))
+			else if ((animal == 'g') || (animal == 'G'))
 			{
-				this.inventory.add(new farmproduct.SheepMilk());
-				message = "Get Sheep Milk";
+				this.inventory.add(new farmproduct.GoatMilk());
+				message = "Get Goat Milk";
 			}
 			else if ((animal == 'h') || (animal == 'H'))
 			{
 				this.inventory.add(new farmproduct.HorseMilk());
 				message = "Get Horse Milk";
 			}
-			else if ((animal == 'g') || (animal == 'G'))
+			else if ((animal == 's') || (animal == 'S'))
 			{
-				message = "Interacting with goat, you don't get anything";
+				message = "Interacting with sheep, you don't get anything";
 			}
 		}
 		else if(interactivity == false)
@@ -501,14 +503,21 @@ public class Player extends Product implements Renderable
 			ing1 = this.inventory.poll().getName();
 			ing2 = this.inventory.poll().getName();
 			
-			recipe[0] = (ing1.equals("Beef") && ing2.equals("Chicken Egg")) || (ing1.equals("Chicken Egg") && ing2.equals("Beef"));
+			recipe[0] = (ing1.equals("Cow Milk") && ing2.equals("Goat Milk")) || (ing1.equals("Goat Milk") && ing2.equals("Cow Milk"));
 			recipe[1] = (ing1.equals("Beef") && ing2.equals("Chicken Meat")) || (ing1.equals("Chicken Meat") && ing2.equals("Beef"));
-			recipe[2] = (ing1.equals("Cow Milk") && ing2.equals("Chicken Egg")) || (ing1.equals("Chicken Egg") && ing2.equals("Cow Milk"));
+			recipe[2] = (ing1.equals("Beef") && ing2.equals("Chicken Egg")) || (ing1.equals("Chicken Egg") && ing2.equals("Beef"));
+			recipe[3] = (ing1.equals("Beef") && ing2.equals("Duck Egg")) || (ing1.equals("Duck Egg") && ing2.equals("Beef"));
+			recipe[4] = ing1.equals("Goat Meat") && ing2.equals("Goat Meat");
+			recipe[5] = (ing1.equals("Cow Milk") && ing2.equals("Horse Milk")) || (ing1.equals("Horse Milk") && ing2.equals("Cow Milk"));
+			recipe[6] = ing1.equals("Mutton") && ing2.equals("Mutton");
+			recipe[7] = (ing1.equals("Goat Meat") && ing2.equals("Mutton")) || (ing1.equals("Mutton") && ing2.equals("Goat Meat"));
+			recipe[8] = (ing1.equals("Goat Milk") && ing2.equals("Horse Milk")) || (ing1.equals("Horse Milk") && ing2.equals("Goat Milk"));
+			recipe[9] = (ing1.equals("Beef") && ing2.equals("Cow Milk")) || (ing1.equals("Cow Milk") && ing2.equals("Beef"));
 
 			if(recipe[0])
 			{
-				this.inventory.add(new sideproduct.BeefChickenRoll());
-				message = "Get Beef Chicken Roll";
+				this.inventory.add(new sideproduct.AbbayeCheese());
+				message = "Abbaye Cheese";
 				success = true;
 			}
 			else if (recipe[1])
@@ -519,8 +528,50 @@ public class Player extends Product implements Renderable
 			}
 			else if (recipe[2])
 			{
-				this.inventory.add(new sideproduct.AbbayeCheese());
-				message = "Abbaye Cheese";
+				this.inventory.add(new sideproduct.BeefChickenRoll());
+				message = "Get Beef Chicken Roll";
+				success = true;
+			}
+			else if (recipe[3])
+			{
+				this.inventory.add(new sideproduct.BeefDuckRoll());
+				message = "Get Beef Duck Roll";
+				success = true;
+			}
+			else if (recipe[4])
+			{
+				this.inventory.add(new sideproduct.GoatSatay());
+				message = "Get Goat Satay";
+				success = true;
+			}
+			else if (recipe[5])
+			{
+				this.inventory.add(new sideproduct.JuustolipaCheese());
+				message = "Get Juustolipa Cheese";
+				success = true;
+			}
+			else if (recipe[6])
+			{
+				this.inventory.add(new sideproduct.MuttonSatay());
+				message = "Get Mutton Satay";
+				success = true;
+			}
+			else if (recipe[7])
+			{
+				this.inventory.add(new sideproduct.RainbowSatay());
+				message = "Get Rainbow Satay";
+				success = true;
+			}
+			else if (recipe[8])
+			{
+				this.inventory.add(new sideproduct.SonnetCheese());
+				message = "Get Sonnet Cheese";
+				success = true;
+			}
+			else if (recipe[9])
+			{
+				this.inventory.add(new sideproduct.SweetMeatball());
+				message = "Get Sweet Meatball";
 				success = true;
 			}
 
@@ -530,6 +581,7 @@ public class Player extends Product implements Renderable
 			}
 			else
 			{
+				this.inventory.add(new sideproduct.Failure());
 				message = "Mixing failed, two ingridients trashed";
 			}
 		}
@@ -565,7 +617,7 @@ public class Player extends Product implements Renderable
 		}
 		else
 		{
-			message = "Kapasitas wadah air penuh!";
+			message = "Water bag at full capacity!";
 		}
 
 		return message;

@@ -19,7 +19,7 @@ import java.util.*;
  * Class for rendering object to Duck
  * </p>
  */
-public class Duck implements IProducing
+public class Duck implements IProducing, KProducing
 {
 	private static int n_duck;
 	private int id;
@@ -197,6 +197,6 @@ public class Duck implements IProducing
 	 * @return String
 	 */
 	public String kill(){
-		return "Duck is killed, you don't get anything";
+		return new String ("Duck " + getId() + " is killed");
 	}
 }

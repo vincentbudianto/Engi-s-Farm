@@ -27,6 +27,6 @@ public class HorseMilk extends resource.Product
 	 */
 	public HorseMilk()
 	{
-		super("Horse Milk", 4);
+		super("Horse Milk", 9);
 	}
 }

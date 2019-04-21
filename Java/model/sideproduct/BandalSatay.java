@@ -27,6 +27,6 @@ public class BandalSatay extends resource.Product
 	 */
 	public BandalSatay()
 	{
-		super("Bandal Satay", 20);
+		super("Bandal Satay", 30);
 	}
 }

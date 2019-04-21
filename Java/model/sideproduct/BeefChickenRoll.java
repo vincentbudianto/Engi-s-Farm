@@ -17,7 +17,7 @@ import java.util.*;
 
 /**
  * <p>
- * BeefChickenRoll parent class
+ * Class for BeefChickenRoll
  * </p>
  */
 public class BeefChickenRoll extends resource.Product

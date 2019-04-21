@@ -19,7 +19,7 @@ import java.util.*;
  * Class for rendering object to Cow
  * </p>
  */
-public class Cow implements KProducing, IProducing
+public class Cow implements IProducing, KProducing
 {
 	private static int n_cow;
 	private int id;
