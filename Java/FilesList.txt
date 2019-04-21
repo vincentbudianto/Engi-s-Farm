@@ -35,6 +35,7 @@ model/land/Grassland.java
 
 model/resource/Cell.java
 model/resource/Inventory.java
+model/resource/Legend.java
 model/resource/Map.java
 model/resource/Player.java
 model/resource/Product.java

@@ -62,7 +62,7 @@ public class CommandListener implements ActionListener {
 	 * Pop up message function
 	 * @param message
 	 */
-	public void popUp(String message){
+	public void popU(String message){
 		JOptionPane.showMessageDialog(null,
 				message, "Message",
 				JOptionPane.PLAIN_MESSAGE);
@@ -74,16 +74,16 @@ public class CommandListener implements ActionListener {
 	 */
 	public void playerMove(String button){
 		//if(button.equals("▲"))
-		if(button.equals("Up"))
+		if(button.equals("U"))
 			player.move("up", map.DATA);
 		//else if(button.equals("▼"))
-		else if(button.equals("Down"))
+		else if(button.equals("D"))
 			player.move("down", map.DATA);
 		//else if(button.equals("◄"))
-		else if(button.equals("Left"))
+		else if(button.equals("L"))
 			player.move("left", map.DATA);
 		//else if(button.equals("►"))
-		else if(button.equals("Right"))
+		else if(button.equals("R"))
 			player.move("right", map.DATA);
 
 		int i = player.getY();
@@ -101,13 +101,13 @@ public class CommandListener implements ActionListener {
 		boolean exist = false;
 		for(int idx = 0; idx < animal.size(); idx++){
 			if(animal.get(idx).getY() == surroundingY && animal.get(idx).getX() == surroundingX){
-				popUp(animal.get(idx).sound());
+				popU(animal.get(idx).sound());
 				exist = true;
 				break;
 			}
 		}
 		if(!exist)
-			popUp("No Animal");
+			popU("No Animal");
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class CommandListener implements ActionListener {
 		int surroundingX = player.getSurroundingX();
 		for(int idx = 0; idx < animal.size(); idx++){
 			if(animal.get(idx).getY() == surroundingY && animal.get(idx).getX() == surroundingX){
-				popUp(player.interact(animal.get(idx).render(), animal.get(idx).getInteractivity()));
+				popU(player.interact(animal.get(idx).render(), animal.get(idx).getInteractivity()));
 				animal.get(idx).interact();
 				exist = true;
 				break;
@@ -131,21 +131,21 @@ public class CommandListener implements ActionListener {
 			exist = false;
 			char symbol = player.seeFacility(map.DATA);
 			if(symbol == 'T'){
-				popUp(player.dealTruck(((Truck) facility.get(0)).transact()));
+				popU(player.dealTruck(((Truck) facility.get(0)).transact()));
 				for(int i = 0; i < inventory.DATA.length; i++)
 					inventory.DATA[i][0] = " ";
 				exist = true;
 			}else if(symbol == 'W'){
-				popUp(player.fillWater());
+				popU(player.fillWater());
 				exist = true;
 			}else if(symbol == 'M'){
-				popUp(player.mix());
+				popU(player.mix());
 				for(int i = 0; i < inventory.DATA.length; i++)
 					inventory.DATA[i][0] = " ";
 				exist = true;
 			}
 			if(!exist)
-				popUp("No Animal && No Facility");
+				popU("No Animal && No Facility");
 		}
 
 		int i = 0;
@@ -173,16 +173,16 @@ public class CommandListener implements ActionListener {
 		for(int idx = 0; idx < animal.size(); idx++){
 			if(animal.get(idx).getY() == surroundingY && animal.get(idx).getX() == surroundingX){
 				if(animal.get(idx).isMeatProducing())
-					popUp(player.kill(animal.get(idx).render()));
+					popU(player.kill(animal.get(idx).render()));
 				else
-					popUp(animal.get(idx).kill());
+					popU(animal.get(idx).kill());
 				animal.remove(idx);
 				exist = true;
 				break;
 			}
 		}
 		if(!exist)
-			popUp("No Animal");
+			popU("No Animal");
 
 		int i = 0;
         for (Product product : player.getInventory()) {
@@ -200,10 +200,10 @@ public class CommandListener implements ActionListener {
 		if(player.grow()){
 			cell[player.getY()][player.getX()].setGrassStatus(true);
 			resource.DATA[1][1] = player.getWater().toString();
-			popUp("Plant is growing..");
+			popU("Plant is growing..");
 		}
 		else
-			popUp("Water is not enough");
+			popU("Water is not enough");
 
 		resource.setDataVector(resource.DATA, resource.TABLE_HEADER);
 	}
@@ -269,7 +269,7 @@ public class CommandListener implements ActionListener {
 		resource.setDataVector(resource.DATA, resource.TABLE_HEADER);
 		if(animal.size() <= 0){
 			while(true)
-				popUp("Unfortunately, all animals are dead. Restart your game to play again");
+				popU("Unfortunately, all animals are dead. Restart your game to play again");
 		}
 	}
 
@@ -284,7 +284,7 @@ public class CommandListener implements ActionListener {
 		assignMap();
 
 		//if(button.equals("▲") || button.equals("▼") || button.equals("◄") || button.equals("►"))
-		if(button.equals("Up") || button.equals("Down") || button.equals("Left") || button.equals("Right"))
+		if(button.equals("U") || button.equals("D") || button.equals("L") || button.equals("R"))
 			playerMove(button);
 		else if(button.equals("T"))
 			playerTalk();
